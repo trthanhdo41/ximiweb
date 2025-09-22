@@ -248,7 +248,7 @@ const Footer = () => {
           >
             <Logo>
               <h3>XimiWeb</h3>
-              <span>Technology Solutions</span>
+              <span>Thiết kế Website</span>
             </Logo>
             <Description>
               Chuyên thiết kế website chuyên nghiệp, website doanh nghiệp, website bán hàng, 

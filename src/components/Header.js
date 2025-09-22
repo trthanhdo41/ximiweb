@@ -196,7 +196,7 @@ const Header = () => {
             whileTap={{ scale: 0.95 }}
           >
             <h2>XimiWeb</h2>
-            <span>Technology Solutions</span>
+            <span>Thiết kế Website</span>
           </Logo>
 
           <Nav
