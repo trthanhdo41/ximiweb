@@ -22,7 +22,7 @@ const Process = () => {
     {
       step: '03',
       title: 'Triển khai & Tích hợp',
-      description: 'Cài đặt và tích hợp XimiChat vào các kênh truyền thông của bạn',
+      description: 'Cài đặt và tích hợp XimiWeb vào các kênh truyền thông của bạn',
       icon: HiBolt,
       duration: '2-3 ngày'
     },

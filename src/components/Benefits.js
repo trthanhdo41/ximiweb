@@ -43,7 +43,7 @@ const Benefits = () => {
             AI giúp bạn tự động hóa & tăng doanh thu
           </h2>
           <p className="section-subtitle">
-            Những lợi ích cụ thể mà XimiChat mang lại cho doanh nghiệp của bạn
+            Những lợi ích cụ thể mà XimiWeb mang lại cho doanh nghiệp của bạn
           </p>
         </div>
 
@@ -101,7 +101,7 @@ const Benefits = () => {
               </span>
             </div>
             <div className="calc-result">
-              <span className="calc-label">Tiết kiệm với XimiChat</span>
+              <span className="calc-label">Tiết kiệm với XimiWeb</span>
               <span className="calc-value highlight">
                 <Counter end={12} duration={2500} suffix=" triệu/tháng" />
               </span>

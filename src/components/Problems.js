@@ -65,7 +65,7 @@ const Problems = () => {
 
         <div className="problems-cta" data-aos="fade-up" data-aos-delay="800">
           <h3>Đừng để những vấn đề này làm chậm sự phát triển của doanh nghiệp bạn!</h3>
-          <p>XimiChat sẽ giúp bạn giải quyết tất cả</p>
+          <p>XimiWeb sẽ giúp bạn giải quyết tất cả</p>
         </div>
       </div>
     </section>

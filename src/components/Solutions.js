@@ -1,32 +1,32 @@
 import React from 'react';
-import { HiPlay, HiNewspaper, HiVideoCamera, HiChatBubbleLeftRight, HiChatBubbleBottomCenterText } from 'react-icons/hi2';
+import { HiPlay, HiGlobeAlt, HiDevicePhoneMobile, HiCpuChip, HiShoppingBag } from 'react-icons/hi2';
 import './Solutions.css';
 
 const Solutions = () => {
   const solutions = [
     {
-      icon: HiChatBubbleLeftRight,
-      title: 'Chatbot AI CSKH',
-      description: 'AI chatbot cho 4 nền tảng: Zalo, Facebook, Telegram, Web với khả năng hiểu và trả lời tự động 24/7',
-      features: ['4 kênh chat tích hợp', 'AI trả lời thông minh', 'Dashboard phân tích khách hàng']
+      icon: HiGlobeAlt,
+      title: 'Thiết kế Website Chuyên Nghiệp',
+      description: 'Website doanh nghiệp, bán hàng, tin tức với thiết kế hiện đại, responsive và tối ưu SEO',
+      features: ['Thiết kế responsive', 'Tối ưu SEO', 'Giao diện admin dễ sử dụng']
     },
     {
-      icon: HiChatBubbleBottomCenterText,
-      title: 'YouTube Auto Comment',
-      description: 'AI phân tích tiêu đề, mô tả và phụ đề video để tự động trả lời bình luận phù hợp với nội dung',
-      features: ['Auto reply comment khán giả', 'Comment chính vào video', 'Báo cáo tương tác chi tiết']
+      icon: HiDevicePhoneMobile,
+      title: 'Web App & Mobile App',
+      description: 'Ứng dụng web và mobile với tính năng hiện đại, cross-platform và hiệu suất cao',
+      features: ['Cross-platform', 'Push notification', 'Tích hợp thanh toán']
     },
     {
-      icon: HiNewspaper,
-      title: 'AI Auto Post Facebook',
-      description: 'Tự động đăng bài từ báo chí và dữ liệu với AI viết caption thông minh',
-      features: ['Auto post từ nguồn báo chí', 'AI viết caption', 'Lên lịch đăng bài tự động']
+      icon: HiCpuChip,
+      title: 'Giải pháp AI Thông minh',
+      description: 'Chatbot AI, RAG system, automation với công nghệ AI tiên tiến cho doanh nghiệp',
+      features: ['AI Chatbot đa nền tảng', 'RAG System thông minh', 'Process Automation']
     },
     {
-      icon: HiVideoCamera,
-      title: 'AI Video Generator',
-      description: 'Tự động tạo video marketing chuyên nghiệp với AI từ text và hình ảnh',
-      features: ['Tạo video từ text', 'Tự động thêm nhạc nền', 'Tích hợp đa nền tảng']
+      icon: HiShoppingBag,
+      title: 'Website Bán Hàng & E-commerce',
+      description: 'Website thương mại điện tử với tính năng thanh toán, quản lý đơn hàng và khách hàng',
+      features: ['Tích hợp thanh toán online', 'Quản lý đơn hàng tự động', 'Hệ thống khuyến mãi']
     }
   ];
 
@@ -35,10 +35,10 @@ const Solutions = () => {
       <div className="container">
         <div className="section-header" data-aos="fade-up">
           <h2 className="section-title">
-            Xem AI giải quyết như thế nào
+            Dịch vụ thiết kế website chuyên nghiệp
           </h2>
           <p className="section-subtitle">
-            XimiChat mang đến giải pháp AI toàn diện, giúp doanh nghiệp tự động hóa hoàn toàn quy trình CSKH
+            XimiWeb mang đến giải pháp thiết kế website toàn diện, giúp doanh nghiệp có website chuyên nghiệp và hiện đại
           </p>
         </div>
 
@@ -68,12 +68,12 @@ const Solutions = () => {
         </div>
 
         <div className="video-demo" data-aos="zoom-in" data-aos-delay="800">
-          <h3>Xem XimiChat hoạt động trong thực tế</h3>
+          <h3>Xem các dự án website của chúng tôi</h3>
           <div className="video-placeholder">
             <div className="play-button">
               <HiPlay size={80} className="play-icon" />
             </div>
-            <p>Video Demo: AI tự động trả lời khách hàng</p>
+            <p>Video Demo: Các dự án website đã hoàn thành</p>
           </div>
         </div>
       </div>

@@ -1,10 +1,206 @@
 import React from 'react';
-import { HiHeart, HiShieldCheck, HiCpuChip, HiPhone, HiEnvelope, HiMapPin, HiChatBubbleLeftEllipsis } from 'react-icons/hi2';
-import { BsFlag } from 'react-icons/bs';
-import './Footer.css';
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import { 
+  HiGlobeAlt, 
+  HiDevicePhoneMobile, 
+  HiUsers, 
+  HiCpuChip,
+  HiAcademicCap,
+  HiEnvelope,
+  HiPhone,
+  HiMapPin,
+  HiArrowUp
+} from 'react-icons/hi2';
+import { FaFacebook } from 'react-icons/fa';
+import { SiZalo } from 'react-icons/si';
+import Button from './ui/Button';
+
+const FooterSection = styled(motion.footer)`
+  background: ${props => props.theme.colors.background};
+  border-top: 1px solid ${props => props.theme.colors.border};
+  padding: ${props => props.theme.spacing['4xl']} 0 ${props => props.theme.spacing.lg};
+`;
+
+const Container = styled.div`
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 ${props => props.theme.spacing.lg};
+`;
+
+const FooterContent = styled(motion.div)`
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: ${props => props.theme.spacing['2xl']};
+  margin-bottom: ${props => props.theme.spacing['2xl']};
+
+  @media (max-width: ${props => props.theme.breakpoints.lg}) {
+    grid-template-columns: 1fr 1fr;
+    gap: ${props => props.theme.spacing.xl};
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    grid-template-columns: 1fr;
+    gap: ${props => props.theme.spacing.lg};
+  }
+`;
+
+const CompanyInfo = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  gap: ${props => props.theme.spacing.lg};
+`;
+
+const Logo = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+
+  h3 {
+    margin: 0;
+    font-size: ${props => props.theme.typography.fontSize['2xl']};
+    font-weight: ${props => props.theme.typography.fontWeight.bold};
+    background: ${props => props.theme.gradients.primary};
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+  }
+
+  span {
+    font-size: ${props => props.theme.typography.fontSize.sm};
+    color: ${props => props.theme.colors.textSecondary};
+    font-weight: ${props => props.theme.typography.fontWeight.medium};
+    margin-top: -4px;
+  }
+`;
+
+const Description = styled(motion.p)`
+  color: ${props => props.theme.colors.textSecondary};
+  line-height: ${props => props.theme.typography.lineHeight.relaxed};
+  max-width: 300px;
+`;
+
+const SocialLinks = styled(motion.div)`
+  display: flex;
+  gap: ${props => props.theme.spacing.md};
+`;
+
+const SocialLink = styled(motion.a)`
+  width: 40px;
+  height: 40px;
+  background: ${props => props.theme.colors.backgroundSecondary};
+  border: 1px solid ${props => props.theme.colors.border};
+  border-radius: ${props => props.theme.borderRadius.lg};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${props => props.theme.colors.textSecondary};
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: ${props => props.theme.colors.primary};
+    color: white;
+    border-color: ${props => props.theme.colors.primary};
+  }
+`;
+
+const FooterColumn = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  gap: ${props => props.theme.spacing.lg};
+`;
+
+const ColumnTitle = styled(motion.h4)`
+  font-size: ${props => props.theme.typography.fontSize.lg};
+  font-weight: ${props => props.theme.typography.fontWeight.bold};
+  color: ${props => props.theme.colors.textPrimary};
+  margin: 0;
+`;
+
+const ColumnList = styled(motion.ul)`
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: ${props => props.theme.spacing.sm};
+`;
+
+const ColumnItem = styled(motion.li)`
+  a {
+    color: ${props => props.theme.colors.textSecondary};
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: ${props => props.theme.typography.fontSize.sm};
+
+    &:hover {
+      color: ${props => props.theme.colors.primary};
+    }
+  }
+`;
+
+const ContactInfo = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  gap: ${props => props.theme.spacing.sm};
+`;
+
+const ContactItem = styled(motion.div)`
+  display: flex;
+  align-items: center;
+  gap: ${props => props.theme.spacing.sm};
+  color: ${props => props.theme.colors.textSecondary};
+  font-size: ${props => props.theme.typography.fontSize.sm};
+
+  svg {
+    color: ${props => props.theme.colors.primary};
+    flex-shrink: 0;
+  }
+`;
+
+const FooterBottom = styled(motion.div)`
+  border-top: 1px solid ${props => props.theme.colors.border};
+  padding-top: ${props => props.theme.spacing.lg};
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: ${props => props.theme.spacing.md};
+
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    flex-direction: column;
+    text-align: center;
+  }
+`;
+
+const Copyright = styled(motion.p)`
+  color: ${props => props.theme.colors.textSecondary};
+  font-size: ${props => props.theme.typography.fontSize.sm};
+  margin: 0;
+`;
+
+const BackToTop = styled(motion.button)`
+  display: flex;
+  align-items: center;
+  gap: ${props => props.theme.spacing.sm};
+  background: ${props => props.theme.gradients.primary};
+  color: white;
+  border: none;
+  border-radius: ${props => props.theme.borderRadius.lg};
+  padding: ${props => props.theme.spacing.sm} ${props => props.theme.spacing.md};
+  font-size: ${props => props.theme.typography.fontSize.sm};
+  font-weight: ${props => props.theme.typography.fontWeight.medium};
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: ${props => props.theme.shadows.lg};
+  }
+`;
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -13,121 +209,184 @@ const Footer = () => {
     }
   };
 
+  const services = [
+    { name: 'Thiết kế Website Chuyên Nghiệp', icon: HiGlobeAlt },
+    { name: 'Web App & Mobile App', icon: HiDevicePhoneMobile },
+    { name: 'Giải pháp AI Thông minh', icon: HiCpuChip },
+    { name: 'Website Bán Hàng & E-commerce', icon: HiUsers }
+  ];
+
+  const quickLinks = [
+    { name: 'Trang chủ', href: '#home' },
+    { name: 'Dịch vụ', href: '#services' },
+    { name: 'Bảng giá', href: '#pricing' },
+    { name: 'Về chúng tôi', href: '#about' },
+    { name: 'Thống kê', href: '#charts' },
+    { name: 'Liên hệ', href: '#contact' }
+  ];
+
+  const legalLinks = [
+    { name: 'Điều khoản sử dụng', href: '/terms' },
+    { name: 'Chính sách bảo mật', href: '/privacy' },
+    { name: 'Chính sách cookie', href: '/cookies' }
+  ];
+
   return (
-    <footer className="footer">
-      <div className="container">
-        <div className="footer-content">
-          <div className="footer-section">
-            <div className="footer-logo">
-              <h3>XimiChat</h3>
-              <span>AI Solutions</span>
-            </div>
-            <p className="footer-description">
-              Giải pháp AI thông minh cho chăm sóc khách hàng tự động 24/7. 
-              Giúp doanh nghiệp Việt Nam tự động hóa quy trình CSKH và tăng hiệu quả kinh doanh.
-            </p>
-            <div className="footer-stats">
-              <div className="stat">
-                <span>500+</span>
-                <small>Khách hàng</small>
-              </div>
-              <div className="stat">
-                <span>99%</span>
-                <small>Hài lòng</small>
-              </div>
-              <div className="stat">
-                <span>24/7</span>
-                <small>Hỗ trợ</small>
-              </div>
-            </div>
-          </div>
+    <FooterSection
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+    >
+      <Container>
+        <FooterContent>
+          <CompanyInfo
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <Logo>
+              <h3>XimiWeb</h3>
+              <span>Technology Solutions</span>
+            </Logo>
+            <Description>
+              Chuyên thiết kế website chuyên nghiệp, website doanh nghiệp, website bán hàng, 
+              website giới thiệu và các dịch vụ web khác với chất lượng cao.
+            </Description>
+            <SocialLinks>
+              <SocialLink
+                href="https://www.facebook.com/share/1A9BXJqMaj/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <FaFacebook size={18} />
+              </SocialLink>
+              <SocialLink
+                href="https://zalo.me/0888889805"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <SiZalo size={18} />
+              </SocialLink>
+            </SocialLinks>
+          </CompanyInfo>
 
-          <div className="footer-section">
-            <h4>Dịch vụ</h4>
-            <ul className="footer-links">
-              <li><button className="footer-link" onClick={() => scrollToSection('solutions')}>AI Chatbot đa nền tảng</button></li>
-              <li><button className="footer-link" onClick={() => scrollToSection('solutions')}>Auto Reply YouTube</button></li>
-              <li><button className="footer-link" onClick={() => scrollToSection('solutions')}>Tích hợp Zalo OA</button></li>
-              <li><button className="footer-link" onClick={() => scrollToSection('solutions')}>Facebook Messenger</button></li>
-              <li><button className="footer-link" onClick={() => scrollToSection('solutions')}>Telegram Bot</button></li>
-              <li><button className="footer-link" onClick={() => scrollToSection('pricing')}>Tư vấn giải pháp</button></li>
-            </ul>
-          </div>
+          <FooterColumn
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
+            <ColumnTitle>Dịch vụ</ColumnTitle>
+            <ColumnList>
+              {services.map((service, index) => {
+                const IconComponent = service.icon;
+                return (
+                  <ColumnItem
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                  >
+                    <a href="#services" onClick={() => scrollToSection('services')}>
+                      <IconComponent size={16} style={{ marginRight: '8px', display: 'inline' }} />
+                      {service.name}
+                    </a>
+                  </ColumnItem>
+                );
+              })}
+            </ColumnList>
+          </FooterColumn>
 
-          <div className="footer-section">
-            <h4>Công ty</h4>
-            <ul className="footer-links">
-              <li><button className="footer-link" onClick={() => scrollToSection('about')}>Về chúng tôi</button></li>
-              <li><button className="footer-link disabled">Tuyển dụng</button></li>
-              <li><button className="footer-link disabled">Tin tức</button></li>
-              <li><button className="footer-link disabled">Blog AI</button></li>
-              <li><button className="footer-link disabled">Chính sách bảo mật</button></li>
-              <li><button className="footer-link disabled">Điều khoản sử dụng</button></li>
-            </ul>
-          </div>
+          <FooterColumn
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <ColumnTitle>Liên kết nhanh</ColumnTitle>
+            <ColumnList>
+              {quickLinks.map((link, index) => (
+                <ColumnItem
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <a href={link.href} onClick={() => scrollToSection(link.href.substring(1))}>
+                    {link.name}
+                  </a>
+                </ColumnItem>
+              ))}
+            </ColumnList>
+          </FooterColumn>
 
-          <div className="footer-section">
-            <h4>Liên hệ</h4>
-            <ul className="footer-links">
-              <li>
-                <a href="tel:0888889805" className="footer-link">
-                  <HiPhone size={16} /> 0888 889 805
-                </a>
-              </li>
-              <li>
-                <a href="mailto:trdo1309@gmail.com" className="footer-link">
-                  <HiEnvelope size={16} /> trdo1309@gmail.com
-                </a>
-              </li>
-              <li>
-                <button className="footer-link">
-                  <HiMapPin size={16} /> Toà BE1 Vinhome Grand Park
-                </button>
-              </li>
-              <li>
-                <button className="footer-link">
-                  <HiMapPin size={16} /> TP. Thủ Đức, HCM
-                </button>
-              </li>
-              <li>
-                <a href="https://zalo.me/0888889805" target="_blank" rel="noopener noreferrer" className="footer-link">
-                  <HiChatBubbleLeftEllipsis size={16} /> Chat Zalo
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
+          <FooterColumn
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <ColumnTitle>Liên hệ</ColumnTitle>
+            <ContactInfo>
+              <ContactItem
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, delay: 0.1 }}
+                viewport={{ once: true }}
+              >
+                <HiPhone size={16} />
+                <span>0888 889 805</span>
+              </ContactItem>
+              <ContactItem
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <HiEnvelope size={16} />
+                <span>trdo1309@gmail.com</span>
+              </ContactItem>
+              <ContactItem
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, delay: 0.3 }}
+                viewport={{ once: true }}
+              >
+                <HiMapPin size={16} />
+                <span>TP.HCM, Việt Nam</span>
+              </ContactItem>
+            </ContactInfo>
+          </FooterColumn>
+        </FooterContent>
 
-
-
-        <div className="footer-copyright">
-          <div className="copyright-text">
-            <p>&copy; {currentYear} XimiChat. Bản quyền thuộc về XimiChat AI Solutions.</p>
-            <p>
-              Thiết kế và phát triển bởi đội ngũ XimiChat với{' '}
-              <HiHeart size={16} className="heart-icon" />
-              {' '}tại Việt Nam
-            </p>
-          </div>
-          <div className="footer-badges">
-            <span className="badge">
-              <BsFlag size={16} />
-              Made in Vietnam
-            </span>
-            <span className="badge">
-              <HiCpuChip size={16} />
-              AI Powered
-            </span>
-            <span className="badge">
-              <HiShieldCheck size={16} />
-              Secure & Safe
-            </span>
-          </div>
-        </div>
-
-
-      </div>
-    </footer>
+        <FooterBottom
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <Copyright>
+            © 2025 XimiWeb. Tất cả quyền được bảo lưu.
+          </Copyright>
+          <BackToTop
+            onClick={scrollToTop}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <HiArrowUp size={16} />
+            Lên đầu trang
+          </BackToTop>
+        </FooterBottom>
+      </Container>
+    </FooterSection>
   );
 };
 

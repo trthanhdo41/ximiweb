@@ -52,7 +52,7 @@ const Results = () => {
             Kết quả thực tế từ khách hàng của chúng tôi
           </h2>
           <p className="section-subtitle">
-            Những con số ấn tượng và câu chuyện thành công thực tế từ các doanh nghiệp đã tin tưởng XimiChat
+            Những con số ấn tượng và câu chuyện thành công thực tế từ các doanh nghiệp đã tin tưởng XimiWeb
           </p>
         </div>
 
@@ -90,7 +90,7 @@ const Results = () => {
 
         <div className="success-cta" data-aos="fade-up" data-aos-delay="800">
           <h3>Bạn cũng muốn có kết quả tương tự?</h3>
-          <p>Hãy để XimiChat giúp doanh nghiệp của bạn đạt được những con số ấn tượng như vậy</p>
+          <p>Hãy để XimiWeb giúp doanh nghiệp của bạn đạt được những con số ấn tượng như vậy</p>
           <a href="tel:0888889805" className="btn btn-primary">
             Bắt đầu thành công của bạn
           </a>

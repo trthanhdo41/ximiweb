@@ -80,7 +80,7 @@ const Projects = () => {
       technologies: ['Zalo OA', 'Facebook Messenger', 'Website Chat'],
       client: 'Fashion Chain ABC',
       challenge: 'Chuỗi 15 cửa hàng thời trang gặp khó khăn khi phải xử lý 5000+ tin nhắn/ngày từ khách hàng về sản phẩm, giá cả, khuyến mãi và đặt hàng.',
-      solution: 'Triển khai AI chatbot tích hợp đa kênh: Zalo OA, Facebook Messenger và Website Chat. AI được train với 10,000+ câu hỏi về thời trang.',
+      solution: 'Thiết kế website bán hàng thời trang với giao diện hiện đại, responsive và tối ưu SEO. Tích hợp hệ thống quản lý sản phẩm và đơn hàng.',
       implementation: 'Thời gian: 8 ngày. Tích hợp với hệ thống quản lý kho, POS và website bán hàng.',
       metrics: {
         before: {
@@ -111,7 +111,7 @@ const Projects = () => {
       technologies: ['Instagram DM', 'Zalo', 'TikTok Shop'],
       client: 'BeautyWorld Vietnam',
       challenge: 'Công ty mỹ phẩm cần tư vấn 3000+ khách hàng/ngày về sản phẩm phù hợp với loại da, tình trạng da và mục tiêu làm đẹp.',
-      solution: 'AI chatbot được train với database 500+ sản phẩm, 50+ loại da và 100+ vấn đề da phổ biến. Tích hợp với Instagram DM, Zalo và TikTok Shop.',
+      solution: 'Thiết kế website mỹ phẩm với giao diện đẹp, tối ưu cho mobile và tích hợp hệ thống tư vấn sản phẩm thông minh.',
       implementation: 'Thời gian: 12 ngày. Tích hợp với hệ thống quản lý sản phẩm và CRM.',
       metrics: {
         before: {
@@ -173,7 +173,7 @@ const Projects = () => {
       technologies: ['Zalo', 'Facebook', 'Telegram', 'App Integration'],
       client: 'Fast Food Chain XYZ',
       challenge: 'Chuỗi nhà hàng fast food cần xử lý 2000+ đơn đặt online/ngày, tư vấn menu và xử lý khiếu nại khách hàng.',
-      solution: 'AI chatbot đa ngôn ngữ (Việt-Anh) tích hợp với hệ thống đặt món, quản lý kho và CRM. Xử lý 15+ loại yêu cầu khác nhau.',
+      solution: 'Thiết kế website đặt món online với giao diện thân thiện, tích hợp hệ thống thanh toán và quản lý đơn hàng tự động.',
       implementation: 'Thời gian: 10 ngày. Tích hợp với hệ thống POS, quản lý kho và website.',
       metrics: {
         before: {
@@ -276,7 +276,7 @@ const Projects = () => {
         <div className="projects-cta" data-aos="fade-up" data-aos-delay="1000">
           <h3>Dự án tiếp theo sẽ là của bạn?</h3>
           <p>
-            Hãy để XimiChat giúp doanh nghiệp của bạn có một câu chuyện thành công tương tự
+            Hãy để XimiWeb giúp doanh nghiệp của bạn có một câu chuyện thành công tương tự
           </p>
           <a href="tel:0888889805" className="btn btn-primary">
             Bắt đầu dự án của bạn
