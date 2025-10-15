@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiBars3, HiXMark } from 'react-icons/hi2';
-import { useTheme } from '../theme/ThemeProvider';
-import ThemeToggle from './ui/ThemeToggle';
 import Button from './ui/Button';
 
 const HeaderContainer = styled(motion.header)`
@@ -41,10 +39,7 @@ const Logo = styled(motion.div)`
     margin: 0;
     font-size: ${props => props.theme.typography.fontSize['2xl']};
     font-weight: ${props => props.theme.typography.fontWeight.bold};
-    background: ${props => props.theme.gradients.primary};
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: ${props => props.theme.colors.primary};
     line-height: 1;
   }
 
@@ -85,7 +80,7 @@ const NavLink = styled(motion.a)`
     left: 0;
     width: 0;
     height: 2px;
-    background: ${props => props.theme.gradients.primary};
+    background: ${props => props.theme.colors.accent};
     transition: width 0.3s ease;
   }
 
@@ -155,7 +150,6 @@ const MobileNavLink = styled(motion.a)`
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { isLight } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -196,7 +190,7 @@ const Header = () => {
             whileTap={{ scale: 0.95 }}
           >
             <h2>XimiWeb</h2>
-            <span>Thiết kế Website</span>
+            <span>Giải pháp IT</span>
           </Logo>
 
           <Nav
@@ -219,11 +213,11 @@ const Header = () => {
               Dịch vụ
             </NavLink>
             <NavLink
-              href="#pricing"
-              onClick={() => scrollToSection('pricing')}
+              href="#tech-stack"
+              onClick={() => scrollToSection('tech-stack')}
               whileHover={{ y: -2 }}
             >
-              Bảng giá
+              Công nghệ
             </NavLink>
             <NavLink
               href="#about"
@@ -249,7 +243,6 @@ const Header = () => {
           </Nav>
 
           <HeaderActions>
-            <ThemeToggle />
             <Button
               variant="primary"
               size="sm"
@@ -294,11 +287,11 @@ const Header = () => {
                 Dịch vụ
               </MobileNavLink>
               <MobileNavLink
-                href="#pricing"
-                onClick={() => scrollToSection('pricing')}
+                href="#tech-stack"
+                onClick={() => scrollToSection('tech-stack')}
                 whileHover={{ x: 10 }}
               >
-                Bảng giá
+                Công nghệ
               </MobileNavLink>
               <MobileNavLink
                 href="#about"

@@ -21,13 +21,18 @@ const SectionHeader = styled(motion.div)`
 `;
 
 const SectionTitle = styled(motion.h2)`
-  font-size: ${props => props.theme.typography.fontSize['5xl']};
+  font-size: ${props => props.theme.typography.fontSize['6xl']};
   font-weight: ${props => props.theme.typography.fontWeight.extrabold};
   color: ${props => props.theme.colors.textPrimary};
   margin-bottom: ${props => props.theme.spacing.lg};
-  line-height: ${props => props.theme.typography.lineHeight.tight};
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 
   @media (max-width: ${props => props.theme.breakpoints.md}) {
+    font-size: ${props => props.theme.typography.fontSize['5xl']};
+  }
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
     font-size: ${props => props.theme.typography.fontSize['4xl']};
   }
 `;
@@ -65,37 +70,16 @@ const ContactInfo = styled(motion.div)`
 const ContactItem = styled(motion.div)`
   position: relative;
   padding: 2rem;
-  background: linear-gradient(135deg, 
-    ${props => props.theme.colors.backgroundSecondary} 0%, 
-    ${props => props.theme.colors.background} 100%);
-  border-radius: 20px;
+  background: ${props => props.theme.colors.background};
+  border-radius: 16px;
   border: 1px solid ${props => props.theme.colors.border};
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden;
+  transition: all 0.3s ease;
   cursor: pointer;
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, 
-      rgba(59, 130, 246, 0.05) 0%, 
-      rgba(139, 92, 246, 0.05) 100%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
   &:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    border-color: ${props => props.theme.colors.primary};
-    
-    &::before {
-      opacity: 1;
-    }
+    transform: translateY(-4px);
+    box-shadow: ${props => props.theme.shadows.md};
+    border-color: ${props => props.theme.colors.accent};
   }
 `;
 
@@ -103,31 +87,18 @@ const ContactIcon = styled(motion.div)`
   width: 60px;
   height: 60px;
   border-radius: 16px;
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  background: ${props => props.theme.colors.primary};
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-    transition: left 0.6s ease;
-  }
+  transition: all 0.3s ease;
 
   ${ContactItem}:hover & {
-    &::before {
-      left: 100%;
-    }
+    background: ${props => props.theme.colors.accent};
+    transform: scale(1.05);
   }
 `;
 

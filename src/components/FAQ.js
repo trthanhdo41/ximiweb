@@ -20,13 +20,18 @@ const SectionHeader = styled(motion.div)`
 `;
 
 const SectionTitle = styled(motion.h2)`
-  font-size: ${props => props.theme.typography.fontSize['5xl']};
+  font-size: ${props => props.theme.typography.fontSize['6xl']};
   font-weight: ${props => props.theme.typography.fontWeight.extrabold};
   color: ${props => props.theme.colors.textPrimary};
   margin-bottom: ${props => props.theme.spacing.lg};
-  line-height: ${props => props.theme.typography.lineHeight.tight};
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 
   @media (max-width: ${props => props.theme.breakpoints.md}) {
+    font-size: ${props => props.theme.typography.fontSize['5xl']};
+  }
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
     font-size: ${props => props.theme.typography.fontSize['4xl']};
   }
 `;
@@ -107,28 +112,28 @@ const FAQ = () => {
 
   const faqs = [
     {
-      question: "Thời gian bàn giao dự án là bao lâu?",
-      answer: "Website cơ bản: 3-7 ngày, Website phức tạp: 7-14 ngày, Mobile App: 2-4 tuần, AI Solutions: 1-2 tháng. Chúng tôi cam kết bàn giao đúng hẹn và thông báo trước nếu có thay đổi."
+      question: "Bạn có làm app mobile không? Công nghệ gì?",
+      answer: "Có! Chúng tôi phát triển app Android & iOS với React Native và Flutter. Cross-platform, hiệu suất cao, tích hợp được các tính năng như AI, thanh toán, realtime... Deploy lên App Store & Google Play."
     },
     {
-      question: "Giá cả có minh bạch không? Có phí ẩn không?",
-      answer: "Giá cả hoàn toàn minh bạch, không có phí ẩn. Bạn sẽ nhận được báo giá chi tiết trước khi bắt đầu dự án. Chỉ thanh toán khi hài lòng với kết quả."
+      question: "Có làm chatbot AI không? Tích hợp được những gì?",
+      answer: "Có! Chúng tôi chuyên làm chatbot AI với OpenAI, Claude, custom training. Tích hợp vào website, Zalo, Facebook Messenger, Telegram. Có thể trả lời tự động, RAG system, phân tích dữ liệu khách hàng."
     },
     {
-      question: "Có bảo hành không? Thời gian bảo hành bao lâu?",
-      answer: "Chúng tôi bảo hành 12 tháng cho tất cả dự án. Trong thời gian bảo hành, chúng tôi hỗ trợ sửa lỗi miễn phí và cập nhật tính năng cơ bản."
+      question: "Làm đồ án CNTT có đảm bảo chất lượng không?",
+      answer: "Đảm bảo 100%! Chúng tôi có kinh nghiệm làm đồ án tốt nghiệp, đồ án môn học các cấp. Code clean, có document đầy đủ, hướng dẫn demo, bảo vệ. Bảo hành đến khi bạn bảo vệ xong."
     },
     {
-      question: "Website có responsive trên mobile không?",
-      answer: "Tất cả website của chúng tôi đều responsive 100%, tương thích hoàn hảo trên mọi thiết bị: desktop, tablet, mobile. Giao diện sẽ tự động điều chỉnh theo kích thước màn hình."
+      question: "Thời gian hoàn thành dự án bao lâu?",
+      answer: "Website: 3-10 ngày | App Mobile: 1-2 tuần | Chatbot AI: 1-2 ngày | Đồ án CNTT: 1-2 tuần. Tùy độ phức tạp. Chúng tôi cam kết bàn giao đúng hẹn."
     },
     {
-      question: "Có hỗ trợ SEO không?",
-      answer: "Có, chúng tôi tối ưu SEO cơ bản cho tất cả website bao gồm: meta tags, sitemap, robots.txt, tốc độ tải nhanh, cấu trúc URL thân thiện với Google."
+      question: "Có hỗ trợ sau bàn giao không?",
+      answer: "Có! Bảo hành 12 tháng cho tất cả dự án. Hỗ trợ sửa lỗi, cập nhật tính năng miễn phí. Hướng dẫn sử dụng, training cho team bạn. Hotline 24/7 qua Zalo."
     },
     {
-      question: "Có thể chỉnh sửa website sau khi bàn giao không?",
-      answer: "Có, chúng tôi cung cấp admin panel dễ sử dụng để bạn tự chỉnh sửa nội dung. Nếu cần hỗ trợ kỹ thuật, chúng tôi sẽ hướng dẫn miễn phí trong thời gian bảo hành."
+      question: "Công nghệ sử dụng có hiện đại không?",
+      answer: "Chúng tôi luôn dùng công nghệ mới nhất: React, Next.js, Node.js, Python, AI (OpenAI, Claude), Cloud (AWS, GCP), Docker, CI/CD... Đảm bảo code chất lượng, scalable, bảo mật cao."
     }
   ];
 

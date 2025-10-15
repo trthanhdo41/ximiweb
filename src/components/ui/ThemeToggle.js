@@ -43,7 +43,7 @@ const IconContainer = styled(motion.div)`
 `;
 
 const ThemeToggle = ({ className, ...props }) => {
-  const { theme, toggleTheme, isLight } = useTheme();
+  const { toggleTheme, isLight } = useTheme();
 
   return (
     <ToggleContainer

@@ -45,19 +45,30 @@ const SectionHeader = styled.div`
 `;
 
 const SectionTitle = styled(motion.h2)`
-  font-size: ${props => props.theme.typography.fontSize['4xl']};
-  font-weight: ${props => props.theme.typography.fontWeight.bold};
-  background: ${props => props.theme.gradients.primary};
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-size: ${props => props.theme.typography.fontSize['6xl']};
+  font-weight: ${props => props.theme.typography.fontWeight.extrabold};
+  color: ${props => props.theme.colors.textPrimary};
   margin-bottom: ${props => props.theme.spacing.lg};
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    font-size: ${props => props.theme.typography.fontSize['5xl']};
+  }
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    font-size: ${props => props.theme.typography.fontSize['4xl']};
+  }
 `;
 
 const SectionSubtitle = styled(motion.p)`
-  font-size: ${props => props.theme.typography.fontSize.lg};
+  font-size: ${props => props.theme.typography.fontSize.xl};
   color: ${props => props.theme.colors.textSecondary};
-  max-width: 600px;
+  max-width: 700px;
+  
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    font-size: ${props => props.theme.typography.fontSize.lg};
+  }
   margin: 0 auto;
 `;
 
@@ -117,10 +128,7 @@ const StatCard = styled(motion.div)`
 const StatNumber = styled.div`
   font-size: ${props => props.theme.typography.fontSize['3xl']};
   font-weight: ${props => props.theme.typography.fontWeight.bold};
-  background: ${props => props.theme.gradients.primary};
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: ${props => props.theme.colors.primary};
   margin-bottom: ${props => props.theme.spacing.sm};
 `;
 
@@ -139,8 +147,8 @@ const Charts = () => {
       {
         label: 'Dự án hoàn thành',
         data: [3, 5, 4, 7, 6, 8],
-        backgroundColor: 'rgba(99, 102, 241, 0.8)',
-        borderColor: 'rgba(99, 102, 241, 1)',
+        backgroundColor: 'rgba(15, 23, 42, 0.8)',
+        borderColor: 'rgba(15, 23, 42, 1)',
         borderWidth: 2,
         borderRadius: 8,
         borderSkipped: false,
@@ -155,13 +163,13 @@ const Charts = () => {
       {
         data: [45, 30, 15, 10],
         backgroundColor: [
-          'rgba(99, 102, 241, 0.8)',
+          'rgba(59, 130, 246, 0.8)',
           'rgba(16, 185, 129, 0.8)',
           'rgba(245, 158, 11, 0.8)',
           'rgba(239, 68, 68, 0.8)',
         ],
         borderColor: [
-          'rgba(99, 102, 241, 1)',
+          'rgba(59, 130, 246, 1)',
           'rgba(16, 185, 129, 1)',
           'rgba(245, 158, 11, 1)',
           'rgba(239, 68, 68, 1)',
@@ -178,12 +186,12 @@ const Charts = () => {
       {
         label: 'Khách hàng mới',
         data: [8, 12, 15, 18, 22, 25],
-        borderColor: 'rgba(99, 102, 241, 1)',
-        backgroundColor: 'rgba(99, 102, 241, 0.1)',
+        borderColor: 'rgba(15, 23, 42, 1)',
+        backgroundColor: 'rgba(15, 23, 42, 0.1)',
         borderWidth: 3,
         fill: true,
         tension: 0.4,
-        pointBackgroundColor: 'rgba(99, 102, 241, 1)',
+        pointBackgroundColor: 'rgba(15, 23, 42, 1)',
         pointBorderColor: '#fff',
         pointBorderWidth: 2,
         pointRadius: 6,
@@ -208,7 +216,7 @@ const Charts = () => {
         backgroundColor: 'rgba(0, 0, 0, 0.8)',
         titleColor: '#fff',
         bodyColor: '#fff',
-        borderColor: 'rgba(99, 102, 241, 1)',
+        borderColor: 'rgba(15, 23, 42, 1)',
         borderWidth: 1,
       },
     },
@@ -250,7 +258,7 @@ const Charts = () => {
         backgroundColor: 'rgba(0, 0, 0, 0.8)',
         titleColor: '#fff',
         bodyColor: '#fff',
-        borderColor: 'rgba(99, 102, 241, 1)',
+        borderColor: 'rgba(15, 23, 42, 1)',
         borderWidth: 1,
       },
     },

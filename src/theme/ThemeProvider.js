@@ -13,44 +13,25 @@ export const useTheme = () => {
 };
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState('light');
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('ximiweb-theme');
-    // Mặc định là light mode, chỉ dùng dark nếu user đã chọn trước đó
-    const initialTheme = savedTheme || 'light';
-    
-    setTheme(initialTheme);
     setMounted(true);
-    
-    document.documentElement.classList.remove('light', 'dark');
-    document.documentElement.classList.add(initialTheme);
+    document.documentElement.classList.add('light');
   }, []);
 
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    localStorage.setItem('ximiweb-theme', newTheme);
-    
-    document.documentElement.classList.remove('light', 'dark');
-    document.documentElement.classList.add(newTheme);
-  };
-
-  const currentTheme = theme === 'light' ? lightTheme : darkTheme;
-
   const value = {
-    theme,
-    toggleTheme,
-    isLight: theme === 'light',
-    isDark: theme === 'dark',
+    theme: 'light',
+    toggleTheme: () => {}, // No-op
+    isLight: true,
+    isDark: false,
     mounted,
-    currentTheme,
+    currentTheme: lightTheme,
   };
 
   return (
     <ThemeContext.Provider value={value}>
-      <StyledThemeProvider theme={currentTheme}>
+      <StyledThemeProvider theme={lightTheme}>
         {children}
       </StyledThemeProvider>
     </ThemeContext.Provider>

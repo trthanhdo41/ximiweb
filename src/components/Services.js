@@ -26,23 +26,32 @@ const SectionHeader = styled(motion.div)`
 `;
 
 const SectionTitle = styled(motion.h2)`
-  font-size: ${props => props.theme.typography.fontSize['5xl']};
+  font-size: ${props => props.theme.typography.fontSize['6xl']};
   font-weight: ${props => props.theme.typography.fontWeight.extrabold};
   color: ${props => props.theme.colors.textPrimary};
   margin-bottom: ${props => props.theme.spacing.lg};
-  line-height: ${props => props.theme.typography.lineHeight.tight};
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 
   @media (max-width: ${props => props.theme.breakpoints.md}) {
+    font-size: ${props => props.theme.typography.fontSize['5xl']};
+  }
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
     font-size: ${props => props.theme.typography.fontSize['4xl']};
   }
 `;
 
 const SectionSubtitle = styled(motion.p)`
-  font-size: ${props => props.theme.typography.fontSize.lg};
+  font-size: ${props => props.theme.typography.fontSize.xl};
   color: ${props => props.theme.colors.textSecondary};
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto;
   line-height: ${props => props.theme.typography.lineHeight.relaxed};
+  
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    font-size: ${props => props.theme.typography.fontSize.lg};
+  }
 `;
 
 const ServicesGrid = styled(motion.div)`
@@ -64,29 +73,50 @@ const ServicesGrid = styled(motion.div)`
 
 const ServiceItem = styled(motion.div)`
   text-align: center;
-  padding: ${props => props.theme.spacing.xl};
+  padding: ${props => props.theme.spacing.lg};
   background: ${props => props.theme.colors.background};
   border-radius: ${props => props.theme.borderRadius.xl};
   border: 1px solid ${props => props.theme.colors.border};
   transition: all 0.3s ease;
+  overflow: hidden;
 
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: ${props => props.theme.shadows.lg};
+    border-color: ${props => props.theme.colors.accent};
+    box-shadow: ${props => props.theme.shadows.md};
+  }
+  
+  &:hover img {
+    transform: scale(1.05);
+  }
+`;
+
+const ServiceImage = styled.div`
+  width: 100%;
+  height: 200px;
+  border-radius: ${props => props.theme.borderRadius.lg};
+  overflow: hidden;
+  margin-bottom: ${props => props.theme.spacing.lg};
+  background: ${props => props.theme.colors.backgroundSecondary};
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
   }
 `;
 
 const ServiceIcon = styled(motion.div)`
-  width: 80px;
-  height: 80px;
-  background: ${props => props.theme.gradients.primary};
-  border-radius: ${props => props.theme.borderRadius.xl};
+  width: 60px;
+  height: 60px;
+  background: ${props => props.theme.colors.primary};
+  border-radius: ${props => props.theme.borderRadius.lg};
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto ${props => props.theme.spacing.lg};
+  margin: 0 auto ${props => props.theme.spacing.md};
   color: white;
-  font-size: 32px;
+  font-size: 24px;
 `;
 
 const ServiceTitle = styled(motion.h3)`
@@ -128,58 +158,26 @@ const Services = () => {
     {
       icon: HiGlobeAlt,
       title: 'Thiết kế Website Chuyên Nghiệp',
-      description: 'Website doanh nghiệp, bán hàng, tin tức với thiết kế hiện đại, responsive và tối ưu SEO',
-      features: [
-        'Thiết kế responsive cho mọi thiết bị',
-        'Tối ưu SEO cho Google',
-        'Giao diện admin dễ sử dụng',
-        'Bảo hành 12 tháng',
-        'Tốc độ tải nhanh dưới 3 giây'
-      ],
-      price: 'Từ 899.000đ',
-      originalPrice: '1.200.000đ'
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80',
+      description: 'Website doanh nghiệp, bán hàng, landing page với thiết kế hiện đại, responsive và tối ưu SEO'
     },
     {
       icon: HiDevicePhoneMobile,
-      title: 'Web App & Mobile App',
-      description: 'Ứng dụng web và mobile với tính năng hiện đại, cross-platform và hiệu suất cao',
-      features: [
-        'Cross-platform (Web + Mobile)',
-        'Push notification',
-        'Tích hợp thanh toán',
-        'Real-time features',
-        'App Store & Google Play'
-      ],
-      price: 'Từ 1.499.000đ',
-      originalPrice: '2.000.000đ'
+      title: 'Phát triển App Mobile',
+      image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&auto=format&fit=crop&q=80',
+      description: 'Ứng dụng Android, iOS với React Native, Flutter. Cross-platform và hiệu suất cao'
     },
     {
       icon: HiCpuChip,
-      title: 'Giải pháp AI Thông minh',
-      description: 'Chatbot AI, RAG system, automation với công nghệ AI tiên tiến cho doanh nghiệp',
-      features: [
-        'AI Chatbot đa nền tảng',
-        'RAG System thông minh',
-        'Process Automation',
-        'AI Analytics & Insights',
-        'Machine Learning Models'
-      ],
-      price: 'Từ 2.999.000đ',
-      originalPrice: '4.000.000đ'
+      title: 'Ứng dụng AI & Machine Learning',
+      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&auto=format&fit=crop&q=80',
+      description: 'Chatbot AI, RAG system, tích hợp OpenAI, automation với công nghệ AI tiên tiến'
     },
     {
       icon: HiShoppingBag,
-      title: 'Website Bán Hàng & E-commerce',
-      description: 'Website thương mại điện tử với tính năng thanh toán, quản lý đơn hàng và khách hàng',
-      features: [
-        'Tích hợp thanh toán online',
-        'Quản lý đơn hàng tự động',
-        'Hệ thống khuyến mãi',
-        'Báo cáo doanh thu',
-        'Tích hợp mạng xã hội'
-      ],
-      price: 'Từ 3.999.000đ',
-      originalPrice: '5.500.000đ'
+      title: 'Đồ án CNTT & IT Projects',
+      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&auto=format&fit=crop&q=80',
+      description: 'Hỗ trợ làm đồ án tốt nghiệp, đồ án môn học CNTT các cấp với chất lượng cao'
     }
   ];
 
@@ -204,10 +202,10 @@ const Services = () => {
           viewport={{ once: true }}
         >
           <SectionTitle>
-            Dịch vụ của chúng tôi
+            Dịch vụ IT chuyên nghiệp
           </SectionTitle>
           <SectionSubtitle>
-            Thiết kế website chuyên nghiệp cho mọi nhu cầu
+            Giải pháp công nghệ toàn diện từ Website, App Mobile, AI đến Đồ án CNTT
           </SectionSubtitle>
         </SectionHeader>
 
@@ -226,24 +224,16 @@ const Services = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.02 }}
               >
-                <ServiceIcon
-                  animate={{ 
-                    y: [0, -5, 0],
-                  }}
-                  transition={{ 
-                    duration: 2,
-                    repeat: Infinity,
-                    delay: index * 0.2,
-                    ease: "easeInOut"
-                  }}
-                  whileHover={{ 
-                    scale: 1.1,
-                    rotate: 5,
-                    transition: { duration: 0.3 }
-                  }}
-                >
+                <ServiceImage>
+                  <img 
+                    src={service.image} 
+                    alt={service.title}
+                    loading="lazy"
+                  />
+                </ServiceImage>
+                
+                <ServiceIcon>
                   <IconComponent />
                 </ServiceIcon>
                 

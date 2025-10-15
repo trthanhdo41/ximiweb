@@ -40,13 +40,15 @@ const ButtonBase = styled(motion.button)`
 
   /* Style variants */
   ${props => props.variant === 'primary' && css`
-    background: ${props.theme.gradients.primary};
+    background: ${props.theme.colors.accent};
     color: white;
-    box-shadow: ${props.theme.shadows.md};
+    box-shadow: ${props.theme.shadows.sm};
+    font-weight: ${props.theme.typography.fontWeight.semibold};
 
     &:hover:not(:disabled) {
-      transform: translateY(-2px);
-      box-shadow: ${props.theme.shadows.lg};
+      background: ${props.theme.colors.accentHover};
+      box-shadow: ${props.theme.shadows.md};
+      transform: translateY(-1px);
     }
 
     &:active {
@@ -55,13 +57,15 @@ const ButtonBase = styled(motion.button)`
   `}
 
   ${props => props.variant === 'secondary' && css`
-    background: transparent;
-    color: ${props.theme.colors.primary};
-    border: 2px solid ${props.theme.colors.primary};
+    background: ${props.theme.colors.background};
+    color: ${props.theme.colors.textPrimary};
+    border: 1.5px solid ${props.theme.colors.border};
+    font-weight: ${props.theme.typography.fontWeight.semibold};
 
     &:hover:not(:disabled) {
-      background: ${props.theme.colors.primary};
-      color: white;
+      background: ${props.theme.colors.backgroundSecondary};
+      border-color: ${props.theme.colors.textPrimary};
+      transform: translateY(-1px);
     }
   `}
 

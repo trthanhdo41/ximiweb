@@ -17,8 +17,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #000;
-  color: #fff;
+  background-color: #ffffff;
+  color: #0f172a;
   line-height: 1.6;
 }
 
@@ -31,7 +31,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* AI-themed Background */
+/* Clean Professional Background */
 .animated-background {
   position: fixed;
   top: 0;
@@ -39,27 +39,7 @@ html {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: radial-gradient(circle at 20% 20%, rgba(0, 212, 255, 0.15) 0%, transparent 50%),
-              radial-gradient(circle at 80% 80%, rgba(9, 9, 121, 0.15) 0%, transparent 50%),
-              radial-gradient(circle at 40% 60%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
-              linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
-  background-size: 800px 800px, 600px 600px, 400px 400px, 100% 100%;
-  animation: float-bg 20s ease-in-out infinite;
-}
-
-@keyframes float-bg {
-  0%, 100% {
-    background-position: 0% 0%, 100% 100%, 50% 50%, 0% 0%;
-  }
-  25% {
-    background-position: 100% 0%, 0% 100%, 0% 50%, 0% 0%;
-  }
-  50% {
-    background-position: 100% 100%, 0% 0%, 100% 0%, 0% 0%;
-  }
-  75% {
-    background-position: 0% 100%, 100% 0%, 50% 100%, 0% 0%;
-  }
+  background: #ffffff;
 }
 
 /* Custom Scrollbar */
@@ -68,14 +48,14 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #121212;
+  background: #f1f5f9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #00d4ff, #090979);
+  background: #cbd5e1;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, #090979, #00d4ff);
+  background: #94a3b8;
 }

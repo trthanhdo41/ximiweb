@@ -1,73 +1,74 @@
-// XimiWeb Theme System - Light/Dark Mode
+// XimiWeb Theme System - Professional & Clean (Claude-inspired)
 export const lightTheme = {
   colors: {
-    // Primary Colors
-    primary: '#2563eb', // Blue-600
-    primaryHover: '#1d4ed8', // Blue-700
-    primaryLight: '#dbeafe', // Blue-100
-    primaryDark: '#1e40af', // Blue-800
+    // Primary Colors - Dark slate for text
+    primary: '#1a1a1a', // Almost black - Professional dark text
+    primaryHover: '#2d2d2d', // Slightly lighter
+    primaryLight: '#f5f5f5', // Very light gray
+    primaryDark: '#0a0a0a', // Very dark
     
-    // Secondary Colors
-    secondary: '#7c3aed', // Violet-600
-    secondaryHover: '#6d28d9', // Violet-700
-    secondaryLight: '#ede9fe', // Violet-100
+    // Accent Colors - Orange/Coral like Claude
+    accent: '#f97316', // Orange-500 - Claude-like accent
+    accentHover: '#ea580c', // Orange-600
+    accentLight: '#fed7aa', // Orange-200
     
-    // Accent Colors
-    accent: '#059669', // Emerald-600
-    accentHover: '#047857', // Emerald-700
-    accentLight: '#d1fae5', // Emerald-100
+    // Secondary Colors - Neutral
+    secondary: '#64748b', // Slate-500
+    secondaryHover: '#475569', // Slate-600
+    secondaryLight: '#e2e8f0', // Slate-200
     
     // Neutral Colors
     white: '#ffffff',
-    black: '#000000',
-    gray50: '#f9fafb',
-    gray100: '#f3f4f6',
-    gray200: '#e5e7eb',
-    gray300: '#d1d5db',
-    gray400: '#9ca3af',
-    gray500: '#6b7280',
-    gray600: '#4b5563',
-    gray700: '#374151',
-    gray800: '#1f2937',
-    gray900: '#111827',
+    black: '#1a1a1a',
+    gray50: '#fafafa',
+    gray100: '#f5f5f5',
+    gray200: '#eeeeee',
+    gray300: '#e0e0e0',
+    gray400: '#bdbdbd',
+    gray500: '#9e9e9e',
+    gray600: '#757575',
+    gray700: '#616161',
+    gray800: '#424242',
+    gray900: '#1a1a1a',
     
-    // Background Colors
+    // Background Colors - Clean light backgrounds
     background: '#ffffff',
-    backgroundSecondary: '#f9fafb',
-    backgroundTertiary: '#f3f4f6',
+    backgroundSecondary: '#fafafa',
+    backgroundTertiary: '#f5f5f5',
     
-    // Text Colors
-    textPrimary: '#111827',
-    textSecondary: '#4b5563',
-    textTertiary: '#6b7280',
+    // Text Colors - Dark on light
+    textPrimary: '#1a1a1a',
+    textSecondary: '#616161',
+    textTertiary: '#9e9e9e',
     textInverse: '#ffffff',
     
     // Border Colors
-    border: '#e5e7eb',
-    borderHover: '#d1d5db',
-    borderFocus: '#2563eb',
+    border: '#e0e0e0',
+    borderHover: '#bdbdbd',
+    borderFocus: '#f97316',
     
     // Status Colors
-    success: '#059669',
+    success: '#10b981',
     successLight: '#d1fae5',
-    warning: '#d97706',
+    warning: '#f59e0b',
     warningLight: '#fef3c7',
-    error: '#dc2626',
+    error: '#ef4444',
     errorLight: '#fee2e2',
-    info: '#2563eb',
+    info: '#3b82f6',
     infoLight: '#dbeafe',
     
     // Shadow Colors
-    shadow: 'rgba(0, 0, 0, 0.1)',
-    shadowHover: 'rgba(0, 0, 0, 0.15)',
-    shadowFocus: 'rgba(37, 99, 235, 0.3)',
+    shadow: 'rgba(15, 23, 42, 0.08)',
+    shadowHover: 'rgba(15, 23, 42, 0.12)',
+    shadowFocus: 'rgba(59, 130, 246, 0.25)',
   },
   
   gradients: {
-    primary: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)',
-    secondary: 'linear-gradient(135deg, #7c3aed 0%, #059669 100%)',
-    hero: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #059669 100%)',
-    card: 'linear-gradient(145deg, #ffffff 0%, #f9fafb 100%)',
+    primary: '#1a1a1a',
+    secondary: '#616161',
+    hero: '#ffffff',
+    card: '#fafafa',
+    accent: 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)',
   },
   
   spacing: {
@@ -103,8 +104,8 @@ export const lightTheme = {
   
   typography: {
     fontFamily: {
-      sans: ['Inter', 'system-ui', 'sans-serif'],
-      mono: ['JetBrains Mono', 'monospace'],
+      sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
+      mono: ['JetBrains Mono', 'Menlo', 'Monaco', 'monospace'],
     },
     fontSize: {
       xs: '0.75rem',   // 12px
@@ -113,10 +114,11 @@ export const lightTheme = {
       lg: '1.125rem',  // 18px
       xl: '1.25rem',   // 20px
       '2xl': '1.5rem', // 24px
-      '3xl': '1.875rem', // 30px
-      '4xl': '2.25rem', // 36px
-      '5xl': '3rem',   // 48px
-      '6xl': '3.75rem', // 60px
+      '3xl': '2rem',   // 32px
+      '4xl': '2.5rem', // 40px
+      '5xl': '3.5rem', // 56px
+      '6xl': '4.5rem', // 72px
+      '7xl': '6rem',   // 96px
     },
     fontWeight: {
       light: '300',
@@ -165,21 +167,21 @@ export const darkTheme = {
   colors: {
     ...lightTheme.colors,
     
-    // Primary Colors (adjusted for dark mode)
-    primary: '#3b82f6', // Blue-500 (lighter for dark mode)
-    primaryHover: '#2563eb', // Blue-600
-    primaryLight: '#1e3a8a', // Blue-900
-    primaryDark: '#1e40af', // Blue-800
-    
-    // Secondary Colors
-    secondary: '#8b5cf6', // Violet-500
-    secondaryHover: '#7c3aed', // Violet-600
-    secondaryLight: '#4c1d95', // Violet-900
+    // Primary Colors (dark mode)
+    primary: '#f8fafc', // Slate-50 (light text on dark)
+    primaryHover: '#e2e8f0', // Slate-200
+    primaryLight: '#1e293b', // Slate-800
+    primaryDark: '#f1f5f9', // Slate-100
     
     // Accent Colors
-    accent: '#10b981', // Emerald-500
-    accentHover: '#059669', // Emerald-600
-    accentLight: '#064e3b', // Emerald-900
+    accent: '#60a5fa', // Blue-400 (lighter for dark mode)
+    accentHover: '#3b82f6', // Blue-500
+    accentLight: '#1e3a8a', // Blue-900
+    
+    // Secondary Colors
+    secondary: '#94a3b8', // Slate-400
+    secondaryHover: '#cbd5e1', // Slate-300
+    secondaryLight: '#334155', // Slate-700
     
     // Background Colors (dark mode)
     background: '#0f172a', // Slate-900
@@ -195,29 +197,29 @@ export const darkTheme = {
     // Border Colors (dark mode)
     border: '#334155', // Slate-700
     borderHover: '#475569', // Slate-600
-    borderFocus: '#3b82f6', // Blue-500
+    borderFocus: '#60a5fa', // Blue-400
     
     // Status Colors (adjusted for dark mode)
-    success: '#10b981',
+    success: '#34d399',
     successLight: '#064e3b',
-    warning: '#f59e0b',
+    warning: '#fbbf24',
     warningLight: '#78350f',
-    error: '#ef4444',
+    error: '#f87171',
     errorLight: '#7f1d1d',
-    info: '#3b82f6',
+    info: '#60a5fa',
     infoLight: '#1e3a8a',
     
     // Shadow Colors (dark mode)
-    shadow: 'rgba(0, 0, 0, 0.3)',
-    shadowHover: 'rgba(0, 0, 0, 0.4)',
-    shadowFocus: 'rgba(59, 130, 246, 0.4)',
+    shadow: 'rgba(0, 0, 0, 0.4)',
+    shadowHover: 'rgba(0, 0, 0, 0.5)',
+    shadowFocus: 'rgba(96, 165, 250, 0.3)',
   },
   
   gradients: {
-    primary: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
-    secondary: 'linear-gradient(135deg, #8b5cf6 0%, #10b981 100%)',
-    hero: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #10b981 100%)',
-    card: 'linear-gradient(145deg, #1e293b 0%, #334155 100%)',
+    primary: '#0f172a',
+    secondary: '#1e293b',
+    hero: '#1e293b',
+    card: '#1e293b',
   },
   
   shadows: {

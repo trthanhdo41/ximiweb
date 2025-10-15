@@ -9,18 +9,6 @@ const TestimonialsSection = styled(motion.section)`
   position: relative;
   overflow: hidden;
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, 
-      rgba(59, 130, 246, 0.03) 0%, 
-      rgba(139, 92, 246, 0.03) 100%);
-    pointer-events: none;
-  }
 `;
 
 const Container = styled.div`
@@ -37,13 +25,18 @@ const SectionHeader = styled(motion.div)`
 `;
 
 const SectionTitle = styled(motion.h2)`
-  font-size: ${props => props.theme.typography.fontSize['5xl']};
+  font-size: ${props => props.theme.typography.fontSize['6xl']};
   font-weight: ${props => props.theme.typography.fontWeight.extrabold};
   color: ${props => props.theme.colors.textPrimary};
   margin-bottom: ${props => props.theme.spacing.lg};
-  line-height: ${props => props.theme.typography.lineHeight.tight};
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 
   @media (max-width: ${props => props.theme.breakpoints.md}) {
+    font-size: ${props => props.theme.typography.fontSize['5xl']};
+  }
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
     font-size: ${props => props.theme.typography.fontSize['4xl']};
   }
 `;
@@ -176,25 +169,45 @@ const Testimonials = () => {
   const testimonials = [
     {
       rating: 5,
-      text: "Anh làm web rất chiều ý khách hàng, lắng nghe feedback và chỉnh sửa theo yêu cầu. Website moctaisinh.vn được thiết kế đẹp, tốc độ nhanh và dễ sử dụng. Cảm ơn anh rất nhiều!",
-      name: "Nguyễn Văn Minh",
-      title: "Website: moctaisinh.vn",
-      avatar: "NM",
-      website: "https://moctaisinh.vn"
+      text: "App mobile của shop mình được làm cực kỳ chuyên nghiệp! React Native, tích hợp thanh toán, push notification đầy đủ. Lên cả App Store và CH Play. Khách hàng tăng vọt!",
+      name: "Nguyễn Thị Mai",
+      title: "Owner - Fashion Store",
+      avatar: "NM"
     },
     {
       rating: 5,
-      text: "Dự án mobile app của chúng tôi được XimiWeb thực hiện rất tốt. Code chất lượng cao, bàn giao đúng hẹn, và bảo hành tận tình. Sẽ hợp tác lâu dài!",
+      text: "Chatbot AI của XimiWeb tích hợp vào website giúp mình tư vấn khách 24/7. Tự động trả lời, nhận diện ý định, chuyển admin khi cần. Tiết kiệm thời gian cực kỳ!",
       name: "Trần Văn Đức",
-      title: "Founder, TechStart",
+      title: "CEO - TechStart Co.",
       avatar: "TĐ"
     },
     {
       rating: 5,
-      text: "Website doanh nghiệp được thiết kế rất chuyên nghiệp, responsive tốt trên mọi thiết bị. SEO cũng được tối ưu rất tốt, traffic tăng đáng kể. Cảm ơn XimiWeb!",
-      name: "Lê Thị Hương",
-      title: "Marketing Manager, TechViet Solutions",
-      avatar: "LH"
+      text: "Làm đồ án tốt nghiệp cho em rất oke! Code sạch, document đầy đủ, hướng dẫn demo tận tình. Em bảo vệ đạt điểm cao. Cảm ơn anh nhiều!",
+      name: "Lê Minh Tuấn",
+      title: "Sinh viên CNTT - ĐH SPKT",
+      avatar: "LT"
+    },
+    {
+      rating: 5,
+      text: "Website + AI chatbot giúp công ty mình tự động hóa được 70% công việc tư vấn. Tích hợp OpenAI, train custom data. Khách hàng rất hài lòng!",
+      name: "Phạm Thị Hương",
+      title: "Marketing Manager",
+      avatar: "PH"
+    },
+    {
+      rating: 5,
+      text: "E-commerce website với tích hợp AI search và recommendation engine. Tỷ lệ chuyển đổi tăng 40%, khách hàng tìm được sản phẩm nhanh hơn. Rất recommend!",
+      name: "Hoàng Văn Nam",
+      title: "CTO - E-commerce Platform",
+      avatar: "HN"
+    },
+    {
+      rating: 5,
+      text: "Làm luận văn thạc sĩ về AI/ML với XimiWeb. Code Python, Jupyter notebook, visualization đẹp. Thầy cô đánh giá rất cao về technical implementation!",
+      name: "Võ Thị Linh",
+      title: "Thạc sĩ AI - ĐH Bách Khoa",
+      avatar: "VL"
     }
   ];
 

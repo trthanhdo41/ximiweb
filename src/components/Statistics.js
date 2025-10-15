@@ -8,18 +8,6 @@ const StatisticsSection = styled(motion.section)`
   position: relative;
   overflow: hidden;
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, 
-      rgba(59, 130, 246, 0.03) 0%, 
-      rgba(139, 92, 246, 0.03) 100%);
-    pointer-events: none;
-  }
 `;
 
 const Container = styled.div`
@@ -56,38 +44,17 @@ const StatItem = styled(motion.div)`
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, 
-      rgba(59, 130, 246, 0.05) 0%, 
-      rgba(139, 92, 246, 0.05) 100%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
   &:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    border-color: ${props => props.theme.colors.primary};
-    
-    &::before {
-      opacity: 1;
-    }
+    transform: translateY(-4px);
+    box-shadow: ${props => props.theme.shadows.md};
+    border-color: ${props => props.theme.colors.accent};
   }
 `;
 
 const StatNumber = styled(motion.div)`
   font-size: 3rem;
   font-weight: ${props => props.theme.typography.fontWeight.extrabold};
-  background: ${props => props.theme.gradients.primary};
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: ${props => props.theme.colors.primary};
   line-height: 1;
   margin-bottom: 0.5rem;
   position: relative;

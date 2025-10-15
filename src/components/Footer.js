@@ -6,7 +6,6 @@ import {
   HiDevicePhoneMobile, 
   HiUsers, 
   HiCpuChip,
-  HiAcademicCap,
   HiEnvelope,
   HiPhone,
   HiMapPin,
@@ -14,7 +13,6 @@ import {
 } from 'react-icons/hi2';
 import { FaFacebook } from 'react-icons/fa';
 import { SiZalo } from 'react-icons/si';
-import Button from './ui/Button';
 
 const FooterSection = styled(motion.footer)`
   background: ${props => props.theme.colors.background};
@@ -211,25 +209,20 @@ const Footer = () => {
 
   const services = [
     { name: 'Thiết kế Website Chuyên Nghiệp', icon: HiGlobeAlt },
-    { name: 'Web App & Mobile App', icon: HiDevicePhoneMobile },
-    { name: 'Giải pháp AI Thông minh', icon: HiCpuChip },
-    { name: 'Website Bán Hàng & E-commerce', icon: HiUsers }
+    { name: 'Phát triển App Mobile', icon: HiDevicePhoneMobile },
+    { name: 'Ứng dụng AI & Machine Learning', icon: HiCpuChip },
+    { name: 'Đồ án CNTT & IT Projects', icon: HiUsers }
   ];
 
   const quickLinks = [
     { name: 'Trang chủ', href: '#home' },
     { name: 'Dịch vụ', href: '#services' },
-    { name: 'Bảng giá', href: '#pricing' },
+    { name: 'Công nghệ', href: '#tech-stack' },
     { name: 'Về chúng tôi', href: '#about' },
     { name: 'Thống kê', href: '#charts' },
     { name: 'Liên hệ', href: '#contact' }
   ];
 
-  const legalLinks = [
-    { name: 'Điều khoản sử dụng', href: '/terms' },
-    { name: 'Chính sách bảo mật', href: '/privacy' },
-    { name: 'Chính sách cookie', href: '/cookies' }
-  ];
 
   return (
     <FooterSection
@@ -248,11 +241,11 @@ const Footer = () => {
           >
             <Logo>
               <h3>XimiWeb</h3>
-              <span>Thiết kế Website</span>
+              <span>Giải pháp IT</span>
             </Logo>
             <Description>
-              Chuyên thiết kế website chuyên nghiệp, website doanh nghiệp, website bán hàng, 
-              website giới thiệu và các dịch vụ web khác với chất lượng cao.
+              Chuyên cung cấp giải pháp IT toàn diện: Thiết kế website, phát triển app mobile (Android & iOS), 
+              ứng dụng AI, làm đồ án CNTT và các dịch vụ công nghệ thông tin chuyên nghiệp.
             </Description>
             <SocialLinks>
               <SocialLink

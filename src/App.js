@@ -6,7 +6,8 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Statistics from './components/Statistics';
 import Services from './components/Services';
-import Pricing from './components/Pricing';
+import InteractiveGames from './components/InteractiveGames';
+import TechStack from './components/TechStack';
 import About from './components/About';
 import Testimonials from './components/Testimonials';
 import Charts from './components/Charts';
@@ -121,7 +122,8 @@ function App() {
         <Hero />
         <Statistics />
         <Services />
-        <Pricing />
+        <InteractiveGames />
+        <TechStack />
         <About />
         <Testimonials />
         <Charts />

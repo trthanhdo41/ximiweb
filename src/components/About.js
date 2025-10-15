@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { HiUsers, HiClock, HiShieldCheck, HiLightningBolt, HiCodeBracket, HiGlobeAlt } from 'react-icons/hi2';
+import { HiUsers, HiClock, HiShieldCheck } from 'react-icons/hi2';
 
 const AboutSection = styled(motion.section)`
   padding: ${props => props.theme.spacing['5xl']} 0;
@@ -20,13 +20,18 @@ const SectionHeader = styled(motion.div)`
 `;
 
 const SectionTitle = styled(motion.h2)`
-  font-size: ${props => props.theme.typography.fontSize['5xl']};
+  font-size: ${props => props.theme.typography.fontSize['6xl']};
   font-weight: ${props => props.theme.typography.fontWeight.extrabold};
   color: ${props => props.theme.colors.textPrimary};
   margin-bottom: ${props => props.theme.spacing.lg};
-  line-height: ${props => props.theme.typography.lineHeight.tight};
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 
   @media (max-width: ${props => props.theme.breakpoints.md}) {
+    font-size: ${props => props.theme.typography.fontSize['5xl']};
+  }
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
     font-size: ${props => props.theme.typography.fontSize['4xl']};
   }
 `;
@@ -144,8 +149,8 @@ const FeatureCard = styled(motion.div)`
 const FeatureIcon = styled.div`
   width: 60px;
   height: 60px;
-  background: ${props => props.theme.gradients.primary};
-  border-radius: ${props => props.theme.borderRadius.full};
+  background: ${props => props.theme.colors.primary};
+  border-radius: ${props => props.theme.borderRadius.lg};
   display: flex;
   align-items: center;
   justify-content: center;

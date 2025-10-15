@@ -1,11 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { HiPlay, HiPause, HiSparkles, HiCodeBracket, HiGlobeAlt, HiDevicePhoneMobile } from 'react-icons/hi2';
-import { RiRobot2Fill } from 'react-icons/ri';
+import { HiPlay, HiPause, HiSparkles, HiCodeBracket, HiDevicePhoneMobile } from 'react-icons/hi2';
 import TypeWriter from './TypeWriter';
+import TypingAnimation from './TypingAnimation';
 import Button from './ui/Button';
-import { useTheme } from '../theme/ThemeProvider';
 
 const HeroSection = styled(motion.section)`
   min-height: 100vh;
@@ -13,19 +12,19 @@ const HeroSection = styled(motion.section)`
   align-items: center;
   position: relative;
   overflow: hidden;
-  background: ${props => props.theme.gradients.hero};
+  background: ${props => props.theme.colors.background};
   padding-top: 80px;
 
   &::before {
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
     right: 0;
-    bottom: 0;
-    background: ${props => props.theme.colors.background};
-    opacity: 0.95;
-    z-index: 1;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to left, ${props => props.theme.colors.backgroundSecondary} 0%, transparent 100%);
+    opacity: 0.5;
+    z-index: 0;
   }
 `;
 
@@ -58,31 +57,33 @@ const HeroText = styled(motion.div)`
 `;
 
 const HeroTitle = styled(motion.h1)`
-  font-size: ${props => props.theme.typography.fontSize['6xl']};
+  font-size: ${props => props.theme.typography.fontSize['5xl']};
   font-weight: ${props => props.theme.typography.fontWeight.extrabold};
-  line-height: ${props => props.theme.typography.lineHeight.tight};
+  line-height: 1.1;
   margin: 0;
   color: ${props => props.theme.colors.textPrimary};
+  letter-spacing: -0.02em;
 
   @media (max-width: ${props => props.theme.breakpoints.lg}) {
-    font-size: ${props => props.theme.typography.fontSize['5xl']};
+    font-size: ${props => props.theme.typography.fontSize['4xl']};
   }
 
   @media (max-width: ${props => props.theme.breakpoints.md}) {
-    font-size: ${props => props.theme.typography.fontSize['4xl']};
+    font-size: ${props => props.theme.typography.fontSize['3xl']};
+  }
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    font-size: ${props => props.theme.typography.fontSize['2xl']};
   }
 `;
 
-const Highlight = styled.span`
-  background: ${props => props.theme.gradients.primary};
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+const TitleLine = styled.span`
+  display: block;
 `;
 
-const Subtitle = styled.span`
-  color: ${props => props.theme.colors.textSecondary};
-  font-weight: ${props => props.theme.typography.fontWeight.medium};
+const Chevron = styled.span`
+  color: ${props => props.theme.colors.accent};
+  margin-right: 0.3em;
 `;
 
 const HeroDescription = styled(motion.p)`
@@ -90,10 +91,11 @@ const HeroDescription = styled(motion.p)`
   color: ${props => props.theme.colors.textSecondary};
   line-height: ${props => props.theme.typography.lineHeight.relaxed};
   margin: 0;
-  max-width: 500px;
+  max-width: 600px;
 
   @media (max-width: ${props => props.theme.breakpoints.lg}) {
     max-width: none;
+    font-size: ${props => props.theme.typography.fontSize.base};
   }
 `;
 
@@ -134,12 +136,13 @@ const FeatureTag = styled(motion.div)`
   &:hover {
     background: ${props => props.theme.colors.primary};
     color: white;
+    border-color: ${props => props.theme.colors.primary};
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    box-shadow: ${props => props.theme.shadows.md};
   }
 
   svg {
-    color: ${props => props.theme.colors.primary};
+    color: ${props => props.theme.colors.accent};
     transition: color 0.3s ease;
   }
 
@@ -160,16 +163,17 @@ const VideoContainer = styled(motion.div)`
   width: 100%;
   max-width: 500px;
   aspect-ratio: 16/9;
-  border-radius: ${props => props.theme.borderRadius['2xl']};
-  border: 2px solid ${props => props.theme.colors.border};
+  border-radius: ${props => props.theme.borderRadius.xl};
+  border: 1px solid ${props => props.theme.colors.border};
   position: relative;
   overflow: hidden;
   cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: ${props => props.theme.shadows.md};
 
   &:hover {
-    transform: scale(1.02);
-    box-shadow: ${props => props.theme.shadows.xl};
+    box-shadow: ${props => props.theme.shadows.lg};
+    border-color: ${props => props.theme.colors.accent};
   }
 `;
 
@@ -205,13 +209,19 @@ const VideoOverlay = styled(motion.div)`
 const PlayButton = styled(motion.div)`
   width: 80px;
   height: 80px;
-  background: ${props => props.theme.gradients.primary};
+  background: rgba(255, 255, 255, 0.95);
   border-radius: ${props => props.theme.borderRadius.full};
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  box-shadow: ${props => props.theme.shadows.lg};
+  color: #0f172a;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: white;
+    transform: scale(1.1);
+  }
 `;
 
 const VideoText = styled.p`
@@ -260,10 +270,16 @@ const FloatingBubble = styled(motion.div)`
 
 
 const Hero = () => {
-  const { isLight } = useTheme();
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(false);
+  
+  const words = [
+    'Website chuyên nghiệp',
+    'App Android & iOS',
+    'Ứng dụng AI',
+    'Đồ án CNTT - IT',
+    'Giải pháp IT toàn diện'
+  ];
 
   const openZalo = () => {
     window.open('https://zalo.me/0888889805', '_blank');
@@ -280,11 +296,9 @@ const Hero = () => {
     }
   };
 
-
   const handleVideoClick = () => {
     togglePlayPause();
   };
-
 
   const scrollToServices = () => {
     const element = document.getElementById('services');
@@ -308,14 +322,21 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <HeroTitle>
-              <Highlight>XimiWeb</Highlight>
-              <br />
-              Thiết kế website chuyên nghiệp
+              <TitleLine>XimiWeb</TitleLine>
+              <TitleLine>
+                <Chevron>›</Chevron>
+                <TypingAnimation 
+                  words={words}
+                  typingSpeed={100}
+                  deletingSpeed={50}
+                  pauseDuration={2000}
+                />
+              </TitleLine>
             </HeroTitle>
             
             <HeroDescription>
               <TypeWriter 
-                text="Thiết kế website chuyên nghiệp, website doanh nghiệp, website bán hàng, website giới thiệu và các dịch vụ web khác."
+                text="Chuyên thiết kế website, phát triển app mobile (Android & iOS), ứng dụng AI, làm đồ án CNTT và các giải pháp công nghệ thông tin chuyên nghiệp."
                 speed={30}
                 delay={1000}
               />
@@ -400,73 +421,30 @@ const Hero = () => {
               </VideoOverlay>
             </VideoContainer>
             
+            {/* Tech Background Image */}
             <FloatingElements>
-              <FloatingBubble
-                style={{ top: '10%', left: '-10%' }}
-                animate={{ 
-                  y: [0, -10, 0],
-                  rotate: [0, 5, 0]
+              <motion.div
+                style={{
+                  position: 'absolute',
+                  top: '10%',
+                  right: '-20%',
+                  width: '300px',
+                  height: '300px',
+                  borderRadius: '50%',
+                  background: `${props => props.theme.colors.accent}15`,
+                  filter: 'blur(60px)',
+                  zIndex: -1,
                 }}
-                transition={{ 
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut"
+                animate={{
+                  scale: [1, 1.1, 1],
+                  opacity: [0.3, 0.5, 0.3],
                 }}
-              >
-                <HiGlobeAlt size={20} />
-                <span>Website</span>
-              </FloatingBubble>
-              
-              <FloatingBubble
-                style={{ top: '20%', right: '-15%' }}
-                animate={{ 
-                  y: [0, 10, 0],
-                  rotate: [0, -5, 0]
-                }}
-                transition={{ 
-                  duration: 4,
+                transition={{
+                  duration: 8,
                   repeat: Infinity,
                   ease: "easeInOut",
-                  delay: 1
                 }}
-              >
-                <HiDevicePhoneMobile size={20} />
-                <span>Mobile App</span>
-              </FloatingBubble>
-              
-              <FloatingBubble
-                style={{ bottom: '20%', left: '-5%' }}
-                animate={{ 
-                  y: [0, -8, 0],
-                  rotate: [0, 3, 0]
-                }}
-                transition={{ 
-                  duration: 3.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 2
-                }}
-              >
-                <RiRobot2Fill size={20} />
-                <span>AI Solutions</span>
-              </FloatingBubble>
-              
-              <FloatingBubble
-                style={{ bottom: '10%', right: '-10%' }}
-                animate={{ 
-                  y: [0, 12, 0],
-                  rotate: [0, -3, 0]
-                }}
-                transition={{ 
-                  duration: 4.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.5
-                }}
-              >
-                <HiCodeBracket size={20} />
-                <span>Outsourcing</span>
-              </FloatingBubble>
+              />
             </FloatingElements>
           </HeroVisual>
         </HeroContent>
