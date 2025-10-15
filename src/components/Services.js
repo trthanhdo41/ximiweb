@@ -158,25 +158,25 @@ const Services = () => {
     {
       icon: HiGlobeAlt,
       title: 'Thiết kế Website Chuyên Nghiệp',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80',
+      image: 'https://thietkeweb.maytech.vn/wp-content/uploads/2020/07/08-1024x576.jpg',
       description: 'Website doanh nghiệp, bán hàng, landing page với thiết kế hiện đại, responsive và tối ưu SEO'
     },
     {
       icon: HiDevicePhoneMobile,
       title: 'Phát triển App Mobile',
-      image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&auto=format&fit=crop&q=80',
+      image: 'https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:format(webp):quality(75)/mobile_app_584418060e.jpg',
       description: 'Ứng dụng Android, iOS với React Native, Flutter. Cross-platform và hiệu suất cao'
     },
     {
       icon: HiCpuChip,
       title: 'Ứng dụng AI & Machine Learning',
-      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&auto=format&fit=crop&q=80',
+      image: 'https://techvccloud.mediacdn.vn/280518386289090560/2024/6/14/ai-la-gi-17183306670171407611917.jpg',
       description: 'Chatbot AI, RAG system, tích hợp OpenAI, automation với công nghệ AI tiên tiến'
     },
     {
       icon: HiShoppingBag,
       title: 'Đồ án CNTT & IT Projects',
-      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&auto=format&fit=crop&q=80',
+      image: 'https://cms.123code.net/uploads/2022/12/27/2022-12-27__de-tai-do-an-1.jpg',
       description: 'Hỗ trợ làm đồ án tốt nghiệp, đồ án môn học CNTT các cấp với chất lượng cao'
     }
   ];
