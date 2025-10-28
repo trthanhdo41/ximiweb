@@ -1,6 +1,8 @@
 import { Recycle, ArrowUpCircle, Search, Shield, Truck, DollarSign } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export const FeaturesGrid = () => {
+  const { ref, isVisible } = useScrollAnimation();
   const features = [
     {
       icon: Recycle,
@@ -37,7 +39,7 @@ export const FeaturesGrid = () => {
   return (
     <section className="py-16 md:py-24 bg-secondary/30">
       <div className="container mx-auto px-4">
-        <div className="text-center space-y-4 mb-12 md:mb-16">
+        <div ref={ref} className={`text-center space-y-4 mb-12 md:mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
             Rentino cho phép bạn có đầy đủ{" "}
             <span className="text-primary">sản phẩm công nghệ tiêu dùng</span>
@@ -48,7 +50,8 @@ export const FeaturesGrid = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="group rounded-xl border bg-card p-6 shadow-sm transition-all hover:shadow-lg hover:border-primary/50 hover:-translate-y-1"
+              className={`group rounded-xl border bg-card p-6 shadow-sm transition-all duration-500 hover:shadow-lg hover:border-primary/50 hover:-translate-y-2 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
               <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                 <feature.icon className="h-6 w-6" />

@@ -1,7 +1,9 @@
 import { Star } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export const TestimonialsSection = () => {
+  const { ref, isVisible } = useScrollAnimation();
   const testimonials = [
     {
       name: "Nguyễn Văn A",
@@ -24,9 +26,9 @@ export const TestimonialsSection = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-background">
+    <section id="testimonials" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center space-y-4 mb-12 md:mb-16">
+        <div ref={ref} className={`text-center space-y-4 mb-12 md:mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
             Khách hàng nói gì về <span className="text-primary">Rentino</span>
           </h2>
@@ -36,7 +38,8 @@ export const TestimonialsSection = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="rounded-2xl border bg-card p-8 shadow-sm transition-all hover:shadow-lg"
+              className={`rounded-2xl border bg-card p-8 shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-2 hover:border-primary/50 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              style={{ transitionDelay: `${index * 150}ms` }}
             >
               <div className="mb-4 flex gap-1">
                 {Array.from({ length: testimonial.rating }).map((_, i) => (

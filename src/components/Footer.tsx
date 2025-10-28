@@ -24,7 +24,7 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="bg-[hsl(var(--dark-bg))] text-white py-16">
+    <footer id="contact" className="bg-[hsl(220_40%_10%)] text-white py-16">
       <div className="container mx-auto px-4">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-6 mb-12">
           <div className="lg:col-span-2 space-y-4">
