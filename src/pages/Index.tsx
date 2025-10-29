@@ -26,16 +26,8 @@ import { Windows11LockScreen } from "@/components/Windows11LockScreen";
 const Index = () => {
   const [showLockScreen, setShowLockScreen] = useState(true);
 
-  useEffect(() => {
-    const hasSeenLockScreen = sessionStorage.getItem("seenLockScreen");
-    if (hasSeenLockScreen) {
-      setShowLockScreen(false);
-    }
-  }, []);
-
   const handleUnlock = () => {
     setShowLockScreen(false);
-    sessionStorage.setItem("seenLockScreen", "true");
   };
 
   return (
