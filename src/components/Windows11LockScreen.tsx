@@ -6,6 +6,8 @@ export const Windows11LockScreen = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
   const [unlocked, setUnlocked] = useState(false);
+  const [weather, setWeather] = useState({ temp: 28, condition: "Nắng", icon: "☀️" });
+  const [location, setLocation] = useState("Hồ Chí Minh");
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -55,7 +57,7 @@ export const Windows11LockScreen = () => {
       }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-black/20" />
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center">
@@ -87,12 +89,36 @@ export const Windows11LockScreen = () => {
               {formatDate(currentTime)}
             </motion.div>
 
+            {/* Weather & Location */}
+            <motion.div
+              className="mt-8 flex items-center justify-center gap-4 text-white/90"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+            >
+              <div className="flex items-center gap-2">
+                <span className="text-3xl">{weather.icon}</span>
+                <span className="text-2xl" style={{ fontWeight: 300 }}>
+                  {weather.temp}°C
+                </span>
+              </div>
+              <span className="text-xl opacity-60">•</span>
+              <div className="flex items-center gap-2">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                </svg>
+                <span className="text-xl" style={{ fontWeight: 300 }}>
+                  {location}
+                </span>
+              </div>
+            </motion.div>
+
             {/* Hint */}
             <motion.div
               className="mt-12 text-lg text-white/70"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
+              transition={{ delay: 0.7 }}
             >
               Nhấp vào bất kỳ đâu để tiếp tục
             </motion.div>
