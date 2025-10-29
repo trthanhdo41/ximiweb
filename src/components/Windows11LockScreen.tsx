@@ -48,9 +48,10 @@ export const Windows11LockScreen = () => {
       transition={{ duration: 0.5 }}
       className="fixed inset-0 z-[9999] bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f3460] flex flex-col items-center justify-center"
       style={{
-        backgroundImage: "url('https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?w=1920&h=1080&fit=crop')",
+        backgroundImage: "url('https://phongvu.vn/cong-nghe/wp-content/uploads/2025/04/hinh-nen-win-11-1.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
+        fontFamily: "'Segoe UI Variable Display', 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
       }}
     >
       {/* Overlay */}
@@ -66,7 +67,8 @@ export const Windows11LockScreen = () => {
           >
             {/* Time */}
             <motion.div
-              className="text-8xl md:text-9xl font-light text-white mb-4"
+              className="text-8xl md:text-9xl text-white mb-4"
+              style={{ fontWeight: 300 }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -76,7 +78,8 @@ export const Windows11LockScreen = () => {
 
             {/* Date */}
             <motion.div
-              className="text-2xl md:text-3xl font-light text-white/90 capitalize"
+              className="text-2xl md:text-3xl text-white/90 capitalize"
+              style={{ fontWeight: 300 }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
@@ -109,8 +112,8 @@ export const Windows11LockScreen = () => {
             </motion.div>
 
             {/* User Name */}
-            <h2 className="text-3xl font-light text-white mb-2">XimiTech</h2>
-            <p className="text-lg text-white/70 mb-8">trdo1309@gmail.com</p>
+            <h2 className="text-3xl text-white mb-2" style={{ fontWeight: 400 }}>XimiTech</h2>
+            <p className="text-lg text-white/70 mb-8" style={{ fontWeight: 300 }}>trdo1309@gmail.com</p>
 
             {/* Password Form */}
             <form onSubmit={handleUnlock} className="w-80">
