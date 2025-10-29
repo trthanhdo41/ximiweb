@@ -1,48 +1,69 @@
-import { ShoppingBag, Users, Headphones } from "lucide-react";
+import { Globe, Smartphone, Bot, Code } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { GL } from "@/components/gl";
+import { useState } from "react";
 
 export const ServicesSection = () => {
   const { ref, isVisible } = useScrollAnimation();
+  const [hovering, setHovering] = useState(false);
   const services = [
     {
-      icon: ShoppingBag,
-      title: "Mua, bán, trao đổi",
-      description: "Thông tin chi tiết giao dịch mua bán, cho thuê hoàn toàn minh bạch",
+      icon: Globe,
+      title: "Thiết kế Website",
+      description: "Website doanh nghiệp, bán hàng, landing page với thiết kế hiện đại, responsive và tối ưu SEO. Bàn giao trong 3-7 ngày",
     },
     {
-      icon: Users,
-      title: "Cộng đồng sôi động",
-      description: "Kết nối với hàng ngàn người dùng khác",
+      icon: Smartphone,
+      title: "App Mobile",
+      description: "Phát triển ứng dụng Android & iOS với React Native, Flutter. Cross-platform, hiệu suất cao, tích hợp đầy đủ tính năng",
     },
     {
-      icon: Headphones,
-      title: "Hỗ trợ 24/7",
-      description: "Hỗ trợ nhanh chóng, nhiệt tình giải đáp mọi thắc mắc",
+      icon: Bot,
+      title: "Chatbot AI",
+      description: "Chatbot AI thông minh với OpenAI, Claude. Tích hợp vào website, Zalo, Facebook Messenger. Tự động hóa chăm sóc khách hàng",
+    },
+    {
+      icon: Code,
+      title: "Đồ án CNTT",
+      description: "Hỗ trợ làm đồ án tốt nghiệp, đồ án môn học CNTT. Code chất lượng, document đầy đủ, bảo hành đến khi bảo vệ xong",
     },
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-accent via-accent/90 to-accent text-accent-foreground relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDE0YzMuMzEzIDAgNiAyLjY4NyA2IDZzLTIuNjg3IDYtNiA2LTYtMi42ODctNi02IDIuNjg3LTYgNi02ek0yNCAzNGMzLjMxMyAwIDYgMi42ODcgNiA2cy0yLjY4NyA2LTYgNi02LTIuNjg3LTYtNiAyLjY4Ny02IDYtNnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-50"></div>
-      <div className="container mx-auto px-4 relative">
-        <div ref={ref} className={`text-center space-y-4 mb-12 md:mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-white">
-            Trải nghiệm dịch vụ toàn diện
+    <section id="services" className="relative py-12 md:py-20 lg:py-24 overflow-hidden">
+      {/* Particle Wave Background */}
+      <div className="absolute inset-0 z-0">
+        <GL hovering={hovering} />
+      </div>
+      
+      {/* Gradient Overlay for better text readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/20 z-10"></div>
+      
+      <div className="container mx-auto px-4 relative z-20"
+        onMouseEnter={() => setHovering(true)}
+        onMouseLeave={() => setHovering(false)}
+      >
+        <div ref={ref} className={`text-center space-y-3 md:space-y-4 mb-8 md:mb-12 lg:mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white">
+            Dịch vụ IT <span className="text-primary">chuyên nghiệp</span>
           </h2>
+          <p className="text-base md:text-lg text-white/70 max-w-2xl mx-auto px-4">
+            Giải pháp công nghệ toàn diện từ Website, App Mobile, AI đến Đồ án CNTT
+          </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-4">
           {services.map((service, index) => (
             <div
               key={index}
-              className={`rounded-2xl border border-white/20 bg-white/10 backdrop-blur-sm p-8 shadow-lg transition-all duration-500 hover:bg-white/20 hover:shadow-2xl hover:-translate-y-2 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              className={`group rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 md:p-8 shadow-lg transition-all duration-500 hover:bg-white/10 hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/50 hover:-translate-y-2 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-white/20 text-white">
-                <service.icon className="h-7 w-7" />
+              <div className="mb-4 inline-flex h-12 w-12 md:h-14 md:w-14 items-center justify-center rounded-xl bg-primary/20 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                <service.icon className="h-6 w-6 md:h-7 md:w-7" />
               </div>
-              <h3 className="mb-3 text-xl font-bold text-white">{service.title}</h3>
-              <p className="text-white/80">{service.description}</p>
+              <h3 className="mb-2 md:mb-3 text-lg md:text-xl font-bold text-white group-hover:text-primary transition-colors">{service.title}</h3>
+              <p className="text-sm md:text-base text-white/70 leading-relaxed">{service.description}</p>
             </div>
           ))}
         </div>
