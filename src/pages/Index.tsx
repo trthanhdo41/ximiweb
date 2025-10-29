@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
 import { AIPricingSection } from "@/components/AIPricingSection";
@@ -20,10 +21,30 @@ import { XimiTechParticleSection } from "@/components/XimiTechParticleSection";
 import { Footer } from "@/components/Footer";
 import { SimpleChatBot } from "@/components/SimpleChatBot";
 import { FloatingButtons } from "@/components/FloatingButtons";
+import { Windows11LockScreen } from "@/components/Windows11LockScreen";
 
 const Index = () => {
+  const [showLockScreen, setShowLockScreen] = useState(true);
+
+  useEffect(() => {
+    const hasSeenLockScreen = sessionStorage.getItem("seenLockScreen");
+    if (hasSeenLockScreen) {
+      setShowLockScreen(false);
+    }
+  }, []);
+
+  const handleUnlock = () => {
+    setShowLockScreen(false);
+    sessionStorage.setItem("seenLockScreen", "true");
+  };
+
   return (
     <div className="min-h-screen">
+      {showLockScreen && (
+        <div onClick={handleUnlock} onKeyDown={(e) => e.key === "Enter" && handleUnlock()}>
+          <Windows11LockScreen />
+        </div>
+      )}
       <Header />
       <HeroSection />
       {/* <AIPricingSection /> */} {/* Removed - Rentino specific */}
