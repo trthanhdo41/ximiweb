@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
 import { AIPricingSection } from "@/components/AIPricingSection";
@@ -32,33 +33,49 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      {showLockScreen && (
-        <div onClick={handleUnlock} onKeyDown={(e) => e.key === "Enter" && handleUnlock()}>
-          <Windows11LockScreen />
-        </div>
-      )}
-      <Header />
-      <HeroSection />
-      {/* <AIPricingSection /> */} {/* Removed - Rentino specific */}
-      <FeaturesGrid />
-      {/* <ProcessSection /> */} {/* Removed - Rentino specific */}
-      {/* <AppShowcase /> */} {/* Removed - Rentino app mockups */}
-      <ServicesSection />
-      <StatsHighlight />
-      <TrustSection />
-      <TestimonialsSection />
-      <CTASection />
-      <TechStack />
-      <AboutUs />
-      <StatsCharts />
-      <EmojiGame />
-      <FAQ />
-      <FeedbackSection />
-      <LocationMap />
-      <XimiTechParticleSection />
-      <Footer />
-      <SimpleChatBot />
-      <FloatingButtons />
+      <AnimatePresence mode="wait">
+        {showLockScreen && (
+          <div onClick={handleUnlock} onKeyDown={(e) => e.key === "Enter" && handleUnlock()}>
+            <Windows11LockScreen />
+          </div>
+        )}
+      </AnimatePresence>
+      
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ 
+          opacity: showLockScreen ? 0 : 1,
+          y: showLockScreen ? 20 : 0
+        }}
+        transition={{ 
+          duration: 0.8,
+          delay: showLockScreen ? 0 : 0.3,
+          ease: [0.25, 0.1, 0.25, 1]
+        }}
+      >
+        <Header />
+        <HeroSection />
+        {/* <AIPricingSection /> */} {/* Removed - Rentino specific */}
+        <FeaturesGrid />
+        {/* <ProcessSection /> */} {/* Removed - Rentino specific */}
+        {/* <AppShowcase /> */} {/* Removed - Rentino app mockups */}
+        <ServicesSection />
+        <StatsHighlight />
+        <TrustSection />
+        <TestimonialsSection />
+        <CTASection />
+        <TechStack />
+        <AboutUs />
+        <StatsCharts />
+        <EmojiGame />
+        <FAQ />
+        <FeedbackSection />
+        <LocationMap />
+        <XimiTechParticleSection />
+        <Footer />
+        <SimpleChatBot />
+        <FloatingButtons />
+      </motion.div>
     </div>
   );
 };
