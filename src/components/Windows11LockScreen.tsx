@@ -6,6 +6,7 @@ export const Windows11LockScreen = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
   const [unlocked, setUnlocked] = useState(false);
+  const [isUnlocking, setIsUnlocking] = useState(false);
   const [weather, setWeather] = useState({ temp: 28, condition: "Nắng", icon: "☀️" });
   const [location, setLocation] = useState("Hồ Chí Minh");
 
@@ -35,7 +36,17 @@ export const Windows11LockScreen = () => {
 
   const handleUnlock = (e: React.FormEvent) => {
     e.preventDefault();
-    setUnlocked(true);
+    setIsUnlocking(true);
+    setTimeout(() => {
+      setUnlocked(true);
+    }, 800);
+  };
+
+  const handleInitialClick = () => {
+    setIsUnlocking(true);
+    setTimeout(() => {
+      setUnlocked(true);
+    }, 800);
   };
 
   if (unlocked) {
@@ -45,9 +56,15 @@ export const Windows11LockScreen = () => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0, scale: 1.1 }}
-      transition={{ duration: 0.5 }}
+      animate={{ 
+        opacity: 1,
+        y: isUnlocking ? "-100%" : 0
+      }}
+      exit={{ opacity: 0 }}
+      transition={{ 
+        opacity: { duration: 0.5 },
+        y: { duration: 0.8, ease: [0.32, 0.72, 0, 1] }
+      }}
       className="fixed inset-0 z-[9999] bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f3460] flex flex-col items-center justify-center"
       style={{
         backgroundImage: "url('https://phongvu.vn/cong-nghe/wp-content/uploads/2025/04/hinh-nen-win-11-1.jpg')",
@@ -60,12 +77,22 @@ export const Windows11LockScreen = () => {
       <div className="absolute inset-0 bg-black/20" />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center">
+      <motion.div 
+        className="relative z-10 flex flex-col items-center w-full h-full justify-center"
+        drag="y"
+        dragConstraints={{ top: 0, bottom: 0 }}
+        dragElastic={0.2}
+        onDragEnd={(e, info) => {
+          if (info.offset.y < -100) {
+            handleInitialClick();
+          }
+        }}
+      >
         {!showPassword ? (
           <motion.div
             initial={{ y: 0 }}
             className="text-center cursor-pointer"
-            onClick={() => setShowPassword(true)}
+            onClick={handleInitialClick}
           >
             {/* Time */}
             <motion.div
@@ -115,12 +142,22 @@ export const Windows11LockScreen = () => {
 
             {/* Hint */}
             <motion.div
-              className="mt-12 text-lg text-white/70"
+              className="mt-12 flex flex-col items-center gap-3"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7 }}
             >
-              Nhấp vào bất kỳ đâu để tiếp tục
+              <motion.div
+                animate={{ y: [0, 10, 0] }}
+                transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+              >
+                <svg className="w-8 h-8 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                </svg>
+              </motion.div>
+              <p className="text-lg text-white/70">
+                Vuốt lên hoặc nhấp để mở khóa
+              </p>
             </motion.div>
           </motion.div>
         ) : (
@@ -179,7 +216,7 @@ export const Windows11LockScreen = () => {
             </p>
           </motion.div>
         )}
-      </div>
+      </motion.div>
 
       {/* Bottom Bar */}
       <div className="absolute bottom-8 right-8 flex items-center gap-6 text-white/70">
