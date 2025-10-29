@@ -190,3 +190,37 @@ All colors MUST be HSL.
   width: 100% !important;
   height: 100% !important;
 }
+
+/* Custom Scrollbar - Cyan Theme */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(220 40% 15%);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, hsl(195 100% 50%), hsl(200 90% 55%));
+  border-radius: 10px;
+  border: 2px solid hsl(220 40% 15%);
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, hsl(195 100% 60%), hsl(200 90% 65%));
+  border-color: hsl(220 40% 10%);
+  box-shadow: 0 0 10px hsl(195 100% 50% / 0.5);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, hsl(195 100% 70%), hsl(200 90% 75%));
+}
+
+/* Firefox Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(195 100% 50%) hsl(220 40% 15%);
+}
