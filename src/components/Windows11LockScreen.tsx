@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-export const Windows11LockScreen = () => {
+interface Windows11LockScreenProps {
+  onUnlock?: () => void;
+}
+
+export const Windows11LockScreen = ({ onUnlock }: Windows11LockScreenProps) => {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
-  const [unlocked, setUnlocked] = useState(false);
   const [isUnlocking, setIsUnlocking] = useState(false);
   const [weather, setWeather] = useState({ temp: 28, condition: "Nắng", icon: "☀️" });
   const [location, setLocation] = useState("Hồ Chí Minh");
@@ -38,20 +41,16 @@ export const Windows11LockScreen = () => {
     e.preventDefault();
     setIsUnlocking(true);
     setTimeout(() => {
-      setUnlocked(true);
+      onUnlock?.();
     }, 800);
   };
 
   const handleInitialClick = () => {
     setIsUnlocking(true);
     setTimeout(() => {
-      setUnlocked(true);
+      onUnlock?.();
     }, 800);
   };
-
-  if (unlocked) {
-    return null;
-  }
 
   return (
     <motion.div
@@ -66,11 +65,14 @@ export const Windows11LockScreen = () => {
         y: { duration: 0.8, ease: [0.32, 0.72, 0, 1] }
       }}
       className="fixed inset-0 z-[9999] bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f3460] flex flex-col items-center justify-center"
+      onClick={handleInitialClick}
       style={{
         backgroundImage: "url('https://phongvu.vn/cong-nghe/wp-content/uploads/2025/04/hinh-nen-win-11-1.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         fontFamily: "'Segoe UI Variable Display', 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
+        cursor: "pointer",
+        touchAction: "none",
       }}
     >
       {/* Overlay */}
@@ -81,9 +83,10 @@ export const Windows11LockScreen = () => {
         className="relative z-10 flex flex-col items-center w-full h-full justify-center"
         drag="y"
         dragConstraints={{ top: 0, bottom: 0 }}
-        dragElastic={0.2}
+        dragElastic={0.3}
+        dragMomentum={false}
         onDragEnd={(e, info) => {
-          if (info.offset.y < -100) {
+          if (info.offset.y < -50) {
             handleInitialClick();
           }
         }}

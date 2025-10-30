@@ -35,9 +35,7 @@ const Index = () => {
     <div className="min-h-screen">
       <AnimatePresence mode="wait">
         {showLockScreen && (
-          <div onClick={handleUnlock} onKeyDown={(e) => e.key === "Enter" && handleUnlock()}>
-            <Windows11LockScreen />
-          </div>
+          <Windows11LockScreen onUnlock={handleUnlock} />
         )}
       </AnimatePresence>
       
