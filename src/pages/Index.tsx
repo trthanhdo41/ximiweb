@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
 import { AIPricingSection } from "@/components/AIPricingSection";
@@ -22,38 +20,10 @@ import { XimiTechParticleSection } from "@/components/XimiTechParticleSection";
 import { Footer } from "@/components/Footer";
 import { SimpleChatBot } from "@/components/SimpleChatBot";
 import { FloatingButtons } from "@/components/FloatingButtons";
-import { Windows11LockScreen } from "@/components/Windows11LockScreen";
 
 const Index = () => {
-  const [showLockScreen, setShowLockScreen] = useState(true);
-
-  const handleUnlock = () => {
-    setShowLockScreen(false);
-  };
-
   return (
     <div className="min-h-screen">
-      <AnimatePresence mode="wait">
-        {showLockScreen && (
-          <Windows11LockScreen onUnlock={handleUnlock} />
-        )}
-      </AnimatePresence>
-      
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ 
-          opacity: showLockScreen ? 0 : 1,
-          y: showLockScreen ? 20 : 0
-        }}
-        transition={{ 
-          duration: 0.8,
-          delay: showLockScreen ? 0 : 0.3,
-          ease: [0.25, 0.1, 0.25, 1]
-        }}
-        style={{
-          pointerEvents: showLockScreen ? "none" : "auto"
-        }}
-      >
         <Header />
         <HeroSection />
         {/* <AIPricingSection /> */} {/* Removed - Rentino specific */}
@@ -76,7 +46,6 @@ const Index = () => {
         <Footer />
         <SimpleChatBot />
         <FloatingButtons />
-      </motion.div>
     </div>
   );
 };

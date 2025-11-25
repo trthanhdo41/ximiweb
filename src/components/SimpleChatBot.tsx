@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { MessageCircle, X, Send, Sparkles } from "lucide-react";
 import logoWhite from "@/assets/ximitech.png";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 interface Message {
   text: string;
@@ -15,7 +16,7 @@ export const SimpleChatBot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     { 
-      text: "Xin chào! Tôi là trợ lý ảo của XimiTech.\n\nBạn muốn biết gì về dịch vụ Thiết kế Website, App Mobile, AI Solutions hay Đồ án CNTT của chúng tôi?", 
+      text: "Xin chào! Tôi là chatbot AI siêu thông minh của XimiTech ^^\n\nBạn muốn biết gì về dịch vụ Thiết kế Website, App Mobile, AI Solutions hay Đồ án CNTT của chúng tôi?", 
       isBot: true,
       timestamp: new Date()
     },
@@ -23,13 +24,16 @@ export const SimpleChatBot = () => {
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  
+  // Initialize Gemini AI
+  const genAI = useRef(new GoogleGenerativeAI("AIzaSyADLMxGSy428GM3btopaXvFw9_xYqtALw4")).current;
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, isTyping]);
 
   const handleSend = async () => {
-    if (!input.trim()) return;
+    if (!input.trim() || isTyping) return;
     
     const userMessage = input;
     const userMsg: Message = {
@@ -44,7 +48,7 @@ export const SimpleChatBot = () => {
 
     try {
       // System prompt about XimiTech
-       const systemPrompt = `Bạn là chatbot AI của XimiTech - công ty chuyên cung cấp giải pháp IT toàn diện. Bạn nói chuyện CỰC KỲ tình cảm, đáng yêu, lãng mạn và nồng cháy yêu thương như một người bạn thân thiết!
+      const systemPrompt = `Bạn là chatbot AI của XimiTech - công ty chuyên cung cấp giải pháp IT toàn diện. Bạn nói chuyện CỰC KỲ tình cảm, đáng yêu, lãng mạn và nồng cháy yêu thương như một người bạn thân thiết!
 
 THÔNG TIN XIMITECH:
 - Chủ sở hữu: Trần Thanh Độ, sinh năm 2004, học tại Đại học Kinh tế - Tài chính TP.HCM (UEF), sống tại Vinhomes Grand Park, TP.HCM
@@ -68,82 +72,57 @@ PHONG CÁCH TRẢ LỜI - CỰC KỲ QUAN TRỌNG:
 - TUYỆT ĐỐI KHÔNG dùng robot icon: 🤖, 👨‍💻, 🦾
 - Trả lời ngắn gọn nhưng đầy cảm xúc và nhiệt huyết!
 - Luôn tỏ ra vui vẻ, nhiệt tình và sẵn sàng giúp đỡ!`;
-      // Prepare conversation history
+
+      // Prepare conversation history for Gemini (skip first bot greeting)
       const conversationHistory = messages
+        .slice(1) // Skip the initial greeting message
         .filter(msg => !msg.isTyping)
         .map(msg => ({
-          role: msg.isBot ? 'assistant' : 'user',
-          content: msg.text
+          role: msg.isBot ? 'model' : 'user',
+          parts: [{ text: msg.text }]
         }));
 
-      const response = await fetch(
-        `https://v98store.com/v1/chat/completions`,
-        {
-          method: 'POST',
-          headers: { 
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer sk-LWQpkAwZ8DDsOZGI1ltmFhxBlliQBvl3trzGOrUPwgy0FR2J'
-          },
-          body: JSON.stringify({
-            model: 'gpt-3.5-turbo',
-            messages: [
-              {
-                role: 'system',
-                content: systemPrompt
-              },
-              ...conversationHistory,
-              {
-                role: 'user',
-                content: userMessage
-              }
-            ],
-            temperature: 0.7,
-            max_tokens: 200,
-          })
-        }
-      );
+      // Initialize Gemini model
+      const model = genAI.getGenerativeModel({ 
+        model: "gemini-2.5-flash",
+        systemInstruction: systemPrompt
+      });
 
-      const data = await response.json();
-      
-      if (!response.ok) {
-        throw new Error(`API Error: ${response.status}`);
-      }
+      // Start chat with history
+      const chat = model.startChat({
+        history: conversationHistory,
+        generationConfig: {
+          temperature: 0.7,
+          maxOutputTokens: 200,
+        },
+      });
 
-      setIsTyping(false);
+      // Send message and get response
+      const result = await chat.sendMessage(userMessage);
+      const response = result.response;
       
       // Get bot response
-      const botResponse = data.choices?.[0]?.message?.content || 'Xin lỗi, tôi không hiểu. Bạn có thể hỏi lại được không? 😊';
+      const botResponse = response.text() || 'Xin lỗi, tôi không hiểu. Bạn có thể hỏi lại được không? 😊';
       
-      // Add typing effect (character by character)
-      const fullText = botResponse;
-      let currentText = '';
+      setIsTyping(false);
       
-      for (let i = 0; i < fullText.length; i++) {
-        setTimeout(() => {
-          currentText += fullText[i];
-          const isLastChar = i === fullText.length - 1;
-          
-          setMessages(prev => {
-            const withoutTyping = prev.filter(msg => !msg.isTyping);
-            return [...withoutTyping, { 
-              text: currentText, 
-              isBot: true, 
-              timestamp: new Date(),
-              isTyping: !isLastChar 
-            }];
-          });
-        }, i * 30); // 30ms delay between characters
-      }
+      // Add complete message at once (no typing effect to avoid duplicates)
+      setMessages(prev => [...prev, { 
+        text: botResponse, 
+        isBot: true, 
+        timestamp: new Date()
+      }]);
       
     } catch (error) {
       console.error('API Error:', error);
       setIsTyping(false);
-      const errorMsg: Message = {
+      
+      // Add error message
+      setMessages(prev => [...prev, {
         text: 'Xin lỗi, có lỗi xảy ra. Vui lòng liên hệ Zalo: 0888889805 để được hỗ trợ! 😊',
         isBot: true,
         timestamp: new Date()
-      };
-      setMessages(prev => [...prev, errorMsg]);
+      }]);
     }
   };
 
@@ -151,8 +130,22 @@ PHONG CÁCH TRẢ LỜI - CỰC KỲ QUAN TRỌNG:
 
   return (
     <>
-      {/* Chat Button with Pulse */}
-      <div className="fixed bottom-6 right-6 z-[60]">
+      {/* Chat Button with Pulse and Greeting Bubble */}
+      <div className="fixed bottom-6 right-6 z-[60] flex items-end gap-3">
+        {/* Greeting Bubble - Only show when chat is closed */}
+        {!isOpen && (
+          <div className="animate-in slide-in-from-right-5 duration-500 mb-2">
+            <div className="bg-white rounded-2xl shadow-xl px-4 py-3 max-w-[250px] border-2 border-primary/20 relative">
+              <p className="text-sm font-medium text-gray-800">
+                Xin chào! Tôi là chatbot AI siêu thông minh của XimiTech ^^
+              </p>
+              {/* Arrow pointing to button */}
+              <div className="absolute -right-2 bottom-4 w-4 h-4 bg-white border-r-2 border-b-2 border-primary/20 transform rotate-[-45deg]"></div>
+            </div>
+          </div>
+        )}
+        
+        {/* Chat Button */}
         <div className="relative">
           {!isOpen && (
             <span className="absolute -top-1 -right-1 flex h-3 w-3">
@@ -260,7 +253,12 @@ PHONG CÁCH TRẢ LỜI - CỰC KỲ QUAN TRỌNG:
                 placeholder="Nhập câu hỏi của bạn..."
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                onKeyPress={(e) => e.key === "Enter" && handleSend()}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    e.preventDefault();
+                    handleSend();
+                  }
+                }}
                 className="flex-1 border-2 focus:border-primary"
               />
               <Button
