@@ -101,7 +101,7 @@ export const FeedbackSection = () => {
                 <Input
                   id="name"
                   type="text"
-                  placeholder="Nguyễn Văn A"
+                  placeholder="Nhập họ và tên của bạn"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   className="h-12"
@@ -116,7 +116,7 @@ export const FeedbackSection = () => {
                 <Input
                   id="email"
                   type="email"
-                  placeholder="email@example.com"
+                  placeholder="Nhập email của bạn"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="h-12"
