@@ -51,7 +51,7 @@ export const Footer = () => {
                   size="icon" 
                   variant="ghost" 
                   className="h-10 w-10 rounded-full bg-white/5 hover:bg-primary/20 hover:text-primary transition-all border border-white/10"
-                  onClick={() => window.open('https://facebook.com/ximiweb', '_blank')}
+                  onClick={() => window.open('https://facebook.com/ximitech', '_blank')}
                 >
                   <Facebook className="h-4 w-4" />
                 </Button>
@@ -67,7 +67,7 @@ export const Footer = () => {
                   size="icon" 
                   variant="ghost" 
                   className="h-10 w-10 rounded-full bg-white/5 hover:bg-primary/20 hover:text-primary transition-all border border-white/10"
-                  onClick={() => window.open('https://youtube.com/@ximiweb', '_blank')}
+                  onClick={() => window.open('https://youtube.com/@ximitech', '_blank')}
                 >
                   <Youtube className="h-4 w-4" />
                 </Button>

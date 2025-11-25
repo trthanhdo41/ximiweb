@@ -3,8 +3,8 @@ import { Award, Clock, Shield, Sparkles, Trophy, Star, Gem } from "lucide-react"
 const timeline = [
   {
     year: "2022",
-    title: "Thành lập XimiWeb",
-    desc: "Bắt đầu với đam mê công nghệ, chuyên thiết kế website cho doanh nghiệp nhỏ"
+    title: "Thành lập XimiTech",
+    desc: "Bắt đầu với đam mê công nghệ, chuyên cung cấp giải pháp công nghệ toàn diện"
   },
   {
     year: "2023",
@@ -52,7 +52,7 @@ export const AboutUs = () => {
             Về chúng tôi
           </h2>
           <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-            XimiWeb - Kỹ sư phần mềm đáng tin cậy với hơn 3 năm kinh nghiệm
+            XimiTech - Giải pháp công nghệ toàn diện với hơn 3 năm kinh nghiệm
           </p>
         </div>
 
@@ -64,8 +64,8 @@ export const AboutUs = () => {
             </h3>
             <div className="space-y-4 text-gray-300 leading-relaxed">
               <p>
-                XimiWeb được thành lập năm 2022 bởi một kỹ sư phần mềm có đam mê với công nghệ. 
-                Với kinh nghiệm 3+ năm trong lĩnh vực phát triển web và mobile app, tôi cam kết 
+                XimiTech được thành lập năm 2022 bởi một kỹ sư phần mềm có đam mê với công nghệ. 
+                Với kinh nghiệm 3+ năm trong lĩnh vực phát triển web, mobile app và AI, chúng tôi cam kết 
                 mang đến những giải pháp công nghệ hiện đại và hiệu quả cho doanh nghiệp.
               </p>
               <p>
