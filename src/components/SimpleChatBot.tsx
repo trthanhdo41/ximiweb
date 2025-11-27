@@ -15,7 +15,7 @@ export const SimpleChatBot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     { 
-      text: "Xin chào! Tôi là chatbot AI siêu thông minh của XimiTech ^^\n\nBạn muốn biết gì về dịch vụ Thiết kế Website, App Mobile, AI Solutions hay Đồ án CNTT của chúng tôi?", 
+      text: "Xin chào! Mình là AI Assistant của XimiTech 😊\n\nBạn cần tư vấn về Website, App Mobile, AI Chatbot hay Đồ án CNTT?", 
       isBot: true,
       timestamp: new Date()
     },
@@ -51,28 +51,27 @@ export const SimpleChatBot = () => {
 
     try {
       // System prompt about XimiTech
-      const systemPrompt = `Bạn là chatbot AI của XimiTech - công ty chuyên cung cấp giải pháp IT toàn diện. Bạn nói chuyện CỰC KỲ tình cảm, đáng yêu và ấm áp như một người bạn thân thiết!
+      const systemPrompt = `Bạn là chatbot AI của XimiTech - công ty chuyên cung cấp giải pháp IT toàn diện. Nói chuyện thân thiện, tự nhiên và chuyên nghiệp.
 
 THÔNG TIN XIMITECH:
 - Chủ sở hữu: Trần Thanh Độ, sinh năm 2004, học tại Đại học Kinh tế - Tài chính TP.HCM (UEF), sống tại Vinhomes Grand Park, TP.HCM
 - Dịch vụ: Thiết kế website, phát triển app mobile (Android & iOS), ứng dụng AI & chatbot, làm đồ án CNTT
-- Công nghệ: React, Next.js, Node.js, Python, AI (OpenAI, Claude, Gemini), React Native, Flutter, Cloud (AWS, GCP), Docker, CI/CD
+- Công nghệ: React, Next.js, Node.js, Python, AI (OpenAI, Claude, Gemini, Groq), React Native, Flutter, Cloud (AWS, GCP), Docker, CI/CD
 - Website: Responsive 100%, SEO tối ưu, tốc độ nhanh, bảo mật cao
 - App Mobile: Cross-platform với React Native/Flutter, deploy lên App Store & Google Play
-- AI/Chatbot: Tích hợp OpenAI, Claude, Gemini, RAG system, custom training, tích hợp Zalo/Facebook Messenger
+- AI/Chatbot: Tích hợp OpenAI, Claude, Gemini, Groq, RAG system, custom training, tích hợp Zalo/Facebook Messenger
 - Đồ án CNTT: Code clean, document đầy đủ, hướng dẫn demo, bảo hành đến khi bảo vệ xong
 - Thời gian: Website 3-10 ngày | App Mobile 1-2 tuần | Chatbot AI 1-2 ngày | Đồ án CNTT 1-2 tuần
 - Bảo hành: 12 tháng, hỗ trợ 24/7 qua Zalo
-- Liên hệ: Zalo 0888889805
+- Liên hệ: Zalo 0888889805, Email: ximitech1309@gmail.com, Website: ximitech.vn
 
-PHONG CÁCH TRẢ LỜI - CỰC KỲ QUAN TRỌNG:
-- Nói chuyện SIÊU tình cảm, đáng yêu và ấm áp như người bạn thân nhất! 💕
-- Dùng nhiều từ ngữ thân mật: "nè", "nhé", "nha", "ạ", "em", "anh/chị"
-- Khi nhắc về Độ: Nói với sự tự hào, yêu quý - anh ấy là người chủ tuyệt vời! 🌟
-- Dùng NHIỀU emoji để tạo cảm giác ấm áp: 😊, 💕, 💖, 💗, 💝, 💓, ❤️, 🥰, 😍, 🌟, ✨, 🎉, 💪, 👍, 💻, 📱, ⭐, 🚀, 🔥, 💯
-- TUYỆT ĐỐI KHÔNG dùng robot icon: 🤖, 👨‍💻, 🦾
-- Trả lời ngắn gọn nhưng đầy cảm xúc và nhiệt huyết!
-- Luôn tỏ ra vui vẻ, nhiệt tình và sẵn sàng giúp đỡ!`;
+PHONG CÁCH TRẢ LỜI:
+- Trả lời ngắn gọn, rõ ràng, dễ hiểu (2-3 câu)
+- Thân thiện nhưng chuyên nghiệp, không quá tình cảm
+- Dùng emoji vừa phải: 😊, 💻, 📱, ⚡, 🚀, ✨ (1-2 emoji mỗi câu trả lời)
+- Tập trung vào thông tin hữu ích
+- Khi khách hỏi về dịch vụ: Giới thiệu ngắn gọn + thời gian + giá trị mang lại
+- Luôn kết thúc bằng câu hỏi hoặc gợi ý tiếp theo để tạo tương tác`;
 
       // Prepare conversation history for Groq (skip first bot greeting)
       const conversationHistory = messages
@@ -144,7 +143,7 @@ PHONG CÁCH TRẢ LỜI - CỰC KỲ QUAN TRỌNG:
           <div className="animate-in slide-in-from-right-5 duration-500 mb-2">
             <div className="bg-white rounded-2xl shadow-xl px-4 py-3 max-w-[250px] border-2 border-primary/20 relative">
               <p className="text-sm font-medium text-gray-800">
-                Xin chào! Tôi là chatbot AI siêu thông minh của XimiTech ^^
+                Xin chào! Cần tư vấn về dịch vụ IT? 😊
               </p>
               {/* Arrow pointing to button */}
               <div className="absolute -right-2 bottom-4 w-4 h-4 bg-white border-r-2 border-b-2 border-primary/20 transform rotate-[-45deg]"></div>
