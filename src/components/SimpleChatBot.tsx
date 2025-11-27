@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { MessageCircle, X, Send, Sparkles } from "lucide-react";
 import logoWhite from "@/assets/ximitech.png";
-import { GoogleGenerativeAI } from "@google/generative-ai";
 
 interface Message {
   text: string;
@@ -25,8 +24,9 @@ export const SimpleChatBot = () => {
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   
-  // Initialize Gemini AI
-  const genAI = useRef(new GoogleGenerativeAI("AIzaSyADLMxGSy428GM3btopaXvFw9_xYqtALw4")).current;
+  // Groq API Configuration
+  const GROQ_API_KEY = import.meta.env.VITE_GROQ_API_KEY || "";
+  const GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions";
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -74,36 +74,42 @@ PHONG CÁCH TRẢ LỜI - CỰC KỲ QUAN TRỌNG:
 - Trả lời ngắn gọn nhưng đầy cảm xúc và nhiệt huyết!
 - Luôn tỏ ra vui vẻ, nhiệt tình và sẵn sàng giúp đỡ!`;
 
-      // Prepare conversation history for Gemini (skip first bot greeting)
+      // Prepare conversation history for Groq (skip first bot greeting)
       const conversationHistory = messages
         .slice(1) // Skip the initial greeting message
         .filter(msg => !msg.isTyping)
         .map(msg => ({
-          role: msg.isBot ? 'model' : 'user',
-          parts: [{ text: msg.text }]
+          role: msg.isBot ? 'assistant' : 'user',
+          content: msg.text
         }));
 
-      // Initialize Gemini model
-      const model = genAI.getGenerativeModel({ 
-        model: "gemini-2.5-flash",
-        systemInstruction: systemPrompt
-      });
-
-      // Start chat with history
-      const chat = model.startChat({
-        history: conversationHistory,
-        generationConfig: {
-          temperature: 0.7,
-          maxOutputTokens: 200,
+      // Call Groq API
+      const response = await fetch(GROQ_API_URL, {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${GROQ_API_KEY}`,
+          "Content-Type": "application/json"
         },
+        body: JSON.stringify({
+          model: "llama-3.3-70b-versatile",
+          messages: [
+            { role: "system", content: systemPrompt },
+            ...conversationHistory,
+            { role: "user", content: userMessage }
+          ],
+          temperature: 0.7,
+          max_tokens: 200
+        })
       });
 
-      // Send message and get response
-      const result = await chat.sendMessage(userMessage);
-      const response = result.response;
+      if (!response.ok) {
+        throw new Error(`API Error: ${response.status}`);
+      }
+
+      const data = await response.json();
       
       // Get bot response
-      const botResponse = response.text() || 'Xin lỗi, tôi không hiểu. Bạn có thể hỏi lại được không? 😊';
+      const botResponse = data.choices[0]?.message?.content || 'Xin lỗi, tôi không hiểu. Bạn có thể hỏi lại được không? 😊';
       
       setIsTyping(false);
       

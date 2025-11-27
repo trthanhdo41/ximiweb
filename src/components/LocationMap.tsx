@@ -62,10 +62,10 @@ export const LocationMap = () => {
                   <div>
                     <h4 className="font-semibold text-white mb-1">Email</h4>
                     <a 
-                      href="mailto:contact@ximitech.io.vn" 
+                      href="mailto:ximitech1309@gmail.com" 
                       className="text-primary hover:text-cyan-400 transition-colors"
                     >
-                      contact@ximitech.io.vn
+                      ximitech1309@gmail.com
                     </a>
                   </div>
                 </div>
@@ -77,12 +77,12 @@ export const LocationMap = () => {
                   <div>
                     <h4 className="font-semibold text-white mb-1">Website</h4>
                     <a 
-                      href="https://ximitech.io.vn" 
+                      href="https://ximitech.vn" 
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-primary hover:text-cyan-400 transition-colors"
                     >
-                      https://ximitech.io.vn
+                      https://ximitech.vn
                     </a>
                   </div>
                 </div>

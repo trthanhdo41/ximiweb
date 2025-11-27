@@ -110,7 +110,7 @@ export const Footer = () => {
                 </a>
 
                 <a 
-                  href="mailto:contact@ximitech.io.vn" 
+                  href="mailto:ximitech1309@gmail.com" 
                   className="flex items-center gap-3 text-white/70 hover:text-primary transition-colors group"
                 >
                   <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
@@ -118,7 +118,7 @@ export const Footer = () => {
                   </div>
                   <div>
                     <div className="text-xs text-white/50">Email</div>
-                    <div className="text-sm font-medium">contact@ximitech.io.vn</div>
+                    <div className="text-sm font-medium">ximitech1309@gmail.com</div>
                   </div>
                 </a>
 
