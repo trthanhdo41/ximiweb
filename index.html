@@ -8,10 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#00d4ff" />
     
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    
     <!-- SEO Meta Tags -->
     <title>XimiTech - Giải pháp công nghệ toàn diện | Website, App Mobile, AI Solutions</title>
     <meta name="description" content="XimiTech - Chuyên cung cấp giải pháp công nghệ toàn diện: Thiết kế Website chuyên nghiệp, phát triển App Mobile (iOS/Android), tích hợp AI & Chatbot thông minh, làm đồ án CNTT. Công nghệ hiện đại, giá cả hợp lý, hỗ trợ 24/7." />
-    <meta name="keywords" content="XimiTech, giải pháp công nghệ, thiết kế website, phát triển app mobile, ứng dụng di động, iOS app, Android app, React Native, Flutter, AI solutions, chatbot AI, Gemini AI, OpenAI, Claude AI, đồ án CNTT, web development, mobile development, AI integration, responsive design, SEO optimization, Zalo chatbot, Facebook Messenger bot, automation, cloud solutions, AWS, GCP, Docker, CI/CD" />
+    <meta name="keywords" content="thiết kế website, phát triển app mobile, ứng dụng di động, chatbot AI, đồ án CNTT, XimiTech, làm website giá rẻ, thiết kế web chuyên nghiệp, app iOS Android, React Native, Flutter, OpenAI, Claude AI, Gemini AI, web development Vietnam, mobile app development, AI integration, chatbot Zalo, Facebook Messenger bot, làm đồ án tốt nghiệp, website bán hàng, landing page, SEO optimization, responsive design, TP.HCM, Thủ Đức, Vinhomes Grand Park" />
     <meta name="author" content="XimiTech" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="language" content="Vietnamese" />
@@ -42,6 +48,9 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://ximitech.vn/" />
     
+    <!-- Sitemap -->
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+    
     <!-- Mobile -->
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -69,6 +78,160 @@
         "telephone": "+84-888-889-805",
         "contactType": "customer service",
         "availableLanguage": "Vietnamese"
+      },
+      "sameAs": [
+        "https://zalo.me/0888889805"
+      ]
+    }
+    </script>
+    
+    <!-- LocalBusiness Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "XimiTech",
+      "image": "https://ximitech.vn/logo512.png",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Toà BE1 Vinhome Grand Park",
+        "addressLocality": "TP. Thủ Đức",
+        "addressRegion": "Hồ Chí Minh",
+        "addressCountry": "VN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 10.8231,
+        "longitude": 106.6297
+      },
+      "url": "https://ximitech.vn",
+      "telephone": "+84-888-889-805",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "00:00",
+        "closes": "23:59"
+      }
+    }
+    </script>
+    
+    <!-- Service Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Web Development & Mobile App Development",
+      "provider": {
+        "@type": "Organization",
+        "name": "XimiTech"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Vietnam"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Dịch vụ công nghệ",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Thiết kế Website chuyên nghiệp",
+              "description": "Thiết kế website responsive, hiện đại với React, Next.js, Vue.js"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Phát triển Mobile App",
+              "description": "Phát triển ứng dụng di động iOS và Android với React Native, Flutter"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Tích hợp AI & Chatbot",
+              "description": "Tích hợp AI thông minh: Gemini AI, OpenAI, Claude AI, chatbot tự động"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Làm đồ án CNTT",
+              "description": "Hỗ trợ làm đồ án tốt nghiệp, đồ án môn học CNTT"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+    
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Bạn có làm app mobile không? Công nghệ gì?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Có! Chúng tôi phát triển app Android & iOS với React Native và Flutter. Cross-platform, hiệu suất cao, tích hợp được các tính năng như AI, thanh toán, realtime... Deploy lên App Store & Google Play."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Có làm chatbot AI không? Tích hợp được những gì?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Có! Chúng tôi chuyên làm chatbot AI với OpenAI, Claude, custom training. Tích hợp vào website, Zalo, Facebook Messenger, Telegram. Có thể trả lời tự động, RAG system, phân tích dữ liệu khách hàng."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Thời gian hoàn thành dự án bao lâu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Website: 3-10 ngày | App Mobile: 1-2 tuần | Chatbot AI: 1-2 ngày | Đồ án CNTT: 1-2 tuần. Tùy độ phức tạp. Chúng tôi cam kết bàn giao đúng hẹn."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Có hỗ trợ sau bàn giao không?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Có! Bảo hành 12 tháng cho tất cả dự án. Hỗ trợ sửa lỗi, cập nhật tính năng miễn phí. Hướng dẫn sử dụng, training cho team bạn. Hotline 24/7 qua Zalo."
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- WebSite Schema for Search Box -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "XimiTech",
+      "url": "https://ximitech.vn",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://ximitech.vn/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
       }
     }
     </script>

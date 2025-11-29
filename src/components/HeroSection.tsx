@@ -50,17 +50,13 @@ export const HeroSection = () => {
             </div>
             
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-lg">
-              Thiết kế Website
-              <br />
-              <span className="inline-block mt-2">
-                Web App & Mobile App{" "}
-                <span 
-                  className={`text-primary transition-all duration-500 ${
-                    isAnimating ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
-                  }`}
-                >
-                  {currentWord}
-                </span>
+              Thiết kế Website, Web App & Mobile App{" "}
+              <span 
+                className={`text-primary transition-all duration-500 ${
+                  isAnimating ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
+                }`}
+              >
+                {currentWord}
               </span>
             </h1>
             
