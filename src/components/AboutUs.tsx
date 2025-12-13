@@ -13,8 +13,8 @@ const timeline = [
   },
   {
     year: "2025",
-    title: "Đạt 50+ dự án",
-    desc: "Hoàn thành hơn 50 dự án thành công, xây dựng uy tín trong ngành"
+    title: "Đạt 200+ dự án",
+    desc: "Hoàn thành hơn 200 dự án thành công, xây dựng uy tín trong ngành"
   }
 ];
 
@@ -22,7 +22,7 @@ const advantages = [
   {
     icon: Award,
     title: "Kỹ sư chuyên nghiệp",
-    desc: "3+ năm kinh nghiệm, chuyên môn sâu về web và mobile app"
+    desc: "4+ năm kinh nghiệm, chuyên môn sâu về web và mobile app"
   },
   {
     icon: Clock,
@@ -38,7 +38,7 @@ const advantages = [
 
 export const AboutUs = () => {
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-secondary/30 relative overflow-hidden">
+    <section id="about" className="py-12 md:py-16 lg:py-20 bg-secondary/30 relative overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-cyan-500/5 pointer-events-none"></div>
       
@@ -52,11 +52,41 @@ export const AboutUs = () => {
             Về chúng tôi
           </h2>
           <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-            XimiTech - Giải pháp công nghệ toàn diện với hơn 3 năm kinh nghiệm
+            XimiTech - Giải pháp công nghệ toàn diện với hơn 4 năm kinh nghiệm
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+        {/* Profile Image */}
+        <div className="flex justify-center mb-12">
+          <div className="relative group w-full max-w-xs">
+            <div className="absolute -inset-1 bg-gradient-to-r from-primary to-cyan-500 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
+            <div className="relative bg-background/80 backdrop-blur-sm border-2 border-primary/30 rounded-2xl p-4 group-hover:border-primary/60 transition-all">
+              <div className="w-full aspect-square rounded-xl overflow-hidden bg-gradient-to-br from-primary/20 to-cyan-500/20 flex items-center justify-center">
+                <img
+                  src="/profile.png"
+                  alt="Trần Thanh Độ - Founder XimiTech"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="mt-4 text-center">
+                <h4 className="text-xl font-bold text-white mb-1">Trần Thanh Độ</h4>
+                <p className="text-primary font-semibold mb-3">Founder & CEO</p>
+                <div className="flex items-center justify-center gap-4 text-sm text-gray-400">
+                  <div className="flex items-center gap-1">
+                    <Trophy className="h-4 w-4 text-primary" />
+                    <span>4+ năm</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Star className="h-4 w-4 text-primary" />
+                    <span>200+ dự án</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
           {/* Story */}
           <div className="space-y-6">
             <h3 className="text-2xl md:text-3xl font-bold text-white">
@@ -64,16 +94,23 @@ export const AboutUs = () => {
             </h3>
             <div className="space-y-4 text-gray-300 leading-relaxed">
               <p>
-                XimiTech được thành lập năm 2022 bởi một kỹ sư phần mềm có đam mê với công nghệ. 
-                Với kinh nghiệm 3+ năm trong lĩnh vực phát triển web, mobile app và AI, chúng tôi cam kết 
-                mang đến những giải pháp công nghệ hiện đại và hiệu quả cho doanh nghiệp.
+                Xin chào, tôi là <span className="text-primary font-semibold">Trần Thanh Độ</span> - 
+                Founder & CEO của XimiTech. Tôi tốt nghiệp ngành Công nghệ Thông tin và có đam mê mãnh liệt 
+                với lập trình và công nghệ từ những ngày còn ngồi trên ghế nhà trường.
               </p>
               <p>
-                Với hơn 50 dự án thành công và khách hàng tin tưởng, tôi cam kết mang đến chất 
-                lượng tốt nhất với giá cả cạnh tranh. Phương châm của tôi:{" "}
+                XimiTech được thành lập năm 2022 với sứ mệnh mang đến những giải pháp công nghệ 
+                hiện đại, chất lượng cao cho doanh nghiệp Việt Nam. Với kinh nghiệm 4+ năm trong lĩnh vực 
+                phát triển web, mobile app và AI, tôi đã hoàn thành hơn 200 dự án thành công cho khách hàng 
+                từ cá nhân đến doanh nghiệp.
+              </p>
+              <p>
+                Phương châm làm việc của tôi:{" "}
                 <span className="text-primary font-semibold">
                   "Chất lượng hơn số lượng, khách hàng là trung tâm"
-                </span>.
+                </span>. 
+                Tôi tin rằng mỗi dự án không chỉ là code, mà là giải pháp giúp khách hàng phát triển 
+                và thành công trong kỷ nguyên số.
               </p>
             </div>
           </div>

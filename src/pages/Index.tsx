@@ -6,7 +6,6 @@ import { ProcessSection } from "@/components/ProcessSection";
 import { AppShowcase } from "@/components/AppShowcase";
 import { ServicesSection } from "@/components/ServicesSection";
 import { StatsHighlight } from "@/components/StatsHighlight";
-import { TrustSection } from "@/components/TrustSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { CTASection } from "@/components/CTASection";
 import { FeedbackSection } from "@/components/FeedbackSection";
@@ -20,22 +19,25 @@ import { XimiTechParticleSection } from "@/components/XimiTechParticleSection";
 import { Footer } from "@/components/Footer";
 import { SimpleChatBot } from "@/components/SimpleChatBot";
 import { FloatingButtons } from "@/components/FloatingButtons";
+import { WordCloudSection } from "@/components/WordCloudSection";
+import { PricingTable } from "@/components/PricingTable";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
         <Header />
         <HeroSection />
+        <WordCloudSection />
         {/* <AIPricingSection /> */} {/* Removed - Rentino specific */}
-        <FeaturesGrid />
+        {/* <FeaturesGrid /> */} {/* Removed - Duplicate content */}
         {/* <ProcessSection /> */} {/* Removed - Rentino specific */}
         {/* <AppShowcase /> */} {/* Removed - Rentino app mockups */}
         <ServicesSection />
         <StatsHighlight />
-        <TrustSection />
         <TestimonialsSection />
         <CTASection />
         <TechStack />
+        <PricingTable />
         <AboutUs />
         <StatsCharts />
         <EmojiGame />

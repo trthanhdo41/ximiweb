@@ -11,6 +11,7 @@ export const Header = () => {
     { label: "Dịch vụ", href: "#services" },
     { label: "Về chúng tôi", href: "#about" },
     { label: "Công nghệ", href: "#tech" },
+    { label: "Bảng giá", href: "#pricing" },
     { label: "Dự án", href: "#projects" },
     { label: "Đánh giá", href: "#testimonials" },
     { label: "FAQ", href: "#faq" },

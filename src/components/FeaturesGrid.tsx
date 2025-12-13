@@ -43,15 +43,7 @@ export const FeaturesGrid = () => {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(0,128,128,0.05),transparent_50%)]"></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div ref={ref} className={`text-center space-y-3 md:space-y-4 mb-8 md:mb-12 lg:mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
-            Vì sao nên chọn{" "}
-            <span className="text-primary">XimiTech?</span>
-          </h2>
-          <p className="text-sm md:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
-            6 lý do khiến khách hàng tin tưởng và lựa chọn XimiTech cho dự án của họ
-          </p>
-        </div>
+
 
         <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, index) => (

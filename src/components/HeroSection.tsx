@@ -20,8 +20,8 @@ export const HeroSection = () => {
     30
   );
 
-  const count1 = useCountUp(50, 2000, isVisible);
-  const count2 = useCountUp(3, 2000, isVisible);
+  const count1 = useCountUp(300, 2000, isVisible);
+  const count2 = useCountUp(4, 2000, isVisible);
   const count3 = useCountUp(100, 2000, isVisible);
   
   const stats = [

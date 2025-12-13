@@ -6,7 +6,7 @@ export const StatsHighlight = () => {
   const { ref, isVisible } = useScrollAnimation();
   
   const count1 = useCountUp(205, 2000, isVisible);
-  const count2 = useCountUp(3, 2000, isVisible);
+  const count2 = useCountUp(4, 2000, isVisible);
   const count3 = useCountUp(99, 2000, isVisible);
   
   const highlights = [

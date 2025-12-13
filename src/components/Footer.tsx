@@ -36,11 +36,11 @@ export const Footer = () => {
               {/* Stats */}
               <div className="flex gap-8">
                 <div>
-                  <div className="text-2xl font-bold text-primary">205+</div>
+                  <div className="text-2xl font-bold text-primary">200+</div>
                   <div className="text-xs text-white/60">Dự án hoàn thành</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-primary">3+</div>
+                  <div className="text-2xl font-bold text-primary">4+</div>
                   <div className="text-xs text-white/60">Năm kinh nghiệm</div>
                 </div>
               </div>
@@ -51,7 +51,7 @@ export const Footer = () => {
                   size="icon" 
                   variant="ghost" 
                   className="h-10 w-10 rounded-full bg-white/5 hover:bg-primary/20 hover:text-primary transition-all border border-white/10"
-                  onClick={() => window.open('https://facebook.com/ximitech', '_blank')}
+                  onClick={() => window.open('https://facebook.com/tksdo.04', '_blank')}
                 >
                   <Facebook className="h-4 w-4" />
                 </Button>
