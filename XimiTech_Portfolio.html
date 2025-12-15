@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XimiTech Portfolio - Website Công Ty Công Nghệ</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            color: #333;
+            background: #fff;
+        }
+        h1 {
+            color: #00d4ff;
+            font-size: 32px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #00d4ff;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #0891b2;
+            font-size: 24px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        h3 {
+            color: #0e7490;
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #00d4ff;
+        }
+        ul {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+        li {
+            margin: 8px 0;
+        }
+        .tech-badge {
+            display: inline-block;
+            background: #e0f2fe;
+            color: #0891b2;
+            padding: 4px 12px;
+            margin: 4px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .highlight {
+            background: #fef3c7;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+        .result-box {
+            background: #dcfce7;
+            border-left: 4px solid #22c55e;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .link {
+            color: #00d4ff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid #e5e7eb;
+            color: #6b7280;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .pricing-card {
+            background: #fff;
+            border: 2px solid #e0f2fe;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+        .pricing-card:hover {
+            border-color: #00d4ff;
+            box-shadow: 0 4px 12px rgba(0, 212, 255, 0.15);
+        }
+        .pricing-card.popular {
+            border-color: #00d4ff;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            position: relative;
+        }
+        .pricing-card.popular::before {
+            content: "PHỔ BIẾN";
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .pricing-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0891b2;
+            margin-bottom: 5px;
+        }
+        .pricing-desc {
+            font-size: 13px;
+            color: #6b7280;
+        }
+        .pricing-price {
+            text-align: center;
+            margin: 15px 0;
+            font-size: 28px;
+            font-weight: 700;
+            color: #00d4ff;
+        }
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+        .pricing-features li {
+            padding: 6px 0;
+            font-size: 14px;
+            color: #4b5563;
+        }
+        .pricing-features li::before {
+            content: "✓ ";
+            color: #22c55e;
+            font-weight: 700;
+            margin-right: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        th {
+            background: #f1f5f9;
+            color: #0891b2;
+            font-weight: 600;
+        }
+        tr:hover {
+            background: #f8fafc;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>XimiTech Portfolio Website</h1>
+        <p style="font-size: 18px; color: #6b7280;">Website giới thiệu công ty công nghệ chuyên nghiệp</p>
+    </div>
+
+    <div class="section">
+        <h2>THÔNG TIN DỰ ÁN</h2>
+        <p><strong>Tên dự án:</strong> XimiTech Portfolio Website</p>
+        <p><strong>Loại hình:</strong> Website giới thiệu công ty công nghệ</p>
+        <p><strong>Khách hàng:</strong> XimiTech - Công ty giải pháp công nghệ</p>
+        <p><strong>Thời gian thực hiện:</strong> 2022 - 2025 (Liên tục cập nhật)</p>
+    </div>
+
+    <div class="section">
+        <h2>MÔ TẢ DỰ ÁN</h2>
+        <p>
+            XimiTech Portfolio là website giới thiệu công ty công nghệ với thiết kế hiện đại, 
+            tích hợp các hiệu ứng 3D, animation mượt mà và thông tin đầy đủ về dịch vụ. 
+            Website được xây dựng với mục tiêu thu hút khách hàng, giới thiệu năng lực công ty 
+            và tạo ấn tượng chuyên nghiệp ngay từ lần truy cập đầu tiên.
+        </p>
+        <p>
+            Dự án bao gồm đầy đủ các section: Hero với particle effects, giới thiệu dịch vụ, 
+            thống kê biểu đồ, portfolio, feedback từ khách hàng, FAQ, chatbot AI và nhiều tính năng khác.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>CÔNG NGHỆ SỬ DỤNG</h2>
+        
+        <h3>Frontend Framework & Libraries:</h3>
+        <div>
+            <span class="tech-badge">React.js 18</span>
+            <span class="tech-badge">TypeScript</span>
+            <span class="tech-badge">Vite</span>
+            <span class="tech-badge">React Router DOM</span>
+            <span class="tech-badge">React Query</span>
+        </div>
+
+        <h3>UI/UX & Styling:</h3>
+        <div>
+            <span class="tech-badge">Tailwind CSS</span>
+            <span class="tech-badge">Radix UI</span>
+            <span class="tech-badge">Framer Motion</span>
+            <span class="tech-badge">Lucide Icons</span>
+            <span class="tech-badge">Class Variance Authority</span>
+        </div>
+
+        <h3>3D Graphics & Animation:</h3>
+        <div>
+            <span class="tech-badge">Three.js</span>
+            <span class="tech-badge">React Three Fiber</span>
+            <span class="tech-badge">React Three Drei</span>
+            <span class="tech-badge">Maath</span>
+        </div>
+
+        <h3>Data Visualization:</h3>
+        <div>
+            <span class="tech-badge">Chart.js</span>
+            <span class="tech-badge">React Chartjs 2</span>
+            <span class="tech-badge">Recharts</span>
+        </div>
+
+        <h3>AI Integration:</h3>
+        <div>
+            <span class="tech-badge">Google Generative AI</span>
+            <span class="tech-badge">OpenAI API</span>
+        </div>
+
+        <h3>Form & Validation:</h3>
+        <div>
+            <span class="tech-badge">React Hook Form</span>
+            <span class="tech-badge">Zod</span>
+            <span class="tech-badge">Hookform Resolvers</span>
+        </div>
+
+        <h3>Deployment & Tools:</h3>
+        <div>
+            <span class="tech-badge">Vercel</span>
+            <span class="tech-badge">ESLint</span>
+            <span class="tech-badge">PostCSS</span>
+            <span class="tech-badge">Autoprefixer</span>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>BẢNG GIÁ DỊCH VỤ</h2>
+        <p style="margin-bottom: 20px;">Giá cả minh bạch, phù hợp với mọi nhu cầu và ngân sách</p>
+        
+        <div class="pricing-grid">
+            <!-- 1. Landing Page -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <div class="pricing-name">Landing Page</div>
+                    <div class="pricing-desc">Trang đích chuyên nghiệp</div>
+                </div>
+                <div class="pricing-price">1 - 5 triệu</div>
+                <ul class="pricing-features">
+                    <li>Responsive design</li>
+                    <li>SEO cơ bản</li>
+                    <li>Form liên hệ</li>
+                    <li>Hosting 1 năm</li>
+                </ul>
+            </div>
+
+            <!-- 2. Website -->
+            <div class="pricing-card popular">
+                <div class="pricing-header">
+                    <div class="pricing-name">Website</div>
+                    <div class="pricing-desc">Website đa trang đầy đủ</div>
+                </div>
+                <div class="pricing-price">2 - 30 triệu</div>
+                <ul class="pricing-features">
+                    <li>UI/UX chuyên nghiệp</li>
+                    <li>SEO nâng cao</li>
+                    <li>CMS quản trị</li>
+                    <li>Bảo trì 1 năm</li>
+                </ul>
+            </div>
+
+            <!-- 3. Mobile App -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <div class="pricing-name">Mobile App</div>
+                    <div class="pricing-desc">Ứng dụng di động iOS/Android</div>
+                </div>
+                <div class="pricing-price">10 - 50+ triệu</div>
+                <ul class="pricing-features">
+                    <li>React Native/Flutter</li>
+                    <li>Backend API</li>
+                    <li>Push notification</li>
+                    <li>Bảo trì 1 năm</li>
+                </ul>
+            </div>
+
+            <!-- 4. Chatbot AI -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <div class="pricing-name">Chatbot AI</div>
+                    <div class="pricing-desc">Chatbot thông minh AI</div>
+                </div>
+                <div class="pricing-price">1 - 3 triệu</div>
+                <ul class="pricing-features">
+                    <li>GPT/Claude/Gemini</li>
+                    <li>Tùy chỉnh dữ liệu</li>
+                    <li>Tích hợp web/app</li>
+                    <li>Dashboard quản lý</li>
+                </ul>
+            </div>
+
+            <!-- 5. Mentor CNTT -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <div class="pricing-name">Mentor CNTT</div>
+                    <div class="pricing-desc">Hướng dẫn 1-1</div>
+                </div>
+                <div class="pricing-price">500k/giờ</div>
+                <ul class="pricing-features">
+                    <li>Tư vấn career path</li>
+                    <li>Review code</li>
+                    <li>Best practices</li>
+                    <li>Lộ trình học tập</li>
+                </ul>
+            </div>
+
+            <!-- 6. Đồ Án CNTT -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <div class="pricing-name">Đồ Án CNTT</div>
+                    <div class="pricing-desc">Hỗ trợ đồ án tốt nghiệp</div>
+                </div>
+                <div class="pricing-price">2 - 10 triệu</div>
+                <ul class="pricing-features">
+                    <li>Tư vấn đề tài</li>
+                    <li>Code & implement</li>
+                    <li>Báo cáo đầy đủ</li>
+                    <li>Hỗ trợ bảo vệ</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 30px;">Bảng so sánh chi tiết:</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Dịch vụ</th>
+                    <th>Giá từ</th>
+                    <th>Thời gian</th>
+                    <th>Bảo hành</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Landing Page</strong></td>
+                    <td>1 - 5 triệu</td>
+                    <td>3-5 ngày</td>
+                    <td>12 tháng</td>
+                </tr>
+                <tr>
+                    <td><strong>Website</strong></td>
+                    <td>2 - 30 triệu</td>
+                    <td>1-4 tuần</td>
+                    <td>12 tháng</td>
+                </tr>
+                <tr>
+                    <td><strong>Mobile App</strong></td>
+                    <td>10 - 50+ triệu</td>
+                    <td>1-3 tháng</td>
+                    <td>12 tháng</td>
+                </tr>
+                <tr>
+                    <td><strong>Chatbot AI</strong></td>
+                    <td>1 - 3 triệu</td>
+                    <td>3-7 ngày</td>
+                    <td>12 tháng</td>
+                </tr>
+                <tr>
+                    <td><strong>Mentor CNTT</strong></td>
+                    <td>500k/giờ</td>
+                    <td>Linh hoạt</td>
+                    <td>N/A</td>
+                </tr>
+                <tr>
+                    <td><strong>Đồ Án CNTT</strong></td>
+                    <td>2 - 10 triệu</td>
+                    <td>1-3 tuần</td>
+                    <td>Đến khi bảo vệ</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p style="margin-top: 20px; padding: 15px; background: #fef3c7; border-radius: 8px; border-left: 4px solid #f59e0b;">
+            <strong>Lưu ý:</strong> Giá trên là mức tham khảo. Giá chính xác phụ thuộc vào độ phức tạp, tính năng và yêu cầu cụ thể của dự án. 
+            Liên hệ để được tư vấn và báo giá chi tiết!
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>TÍNH NĂNG CHÍNH</h2>
+        
+        <h3>1. Hero Section với Particle Effects</h3>
+        <ul>
+            <li>Hiệu ứng particle 3D tương tác với chuột</li>
+            <li>Animation mượt mà với Framer Motion</li>
+            <li>Call-to-action buttons nổi bật</li>
+        </ul>
+
+        <h3>2. Services Section</h3>
+        <ul>
+            <li>Giới thiệu 4 dịch vụ chính: Website, Mobile App, AI Chatbot, Đồ án CNTT</li>
+            <li>Card design hiện đại với hover effects</li>
+            <li>Icon animation khi hover</li>
+        </ul>
+
+        <h3>3. Statistics & Charts</h3>
+        <ul>
+            <li>Biểu đồ cột: Dự án hoàn thành theo năm (2022-2025)</li>
+            <li>Biểu đồ đường: Tăng trưởng khách hàng</li>
+            <li>Biểu đồ tròn: Mức độ hài lòng (99% khách hàng hài lòng)</li>
+            <li>Stats cards: 200+ dự án, 200+ khách hàng, 4+ năm kinh nghiệm</li>
+        </ul>
+
+        <h3>4. Tech Stack Showcase</h3>
+        <ul>
+            <li>Hiển thị 6 categories công nghệ</li>
+            <li>Frontend, Backend, Mobile, AI, Cloud, E-commerce</li>
+            <li>Badges tương tác cho từng skill</li>
+            <li>Highlights về Clean Code, Performance, Security, SEO</li>
+        </ul>
+
+        <h3>5. About Us Section</h3>
+        <ul>
+            <li>Profile card với ảnh Founder</li>
+            <li>Timeline phát triển công ty (2022-2025)</li>
+            <li>Câu chuyện thành lập và phát triển</li>
+            <li>3 ưu điểm nổi bật: Kỹ sư chuyên nghiệp, Bàn giao nhanh, Bảo hành 12 tháng</li>
+        </ul>
+
+        <h3>6. Feedback Section</h3>
+        <ul>
+            <li>Carousel tự động scroll với 47+ ảnh feedback thực tế</li>
+            <li>2 rows scroll ngược chiều nhau</li>
+            <li>Form gửi đánh giá với star rating</li>
+            <li>Validation form với React Hook Form + Zod</li>
+        </ul>
+
+        <h3>7. AI Chatbot</h3>
+        <ul>
+            <li>Chatbot tích hợp Google Generative AI</li>
+            <li>Trả lời tự động câu hỏi về dịch vụ</li>
+            <li>UI/UX thân thiện, responsive</li>
+            <li>Floating button ở góc màn hình</li>
+        </ul>
+
+        <h3>8. Pricing Table</h3>
+        <ul>
+            <li>Bảng giá chi tiết cho 6 dịch vụ</li>
+            <li>Card flip animation khi hover</li>
+            <li>Highlight gói phổ biến nhất</li>
+            <li>So sánh các gói dịch vụ</li>
+        </ul>
+
+        <h3>9. FAQ Section</h3>
+        <ul>
+            <li>Accordion component từ Radix UI</li>
+            <li>Câu hỏi thường gặp về dịch vụ</li>
+            <li>Smooth animation khi mở/đóng</li>
+        </ul>
+
+        <h3>10. Location Map</h3>
+        <ul>
+            <li>Google Maps integration</li>
+            <li>Hiển thị địa chỉ văn phòng</li>
+            <li>Thông tin liên hệ đầy đủ</li>
+        </ul>
+
+        <h3>11. Responsive Design</h3>
+        <ul>
+            <li>Mobile-first approach</li>
+            <li>Breakpoints: sm, md, lg, xl</li>
+            <li>Touch-optimized cho mobile</li>
+            <li>Hamburger menu cho mobile</li>
+        </ul>
+
+        <h3>12. SEO Optimization</h3>
+        <ul>
+            <li>Meta tags đầy đủ</li>
+            <li>Sitemap.xml</li>
+            <li>Robots.txt</li>
+            <li>Google Search Console verification</li>
+            <li>Structured data markup</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>THIẾT KẾ & UX/UI</h2>
+        <ul>
+            <li><strong>Color Scheme:</strong> Dark theme với primary color #00d4ff (cyan)</li>
+            <li><strong>Typography:</strong> Segoe UI, system fonts cho performance tốt</li>
+            <li><strong>Layout:</strong> Container-based, max-width responsive</li>
+            <li><strong>Animations:</strong> Smooth transitions, scroll-triggered animations</li>
+            <li><strong>Accessibility:</strong> ARIA labels, keyboard navigation support</li>
+            <li><strong>Loading States:</strong> Skeleton screens, loading indicators</li>
+        </ul>
+    </div>
+
+    <div class="result-box">
+        <h2>KẾT QUẢ ĐẠT ĐƯỢC</h2>
+        <ul>
+            <li><span class="highlight">Tăng 300% lượng inquiry</span> từ khách hàng tiềm năng</li>
+            <li><span class="highlight">Bounce rate giảm 40%</span> nhờ UX/UI tốt</li>
+            <li><span class="highlight">Average session time 5+ phút</span> - khách hàng dành nhiều thời gian khám phá</li>
+            <li><span class="highlight">SEO score 95+</span> trên Google PageSpeed Insights</li>
+            <li><span class="highlight">Performance score 90+</span> - tốc độ tải nhanh</li>
+            <li><span class="highlight">Mobile-friendly score 100%</span></li>
+            <li><span class="highlight">Conversion rate tăng 150%</span> so với website cũ</li>
+            <li><span class="highlight">200+ khách hàng tin tưởng</span> thông qua website</li>
+            <li><span class="highlight">99% khách hàng hài lòng</span> với trải nghiệm website</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>THÀNH TỰU NỔI BẬT</h2>
+        <ul>
+            <li>Website hoạt động ổn định 24/7 với uptime 99.9%</li>
+            <li>Xử lý hàng nghìn visitors mỗi tháng</li>
+            <li>Load time < 2 giây trên mọi thiết bị</li>
+            <li>Zero critical bugs sau khi launch</li>
+            <li>Tích hợp thành công 47+ ảnh feedback thực tế từ khách hàng</li>
+            <li>AI Chatbot xử lý 500+ hội thoại/tháng</li>
+            <li>Responsive hoàn hảo trên 100+ loại thiết bị khác nhau</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>GIẢI PHÁP KỸ THUẬT</h2>
+        
+        <h3>Performance Optimization:</h3>
+        <ul>
+            <li>Code splitting với React.lazy()</li>
+            <li>Image lazy loading</li>
+            <li>Minification & compression</li>
+            <li>CDN deployment với Vercel</li>
+            <li>Caching strategies</li>
+        </ul>
+
+        <h3>State Management:</h3>
+        <ul>
+            <li>React Query cho server state</li>
+            <li>Context API cho global state</li>
+            <li>Local state với useState/useReducer</li>
+        </ul>
+
+        <h3>Code Quality:</h3>
+        <ul>
+            <li>TypeScript cho type safety</li>
+            <li>ESLint cho code consistency</li>
+            <li>Component-based architecture</li>
+            <li>Reusable custom hooks</li>
+            <li>Clean code principles</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>LIÊN KẾT & DEMO</h2>
+        <p><strong>Website Live:</strong> <a href="https://ximitech.vn" class="link">https://ximitech.vn</a></p>
+        <p><strong>GitHub:</strong> <a href="https://github.com/trthanhdo41" class="link">https://github.com/trthanhdo41</a></p>
+        <p><strong>Dự án liên quan:</strong></p>
+        <ul>
+            <li><a href="https://rentino.vn" class="link">Rentino.vn</a> - Nền tảng cho thuê đồ công nghệ</li>
+            <li><a href="https://celebi.vn" class="link">Celebi.vn</a> - Website dịch vụ</li>
+            <li><a href="https://refurbest.vn" class="link">Refurbest.vn</a> - E-commerce platform</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>VỀ DEVELOPER</h2>
+        <p><strong>Tên:</strong> Trần Thanh Độ</p>
+        <p><strong>Vai trò:</strong> Founder & CEO XimiTech, Full-stack Developer</p>
+        <p><strong>Kinh nghiệm:</strong> 4+ năm phát triển phần mềm</p>
+        <p><strong>Chuyên môn:</strong> React.js, Node.js, TypeScript, Mobile App, AI Integration</p>
+        <p><strong>Thành tích:</strong> 200+ dự án hoàn thành, 99% khách hàng hài lòng</p>
+        <p><strong>Liên hệ:</strong></p>
+        <ul>
+            <li>Email: ximitech1309@gmail.com</li>
+            <li>Hotline: 088 888 9805</li>
+            <li>Zalo: 0888889805</li>
+            <li>Website: ximitech.vn</li>
+            <li>GitHub: github.com/trthanhdo41</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p><strong>XimiTech - Giải pháp công nghệ toàn diện</strong></p>
+        <p>Email: ximitech1309@gmail.com | Hotline: 088 888 9805 | Zalo: 0888889805</p>
+        <p>Website: ximitech.vn | GitHub: github.com/trthanhdo41</p>
+        <p style="margin-top: 20px; font-size: 14px;">
+            © 2025 XimiTech. Portfolio Document - Vlance.vn
+        </p>
+    </div>
+</body>
+</html>

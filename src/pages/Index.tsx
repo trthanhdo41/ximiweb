@@ -5,7 +5,9 @@ import { FeaturesGrid } from "@/components/FeaturesGrid";
 import { ProcessSection } from "@/components/ProcessSection";
 import { AppShowcase } from "@/components/AppShowcase";
 import { ServicesSection } from "@/components/ServicesSection";
-import { StatsHighlight } from "@/components/StatsHighlight";
+import { AchievementsSection } from "@/components/AchievementsSection";
+import { WebsiteTemplates } from "@/components/WebsiteTemplates";
+import { CookieBanner } from "@/components/CookieBanner";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { CTASection } from "@/components/CTASection";
 import { FeedbackSection } from "@/components/FeedbackSection";
@@ -20,7 +22,7 @@ import { Footer } from "@/components/Footer";
 import { SimpleChatBot } from "@/components/SimpleChatBot";
 import { FloatingButtons } from "@/components/FloatingButtons";
 import { WordCloudSection } from "@/components/WordCloudSection";
-import { PricingTable } from "@/components/PricingTable";
+import { PricingTableNew } from "@/components/PricingTableNew";
 
 const Index = () => {
   return (
@@ -33,11 +35,12 @@ const Index = () => {
         {/* <ProcessSection /> */} {/* Removed - Rentino specific */}
         {/* <AppShowcase /> */} {/* Removed - Rentino app mockups */}
         <ServicesSection />
-        <StatsHighlight />
+        <AchievementsSection />
+        <WebsiteTemplates />
         <TestimonialsSection />
         <CTASection />
         <TechStack />
-        <PricingTable />
+        <PricingTableNew />
         <AboutUs />
         <StatsCharts />
         <EmojiGame />
@@ -48,6 +51,7 @@ const Index = () => {
         <Footer />
         <SimpleChatBot />
         <FloatingButtons />
+        <CookieBanner />
     </div>
   );
 };

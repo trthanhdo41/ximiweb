@@ -71,9 +71,12 @@ export const HeroSection = () => {
                 className="text-base font-semibold h-14 px-8 hover:scale-105 transition-transform shadow-lg hover:shadow-xl"
                 onMouseEnter={() => setHovering(true)}
                 onMouseLeave={() => setHovering(false)}
-                onClick={() => window.open('https://zalo.me/0888889805', '_blank')}
+                onClick={() => {
+                  const pricingSection = document.getElementById('pricing');
+                  pricingSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }}
               >
-                Tư vấn miễn phí
+                Xem bảng giá
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button 
