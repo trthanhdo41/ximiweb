@@ -85,6 +85,30 @@ export const Header = () => {
               Liên hệ ngay
             </Button>
 
+            {/* Quick Actions for Mobile */}
+            {!isMenuOpen && (
+              <div className="flex md:hidden items-center gap-2">
+                <Button 
+                  size="sm"
+                  variant="ghost" 
+                  className="h-8 px-2 text-[10px] font-bold text-white border border-white/20 bg-white/5 hover:bg-primary/20 hover:text-primary transition-all rounded-full"
+                  onClick={() => {
+                    const el = document.getElementById('services');
+                    el?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  Dịch vụ
+                </Button>
+                <Button 
+                  size="sm"
+                  className="h-8 px-2 text-[10px] font-bold bg-primary hover:bg-primary/90 text-white rounded-full shadow-lg"
+                  onClick={() => window.open('https://zalo.me/0888889805', '_blank')}
+                >
+                  Zalo
+                </Button>
+              </div>
+            )}
+
             {/* Mobile Menu Button */}
             <Button
               variant="ghost"
