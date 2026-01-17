@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronDown, HelpCircle } from "lucide-react";
+import { ScrollReveal, TextReveal, WavyText } from "./ScrollReveal";
 
 const faqs = [
   {
@@ -32,7 +33,7 @@ const faqs = [
   },
   {
     question: "Làm việc online hay offline?",
-    answer: "Cả hai! Chúng tôi làm việc online qua Zalo/Meet để tiện lợi. Nếu bạn ở TP.HCM, có thể gặp trực tiếp tại Vinhomes Grand Park. Linh hoạt theo nhu cầu của bạn."
+    answer: "Cả hai! Chúng tôi làm việc online qua Zalo/Meet để tiện lợi. Nếu bạn ở TP.HCM, có thể gặp trực tiếp tại 66 Đường 39, Hiệp Bình Phước, TP. Thủ Đức. Linh hoạt theo nhu cầu của bạn."
   }
 ];
 
@@ -49,19 +50,30 @@ export const FAQ = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/20 px-4 py-2 text-sm font-medium text-primary mb-4">
-            <HelpCircle className="h-4 w-4" />
-            FAQ
+          <ScrollReveal width="100%">
+            <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/20 px-4 py-2 text-sm font-medium text-primary mb-4">
+              <HelpCircle className="h-4 w-4" />
+              FAQ
+            </div>
+          </ScrollReveal>
+          
+          <div className="flex justify-center items-center flex-wrap gap-x-3">
+            <WavyText 
+              text="Câu hỏi" 
+              className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4"
+            />
+            <WavyText 
+              text="thường gặp" 
+              className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4"
+            />
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Câu hỏi{" "}
-            <span className="bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">
-              thường gặp
-            </span>
-          </h2>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-            Giải đáp những thắc mắc phổ biến của khách hàng
-          </p>
+
+          <div className="flex justify-center">
+            <TextReveal 
+              text="Giải đáp những thắc mắc phổ biến của khách hàng"
+              className="text-lg text-gray-400 max-w-3xl mx-auto justify-center"
+            />
+          </div>
         </div>
 
         <div className="max-w-3xl mx-auto space-y-4">

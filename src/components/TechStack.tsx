@@ -1,4 +1,5 @@
 import { Code2, Sparkles, Monitor, Server, Smartphone, Brain, Cloud, ShoppingCart, Zap, Lock, Target, Award, TrendingUp } from "lucide-react";
+import { ScrollReveal, TextReveal, WavyText } from "./ScrollReveal";
 
 const techCategories = [
   {
@@ -95,19 +96,30 @@ export const TechStack = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-8 md:mb-12 lg:mb-16">
-          <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/20 px-3 md:px-4 py-1.5 md:py-2 text-xs md:text-sm font-medium text-primary mb-3 md:mb-4">
-            <Code2 className="h-3 w-3 md:h-4 md:w-4" />
-            Technology Stack
+          <ScrollReveal width="100%">
+            <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/20 px-3 md:px-4 py-1.5 md:py-2 text-xs md:text-sm font-medium text-primary mb-3 md:mb-4">
+              <Code2 className="h-3 w-3 md:h-4 md:w-4" />
+              Technology Stack
+            </div>
+          </ScrollReveal>
+          
+          <div className="flex justify-center items-center flex-wrap gap-x-3">
+            <WavyText 
+              text="Hệ sinh thái" 
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4"
+            />
+            <WavyText 
+              text="Công nghệ" 
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-3 md:mb-4"
+            />
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4 px-4">
-            Công nghệ & Kỹ năng{" "}
-            <span className="bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">
-              chuyên nghiệp
-            </span>
-          </h2>
-          <p className="text-sm md:text-base lg:text-lg text-gray-400 max-w-3xl mx-auto px-4">
-            Sử dụng các công nghệ và framework hiện đại nhất để xây dựng website chất lượng cao, đáp ứng mọi nhu cầu của bạn
-          </p>
+
+          <div className="flex justify-center">
+            <TextReveal 
+              text="Sử dụng những công nghệ tiên tiến nhất để xây dựng giải pháp bền vững cho bạn"
+              className="text-sm md:text-base lg:text-lg text-gray-400 max-w-3xl mx-auto justify-center"
+            />
+          </div>
         </div>
 
         {/* Tech Categories Grid */}

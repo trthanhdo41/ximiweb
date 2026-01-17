@@ -1,23 +1,35 @@
 import { MapPin, Phone, Mail, Globe } from "lucide-react";
+import { ScrollReveal, TextReveal, WavyText } from "./ScrollReveal";
 
 export const LocationMap = () => {
   return (
     <section className="py-12 md:py-16 lg:py-20 bg-secondary/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/20 px-4 py-2 text-sm font-medium text-primary mb-4">
-            <MapPin className="h-4 w-4" />
-            Location
+          <ScrollReveal width="100%">
+            <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/20 px-4 py-2 text-sm font-medium text-primary mb-4">
+              <MapPin className="h-4 w-4" />
+              Location
+            </div>
+          </ScrollReveal>
+          
+          <div className="flex justify-center items-center flex-wrap gap-x-3">
+            <WavyText 
+              text="Liên hệ &" 
+              className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4"
+            />
+            <WavyText 
+              text="Địa chỉ" 
+              className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4"
+            />
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Liên hệ &{" "}
-            <span className="bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">
-              Địa chỉ
-            </span>
-          </h2>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-            Hãy liên hệ với chúng tôi để được tư vấn miễn phí
-          </p>
+
+          <div className="flex justify-center">
+            <TextReveal 
+              text="Hãy liên hệ với chúng tôi để được tư vấn miễn phí"
+              className="text-lg text-gray-400 max-w-3xl mx-auto justify-center"
+            />
+          </div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 items-start">
@@ -34,7 +46,7 @@ export const LocationMap = () => {
                   <div>
                     <h4 className="font-semibold text-white mb-1">Địa chỉ</h4>
                     <p className="text-gray-400 text-sm">
-                      The Origami S7.02, Vinhomes Grand Park, TP. Thủ Đức, TP.HCM
+                      66 Đường 39, Hiệp Bình Phước, TP. Thủ Đức, TP.HCM
                     </p>
                   </div>
                 </div>
@@ -107,14 +119,14 @@ export const LocationMap = () => {
           {/* Google Map */}
           <div className="bg-background/80 backdrop-blur-sm border-2 border-primary/20 rounded-xl overflow-hidden h-[600px]">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d382.7927108663191!2d106.83634198927021!3d10.843386249727388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752139cd17454d%3A0x9464484250fe77de!2sThe%20Origami%20S7.02!5e0!3m2!1sen!2s!4v1761759586340!5m2!1sen!2s"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.530949430014!2d106.70890321117518!3d10.84716228926132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175286e20901841%3A0x60867a3dd0e67243!2zNjYgxJDGsOG7nW5nIDM5LCBIaeG7h3AgQsOsbmggUGjGsOG7m2MsIFRo4bunIMSQ4bupYywgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaWV0bmFt!5e0!3m2!1sen!2s!4v1768654996543!5m2!1sen!2s"
               width="100%"
               height="100%"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="XimiTech Location - The Origami S7.02"
+              title="XimiTech Location - 66 Đường 39, Hiệp Bình Phước"
             ></iframe>
           </div>
         </div>

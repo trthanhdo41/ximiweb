@@ -1,4 +1,5 @@
 import { Award, Clock, Shield, Sparkles, Trophy, Star, Gem } from "lucide-react";
+import { ScrollReveal, TextReveal, WavyText } from "./ScrollReveal";
 
 const timeline = [
   {
@@ -44,46 +45,58 @@ export const AboutUs = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/20 px-4 py-2 text-sm font-medium text-primary mb-4">
-            <Sparkles className="h-4 w-4" />
-            About Us
+          <ScrollReveal width="100%">
+            <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/20 px-4 py-2 text-sm font-medium text-primary mb-4">
+              <Sparkles className="h-4 w-4" />
+              About Us
+            </div>
+          </ScrollReveal>
+          
+          <div className="flex justify-center">
+            <WavyText 
+              text="Về chúng tôi" 
+              className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 justify-center"
+            />
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Về chúng tôi
-          </h2>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-            XimiTech - Giải pháp công nghệ toàn diện với hơn 4 năm kinh nghiệm
-          </p>
+
+          <div className="flex justify-center">
+            <TextReveal 
+              text="XimiTech - Giải pháp công nghệ toàn diện với hơn 4 năm kinh nghiệm"
+              className="text-lg text-gray-400 max-w-3xl mx-auto justify-center"
+            />
+          </div>
         </div>
 
         {/* Profile Image */}
         <div className="flex justify-center mb-12">
-          <div className="relative group w-full max-w-xs">
-            <div className="absolute -inset-1 bg-gradient-to-r from-primary to-cyan-500 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
-            <div className="relative bg-background/80 backdrop-blur-sm border-2 border-primary/30 rounded-2xl p-4 group-hover:border-primary/60 transition-all">
-              <div className="w-full aspect-square rounded-xl overflow-hidden bg-gradient-to-br from-primary/20 to-cyan-500/20 flex items-center justify-center">
-                <img
-                  src="/profile.png"
-                  alt="Trần Thanh Độ - Founder XimiTech"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="mt-4 text-center">
-                <h4 className="text-xl font-bold text-white mb-1">Trần Thanh Độ</h4>
-                <p className="text-primary font-semibold mb-3">Founder & CEO</p>
-                <div className="flex items-center justify-center gap-4 text-sm text-gray-400">
-                  <div className="flex items-center gap-1">
-                    <Trophy className="h-4 w-4 text-primary" />
-                    <span>4+ năm</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Star className="h-4 w-4 text-primary" />
-                    <span>200+ dự án</span>
+          <ScrollReveal delay={0.5}>
+            <div className="relative group w-full max-w-xs">
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary to-cyan-500 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
+              <div className="relative bg-background/80 backdrop-blur-sm border-2 border-primary/30 rounded-2xl p-4 group-hover:border-primary/60 transition-all">
+                <div className="w-full aspect-square rounded-xl overflow-hidden bg-gradient-to-br from-primary/20 to-cyan-500/20 flex items-center justify-center">
+                  <img
+                    src="/profile.png"
+                    alt="Trần Thanh Độ - Founder XimiTech"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="mt-4 text-center">
+                  <h4 className="text-xl font-bold text-white mb-1">Trần Thanh Độ</h4>
+                  <p className="text-primary font-semibold mb-3">Founder & CEO</p>
+                  <div className="flex items-center justify-center gap-4 text-sm text-gray-400">
+                    <div className="flex items-center gap-1">
+                      <Trophy className="h-4 w-4 text-primary" />
+                      <span>4+ năm</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Star className="h-4 w-4 text-primary" />
+                      <span>200+ dự án</span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">

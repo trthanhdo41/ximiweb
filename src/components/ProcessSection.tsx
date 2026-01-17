@@ -2,6 +2,7 @@ import appSearchScreen from "@/assets/mockups/search-screen.png";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { GL } from "@/components/gl";
 import { useState } from "react";
+import { ScrollReveal, TextReveal, WavyText } from "./ScrollReveal";
 
 export const ProcessSection = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -44,13 +45,24 @@ export const ProcessSection = () => {
         onMouseEnter={() => setHovering(true)}
         onMouseLeave={() => setHovering(false)}
       >
-        <div ref={ref} className={`text-center space-y-4 mb-12 md:mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-white">
-            Quy trình <span className="text-primary">4 bước đơn giản</span>
-          </h2>
-          <p className="text-lg text-white/70 max-w-3xl mx-auto">
-            Từ định giá đến nhận tiền/máy mới, mọi thứ đều nhanh chóng và minh bạch
-          </p>
+        <div ref={ref} className="text-center space-y-4 mb-12 md:mb-16">
+          <div className="flex justify-center items-center flex-wrap gap-x-3">
+            <WavyText 
+              text="Quy trình" 
+              className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-white"
+            />
+            <WavyText 
+              text="4 bước đơn giản" 
+              className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-primary"
+            />
+          </div>
+          
+          <div className="flex justify-center">
+            <TextReveal 
+              text="Từ định giá đến nhận tiền/máy mới, mọi thứ đều nhanh chóng và minh bạch"
+              className="text-lg text-white/70 max-w-3xl mx-auto justify-center"
+            />
+          </div>
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 mb-12">

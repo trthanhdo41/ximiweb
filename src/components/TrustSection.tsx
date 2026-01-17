@@ -1,6 +1,7 @@
 import { Award, Code2, Users, Clock } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useCountUp } from "@/hooks/useCountUp";
+import { ScrollReveal, TextReveal, WavyText } from "./ScrollReveal";
 
 export const TrustSection = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -46,14 +47,24 @@ export const TrustSection = () => {
   return (
     <section id="about" className="py-12 md:py-20 lg:py-24 bg-secondary/30">
       <div className="container mx-auto px-4">
-        <div ref={ref} className={`text-center space-y-3 md:space-y-4 mb-8 md:mb-12 lg:mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white px-4">
-            Công nghệ được{" "}
-            <span className="text-primary">sử dụng</span>
-          </h2>
-          <p className="text-gray-400 text-sm md:text-base lg:text-lg max-w-2xl mx-auto px-4">
-            Sử dụng các công nghệ hiện đại và phổ biến nhất trong phát triển web & mobile app
-          </p>
+        <div ref={ref} className="text-center space-y-3 md:space-y-4 mb-8 md:mb-12 lg:mb-16">
+          <div className="flex justify-center items-center flex-wrap gap-x-3">
+            <WavyText 
+              text="Được tin tưởng bởi" 
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white"
+            />
+            <WavyText 
+              text="đối tác" 
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-primary"
+            />
+          </div>
+          
+          <div className="flex justify-center">
+            <TextReveal 
+              text="Chúng tôi tự hào là đối tác công nghệ tin cậy của nhiều doanh nghiệp và cá nhân"
+              className="text-gray-400 text-sm md:text-base lg:text-lg max-w-2xl mx-auto px-4 justify-center"
+            />
+          </div>
         </div>
 
         {/* Infinite Scrolling Tech Carousel - CSS Animation */}

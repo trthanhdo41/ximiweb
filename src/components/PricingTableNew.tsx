@@ -2,6 +2,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Check, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { ScrollReveal, TextReveal, WavyText } from "./ScrollReveal";
 
 export const PricingTableNew = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -153,14 +154,24 @@ export const PricingTableNew = () => {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f12_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f12_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_110%)]"></div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div ref={ref} className={`text-center space-y-4 mb-12 md:mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white">
-            Bảng Giá{" "}
-            <span className="text-primary">Dịch Vụ</span>
-          </h2>
-          <p className="text-gray-400 text-base md:text-lg lg:text-xl max-w-3xl mx-auto">
-            Giá cả minh bạch, phù hợp với mọi nhu cầu và ngân sách
-          </p>
+        <div ref={ref} className="text-center space-y-4 mb-12 md:mb-16">
+          <div className="flex justify-center items-center flex-wrap gap-x-3">
+            <WavyText 
+              text="Bảng Giá" 
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white"
+            />
+            <WavyText 
+              text="Dịch Vụ" 
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-primary"
+            />
+          </div>
+          
+          <div className="flex justify-center">
+            <TextReveal 
+              text="Giá cả minh bạch, phù hợp với mọi nhu cầu và ngân sách"
+              className="text-gray-400 text-base md:text-lg lg:text-xl max-w-3xl mx-auto justify-center"
+            />
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">

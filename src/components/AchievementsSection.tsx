@@ -1,6 +1,7 @@
 import { Users, Award, Clock, Globe } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useCountUp } from "@/hooks/useCountUp";
+import { ScrollReveal, TextReveal, WavyText } from "./ScrollReveal";
 
 export const AchievementsSection = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -39,13 +40,24 @@ export const AchievementsSection = () => {
       <div className="absolute inset-0 bg-grid-white/[0.02] pointer-events-none"></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div ref={ref} className={`text-center space-y-4 mb-12 md:mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white">
-            <span className="text-primary">Thành tựu</span> và niềm tự hào
-          </h2>
-          <p className="text-base md:text-lg text-gray-400 max-w-3xl mx-auto">
-            Chúng tôi tự hào đồng hành trên con đường thành công của các thương hiệu
-          </p>
+        <div ref={ref} className="text-center space-y-4 mb-12 md:mb-16">
+          <div className="flex justify-center items-center flex-wrap gap-x-3">
+            <WavyText 
+              text="Thành tựu" 
+              className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-primary"
+            />
+            <WavyText 
+              text="và niềm tự hào" 
+              className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white"
+            />
+          </div>
+          
+          <div className="flex justify-center">
+            <TextReveal 
+              text="Chúng tôi tự hào đồng hành trên con đường thành công của các thương hiệu"
+              className="text-base md:text-lg text-gray-400 max-w-3xl mx-auto justify-center"
+            />
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto">

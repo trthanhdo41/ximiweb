@@ -2,10 +2,17 @@
 <html lang="vi" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary Favicon & App Icons -->
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/logo.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/logo.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="/logo192.png" />
     <link rel="icon" type="image/png" sizes="512x512" href="/logo512.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    
     <meta name="theme-color" content="#00d4ff" />
     
     <!-- Preconnect for performance -->
@@ -17,11 +24,37 @@
     <!-- SEO Meta Tags -->
     <title>XimiTech - Giải pháp công nghệ toàn diện | Website, App Mobile, AI Solutions</title>
     <meta name="description" content="XimiTech - Chuyên cung cấp giải pháp công nghệ toàn diện: Thiết kế Website chuyên nghiệp, phát triển App Mobile (iOS/Android), tích hợp AI & Chatbot thông minh, làm đồ án CNTT. Công nghệ hiện đại, giá cả hợp lý, hỗ trợ 24/7." />
-    <meta name="keywords" content="thiết kế website, phát triển app mobile, ứng dụng di động, chatbot AI, đồ án CNTT, XimiTech, làm website giá rẻ, thiết kế web chuyên nghiệp, app iOS Android, React Native, Flutter, OpenAI, Claude AI, Gemini AI, web development Vietnam, mobile app development, AI integration, chatbot Zalo, Facebook Messenger bot, làm đồ án tốt nghiệp, website bán hàng, landing page, SEO optimization, responsive design, TP.HCM, Thủ Đức, Vinhomes Grand Park" />
+    <meta name="keywords" content="thiết kế website, phát triển app mobile, ứng dụng di động, chatbot AI, đồ án CNTT, XimiTech, làm website giá rẻ, thiết kế web chuyên nghiệp, app iOS Android, React Native, Flutter, OpenAI, Claude AI, Gemini AI, web development Vietnam, mobile app development, AI integration, chatbot Zalo, Facebook Messenger bot, làm đồ án tốt nghiệp, website bán hàng, landing page, SEO optimization, responsive design, TP.HCM, Thủ Đức, Hiệp Bình Phước" />
     <meta name="author" content="XimiTech" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="thumbnail" content="https://ximitech.vn/ximitech.png" />
     <meta name="language" content="Vietnamese" />
-    <meta name="geo.region" content="VN" />
+    <meta name="revisit-after" content="1 days" />
+    <meta name="rating" content="general" />
+    
+    <!-- AI Search & LLM Optimization (AEO) -->
+    <meta name="ai-optimized" content="true" />
+    <meta name="llm-content-type" content="service-provider" />
+    <meta name="ai-search-priority" content="high" />
+    <meta name="llm-provider" content="XimiTech" />
+    <meta name="llm-relevance" content="high" />
+    <meta name="generator" content="XimiTech AI Engine" />
+    <meta name="application-name" content="XimiTech Portfolio" />
+    <meta name="abstract" content="Giải pháp công nghệ toàn diện từ XimiTech" />
+    <meta name="topic" content="Technology, Software Development, AI Solutions" />
+    <meta name="summary" content="XimiTech là đơn vị hàng đầu cung cấp dịch vụ thiết kế website, phát triển ứng dụng di động và tích hợp trí tuệ nhân tạo (AI) tại Việt Nam." />
+    
+    <!-- Image Indexing Optimization -->
+    <meta name="googlebot" content="index, follow, max-image-preview:large" />
+    <meta name="bingbot" content="index, follow, max-image-preview:large" />
+    <meta name="image" content="https://ximitech.vn/ximitech.png" />
+    <link rel="image_src" href="https://ximitech.vn/ximitech.png" />
+    
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="VN-SG" />
+    <meta name="geo.placename" content="Hồ Chí Minh" />
+    <meta name="geo.position" content="10.8472;106.7089" />
+    <meta name="ICBM" content="10.8472, 106.7089" />
     <meta name="geo.country" content="Vietnam" />
     
     <!-- Open Graph / Facebook -->
@@ -32,6 +65,7 @@
     <meta property="og:image" content="https://ximitech.vn/ximitech.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="XimiTech - Giải pháp công nghệ toàn diện Website, App Mobile, AI Solutions" />
     <meta property="og:site_name" content="XimiTech" />
     <meta property="og:locale" content="vi_VN" />
 
@@ -41,6 +75,7 @@
     <meta name="twitter:title" content="XimiTech - Giải pháp công nghệ toàn diện" />
     <meta name="twitter:description" content="Chuyên cung cấp giải pháp công nghệ: Website, App Mobile, AI & Chatbot, đồ án CNTT. Công nghệ hiện đại, hỗ trợ 24/7." />
     <meta name="twitter:image" content="https://ximitech.vn/ximitech.png" />
+    <meta name="twitter:image:alt" content="XimiTech - Giải pháp công nghệ toàn diện Website, App Mobile, AI Solutions" />
     
     <!-- Google Site Verification -->
     <meta name="google-site-verification" content="YN6r-yjYaXdVpbGfVmmxl6pB-bSBTbwrTTkRlRlXgt0" />
@@ -64,27 +99,88 @@
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "XimiTech",
+      "alternateName": "Công ty Công nghệ XimiTech",
       "url": "https://ximitech.vn",
-      "logo": "https://ximitech.vn/ximitech.png",
-      "description": "Chuyên cung cấp giải pháp công nghệ toàn diện: Website, App Mobile (iOS/Android), AI & Chatbot thông minh, đồ án CNTT",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://ximitech.vn/ximitech.png",
+        "width": 512,
+        "height": 512
+      },
+      "image": "https://ximitech.vn/ximitech.png",
+      "description": "Chuyên cung cấp giải pháp công nghệ toàn diện: Thiết kế Website, App Mobile, AI & Chatbot thông minh.",
       "address": {
         "@type": "PostalAddress",
         "addressCountry": "VN",
         "addressLocality": "TP. Thủ Đức",
-        "streetAddress": "Toà BE1 Vinhome Grand Park"
+        "addressRegion": "Hồ Chí Minh",
+        "streetAddress": "66 Đường 39, Hiệp Bình Phước",
+        "postalCode": "700000"
       },
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+84-888-889-805",
         "contactType": "customer service",
-        "availableLanguage": "Vietnamese"
+        "areaServed": "VN",
+        "availableLanguage": ["Vietnamese", "English"]
       },
       "sameAs": [
-        "https://zalo.me/0888889805"
-      ]
+        "https://zalo.me/0888889805",
+        "https://www.facebook.com/ximitech.vn"
+      ],
+      "founder": {
+        "@type": "Person",
+        "name": "XimiTech Team"
+      },
+      "foundingDate": "2022",
+      "knowsAbout": ["Web Development", "Mobile App Development", "Artificial Intelligence", "Chatbots"]
     }
     </script>
     
+    <!-- Service Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Software Development",
+      "provider": {
+        "@type": "Organization",
+        "name": "XimiTech"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Vietnam"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Dịch vụ công nghệ",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Thiết kế Website chuyên nghiệp"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Phát triển App Mobile iOS/Android"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Tích hợp Trí tuệ nhân tạo AI"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+
     <!-- LocalBusiness Schema -->
     <script type="application/ld+json">
     {
@@ -92,21 +188,23 @@
       "@type": "LocalBusiness",
       "name": "XimiTech",
       "image": "https://ximitech.vn/logo512.png",
+      "@id": "https://ximitech.vn",
+      "url": "https://ximitech.vn",
+      "telephone": "+84888889805",
       "priceRange": "$$",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Toà BE1 Vinhome Grand Park",
+        "streetAddress": "66 Đường 39, Hiệp Bình Phước",
         "addressLocality": "TP. Thủ Đức",
         "addressRegion": "Hồ Chí Minh",
+        "postalCode": "700000",
         "addressCountry": "VN"
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 10.8231,
-        "longitude": 106.6297
+        "latitude": 10.8472,
+        "longitude": 106.7089
       },
-      "url": "https://ximitech.vn",
-      "telephone": "+84-888-889-805",
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": [
@@ -120,23 +218,6 @@
         ],
         "opens": "00:00",
         "closes": "23:59"
-      }
-    }
-    </script>
-    
-    <!-- Service Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "serviceType": "Web Development & Mobile App Development",
-      "provider": {
-        "@type": "Organization",
-        "name": "XimiTech"
-      },
-      "areaServed": {
-        "@type": "Country",
-        "name": "Vietnam"
       },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",

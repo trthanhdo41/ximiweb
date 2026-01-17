@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { ScrollReveal, TextReveal, WavyText } from "./ScrollReveal";
 
 export const FeedbackSection = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -88,14 +89,25 @@ export const FeedbackSection = () => {
     <section id="feedback" className="py-16 md:py-24 bg-gradient-to-b from-background via-secondary/30 to-background">
       <div className="container mx-auto px-4">
         {/* Customer Feedback Images */}
-        <div ref={ref} className={`mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div ref={ref} className="mb-16">
           <div className="text-center space-y-4 mb-12">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-              Phản hồi từ <span className="text-primary">Khách hàng</span>
-            </h2>
-            <p className="text-base text-muted-foreground max-w-2xl mx-auto md:text-lg">
-              Tin nhắn, đánh giá và thanh toán từ khách hàng thực tế
-            </p>
+            <div className="flex justify-center items-center flex-wrap gap-x-3">
+              <WavyText 
+                text="Phản hồi từ" 
+                className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-white"
+              />
+              <WavyText 
+                text="Khách hàng" 
+                className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-primary"
+              />
+            </div>
+            
+            <div className="flex justify-center">
+              <TextReveal 
+                text="Tin nhắn, đánh giá và thanh toán từ khách hàng thực tế"
+                className="text-base text-muted-foreground max-w-2xl mx-auto md:text-lg justify-center"
+              />
+            </div>
           </div>
 
           {/* Infinite Scrolling Carousel */}
@@ -170,14 +182,25 @@ export const FeedbackSection = () => {
         </div>
 
         {/* Feedback Form */}
-        <div className={`max-w-3xl mx-auto transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className="max-w-3xl mx-auto">
           <div className="text-center space-y-4 mb-12">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-              Gửi đánh giá & <span className="text-primary">Góp ý</span>
-            </h2>
-            <p className="text-base text-muted-foreground max-w-2xl mx-auto md:text-lg">
-              Ý kiến của bạn giúp chúng tôi cải thiện dịch vụ tốt hơn mỗi ngày
-            </p>
+            <div className="flex justify-center items-center flex-wrap gap-x-3">
+              <WavyText 
+                text="Gửi đánh giá &" 
+                className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl"
+              />
+              <WavyText 
+                text="Góp ý" 
+                className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-primary"
+              />
+            </div>
+            
+            <div className="flex justify-center">
+              <TextReveal 
+                text="Ý kiến của bạn giúp chúng tôi cải thiện dịch vụ tốt hơn mỗi ngày"
+                className="text-base text-muted-foreground max-w-2xl mx-auto md:text-lg justify-center"
+              />
+            </div>
           </div>
 
           {submitted ? (

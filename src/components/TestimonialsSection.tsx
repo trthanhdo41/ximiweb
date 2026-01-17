@@ -1,6 +1,7 @@
 import { Star } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { ScrollReveal, TextReveal, WavyText } from "./ScrollReveal";
 
 export const TestimonialsSection = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -34,10 +35,17 @@ export const TestimonialsSection = () => {
   return (
     <section id="testimonials" className="py-12 md:py-20 lg:py-24 bg-background">
       <div className="container mx-auto px-4">
-        <div ref={ref} className={`text-center space-y-3 md:space-y-4 mb-8 md:mb-12 lg:mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
-            Khách hàng nói gì về <span className="text-primary">XimiTech</span>
-          </h2>
+        <div ref={ref} className="text-center space-y-3 md:space-y-4 mb-8 md:mb-12 lg:mb-16">
+          <div className="flex justify-center items-center flex-wrap gap-x-3">
+            <WavyText 
+              text="Khách hàng nói gì về" 
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight"
+            />
+            <WavyText 
+              text="XimiTech" 
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-primary"
+            />
+          </div>
         </div>
 
         <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">

@@ -27,7 +27,7 @@ export const Footer = () => {
             {/* Company Info - Takes more space */}
             <div className="lg:col-span-5 space-y-6">
               <div>
-                <img src={logoWhite} alt="XimiTech" className="h-12 w-auto mb-4" />
+                <img src={logoWhite} alt="XimiTech - Giải pháp công nghệ chuyên nghiệp" className="h-12 w-auto mb-4" loading="lazy" />
                 <p className="text-white/70 text-sm leading-relaxed max-w-md">
                   Giải pháp công nghệ chuyên nghiệp cho doanh nghiệp Việt Nam.
                 </p>
@@ -128,7 +128,7 @@ export const Footer = () => {
                   </div>
                   <div>
                     <div className="text-xs text-white/50 mb-1">Địa chỉ</div>
-                    <div className="text-sm">The Origami S7.02, Vinhomes Grand Park, TP.HCM</div>
+                    <div className="text-sm font-medium">66 Đường 39, Hiệp Bình Phước, TP. Thủ Đức, TP.HCM</div>
                   </div>
                 </div>
               </div>

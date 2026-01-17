@@ -1,4 +1,5 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { ScrollReveal, TextReveal, WavyText } from "./ScrollReveal";
 import {
   Carousel,
   CarouselContent,
@@ -107,17 +108,31 @@ export const AppShowcase = () => {
   return (
     <section className="py-16 md:py-24 bg-gradient-to-b from-background to-secondary/30">
       <div className="container mx-auto px-4">
-        <div ref={ref} className={`text-center space-y-4 mb-12 md:mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
-            <Smartphone className="h-4 w-4" />
-            Khám phá ứng dụng
+        <div ref={ref} className="text-center space-y-4 mb-12 md:mb-16">
+          <ScrollReveal width="100%">
+            <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
+              <Smartphone className="h-4 w-4" />
+              Khám phá ứng dụng
+            </div>
+          </ScrollReveal>
+          
+          <div className="flex justify-center items-center flex-wrap gap-x-3">
+            <WavyText 
+              text="Trải nghiệm" 
+              className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-white"
+            />
+            <WavyText 
+              text="XimiTech App" 
+              className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-primary"
+            />
           </div>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-            Trải nghiệm <span className="text-primary">XimiTech App</span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Giao diện hiện đại, thao tác đơn giản, mọi tính năng trong tầm tay
-          </p>
+
+          <div className="flex justify-center">
+            <TextReveal 
+              text="Giao diện hiện đại, thao tác đơn giản, mọi tính năng trong tầm tay"
+              className="text-lg text-muted-foreground max-w-2xl mx-auto justify-center"
+            />
+          </div>
         </div>
 
         <div className={`max-w-6xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>

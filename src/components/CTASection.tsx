@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Zap, Home, Heart, ShieldCheck, Phone } from "lucide-react";
 import mockupImage from "@/assets/pngwing.com.png";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { ScrollReveal, TextReveal, WavyText } from "./ScrollReveal";
 
 export const CTASection = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -34,13 +35,22 @@ export const CTASection = () => {
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTAgMGg0MHY0MEgwVjB6bTQwIDQwaDQwdjQwSDQwVjQweiIvPjwvZz48L2c+PC9zdmc+')] opacity-20"></div>
       <div className="container mx-auto px-4 relative">
         <div className="grid gap-8 md:gap-12 lg:grid-cols-2 items-center">
-          <div ref={ref} className={`space-y-5 md:space-y-6 text-white transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
-              Lợi ích khi chọn <span className="text-white/90">XimiTech</span>
-            </h2>
-            <p className="text-sm md:text-base lg:text-lg text-white/90 max-w-xl">
-              XimiTech cam kết mang đến giải pháp công nghệ chuyên nghiệp với chất lượng tốt nhất và giá cả hợp lý!
-            </p>
+          <div ref={ref} className="space-y-5 md:space-y-6 text-white">
+            <div className="flex flex-wrap gap-x-3">
+              <WavyText 
+                text="Lợi ích khi chọn" 
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white"
+              />
+              <WavyText 
+                text="XimiTech" 
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white/90"
+              />
+            </div>
+            
+            <TextReveal 
+              text="XimiTech cam kết mang đến giải pháp công nghệ chuyên nghiệp với chất lượng tốt nhất và giá cả hợp lý!"
+              className="text-sm md:text-base lg:text-lg text-white/90 max-w-xl"
+            />
             
             <div className="grid gap-3 sm:gap-4 sm:grid-cols-2">
               {benefits.map((benefit, index) => (

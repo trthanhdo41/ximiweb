@@ -2,6 +2,7 @@ import { Globe, Smartphone, Bot, Code } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { GL } from "@/components/gl";
 import { useState } from "react";
+import { ScrollReveal, TextReveal, WavyText } from "./ScrollReveal";
 
 export const ServicesSection = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -43,28 +44,39 @@ export const ServicesSection = () => {
         onMouseEnter={() => setHovering(true)}
         onMouseLeave={() => setHovering(false)}
       >
-        <div ref={ref} className={`text-center space-y-3 md:space-y-4 mb-8 md:mb-12 lg:mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white">
-            Dịch vụ IT <span className="text-primary">chuyên nghiệp</span>
-          </h2>
-          <p className="text-base md:text-lg text-white/70 max-w-2xl mx-auto px-4">
-            Giải pháp công nghệ toàn diện từ Website, App Mobile, AI đến Đồ án CNTT
-          </p>
+        <div ref={ref} className="text-center space-y-3 md:space-y-4 mb-8 md:mb-12 lg:mb-16">
+          <div className="flex justify-center items-center flex-wrap gap-x-3">
+            <WavyText 
+              text="Dịch vụ IT" 
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white"
+            />
+            <WavyText 
+              text="chuyên nghiệp" 
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-primary"
+            />
+          </div>
+          
+          <div className="flex justify-center">
+            <TextReveal 
+              text="Giải pháp công nghệ toàn diện từ Website, App Mobile, AI đến Đồ án CNTT"
+              className="text-base md:text-lg text-white/70 max-w-2xl mx-auto px-4 justify-center"
+            />
+          </div>
         </div>
 
         <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-4">
           {services.map((service, index) => (
-            <div
-              key={index}
-              className={`group rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 md:p-8 shadow-lg transition-all duration-500 hover:bg-white/10 hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/50 hover:-translate-y-2 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-              style={{ transitionDelay: `${index * 150}ms` }}
-            >
-              <div className="mb-4 inline-flex h-12 w-12 md:h-14 md:w-14 items-center justify-center rounded-xl bg-primary/20 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                <service.icon className="h-6 w-6 md:h-7 md:w-7" />
-              </div>
-              <h3 className="mb-2 md:mb-3 text-lg md:text-xl font-bold text-white group-hover:text-primary transition-colors">{service.title}</h3>
-              <p className="text-sm md:text-base text-white/70 leading-relaxed">{service.description}</p>
-            </div>
+            <ScrollReveal key={index} delay={index * 0.1}>
+              <article
+                className="group rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 md:p-8 shadow-lg transition-all duration-500 hover:bg-white/10 hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/50 hover:-translate-y-2 h-full"
+              >
+                <div className="mb-4 inline-flex h-12 w-12 md:h-14 md:w-14 items-center justify-center rounded-xl bg-primary/20 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                  <service.icon className="h-6 w-6 md:h-7 md:w-7" aria-hidden="true" />
+                </div>
+                <h3 className="mb-2 md:mb-3 text-lg md:text-xl font-bold text-white group-hover:text-primary transition-colors">{service.title}</h3>
+                <p className="text-sm md:text-base text-white/70 leading-relaxed">{service.description}</p>
+              </article>
+            </ScrollReveal>
           ))}
         </div>
       </div>

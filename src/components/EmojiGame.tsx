@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import { Sparkles } from "lucide-react";
+import { ScrollReveal, TextReveal, WavyText } from "./ScrollReveal";
 
 interface EmojiItem {
   id: number;
@@ -75,19 +76,30 @@ export const EmojiGame = () => {
     <section className="py-20 bg-secondary/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/20 px-4 py-2 text-sm font-medium text-primary mb-4">
-            <Sparkles className="h-4 w-4" />
-            Interactive Demo
+          <ScrollReveal width="100%">
+            <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/20 px-4 py-2 text-sm font-medium text-primary mb-4">
+              <Sparkles className="h-4 w-4" />
+              Interactive Demo
+            </div>
+          </ScrollReveal>
+          
+          <div className="flex justify-center items-center flex-wrap gap-x-3">
+            <WavyText 
+              text="Trải nghiệm tương tác" 
+              className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4"
+            />
+            <WavyText 
+              text="thú vị" 
+              className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4"
+            />
           </div>
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-                    <span className="text-white">Trải nghiệm tương tác</span>{" "}
-                    <span className="bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">
-                      thú vị
-                    </span>
-                  </h2>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            Click và giữ chuột để bắn emoji liên tục! Khám phá khả năng animation mượt mà
-          </p>
+
+          <div className="flex justify-center">
+            <TextReveal 
+              text="Click và giữ chuột để bắn emoji liên tục! Khám phá khả năng animation mượt mà"
+              className="text-lg text-gray-400 max-w-2xl mx-auto justify-center"
+            />
+          </div>
         </div>
 
         <div className="max-w-4xl mx-auto">

@@ -6,6 +6,7 @@ import { useTypewriter } from "@/hooks/useTypewriter";
 import { useCountUp } from "@/hooks/useCountUp";
 import { useState } from "react";
 import { GL } from "@/components/gl";
+import { ScrollReveal, TextReveal, WavyText } from "./ScrollReveal";
 
 export const HeroSection = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -43,27 +44,38 @@ export const HeroSection = () => {
       
       <div className="container mx-auto px-4 relative z-20">
         <div className="max-w-5xl mx-auto text-center">
-          <div ref={ref} className={`space-y-8 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="inline-flex items-center gap-2 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30 px-4 py-2 text-sm font-medium text-primary shadow-lg">
-              <Package className="h-4 w-4" />
-              Giải pháp công nghệ toàn diện cho doanh nghiệp
+          <div ref={ref} className="space-y-8">
+            <ScrollReveal width="100%">
+              <div className="inline-flex items-center gap-2 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30 px-4 py-2 text-sm font-medium text-primary shadow-lg">
+                <Package className="h-4 w-4" />
+                Giải pháp công nghệ toàn diện cho doanh nghiệp
+              </div>
+            </ScrollReveal>
+            
+            <ScrollReveal width="100%" delay={0.3}>
+              <div className="flex flex-col items-center">
+                <WavyText 
+                  text="Thiết kế Website, Web App & Mobile App" 
+                  className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-lg justify-center flex-wrap"
+                />
+                <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-lg mt-2">
+                  <span 
+                    className={`text-primary transition-all duration-500 ${
+                      isAnimating ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
+                    }`}
+                  >
+                    {currentWord}
+                  </span>
+                </h1>
+              </div>
+            </ScrollReveal>
+            
+            <div className="flex justify-center">
+              <h2 className="text-lg text-white/90 md:text-xl max-w-3xl mx-auto min-h-[4rem] md:min-h-[3.5rem] drop-shadow font-normal flex justify-center">
+                {displayedText}
+                <span className="inline-block w-0.5 h-6 bg-primary ml-1 animate-pulse"></span>
+              </h2>
             </div>
-            
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-lg">
-              Thiết kế Website, Web App & Mobile App{" "}
-              <span 
-                className={`text-primary transition-all duration-500 ${
-                  isAnimating ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
-                }`}
-              >
-                {currentWord}
-              </span>
-            </h1>
-            
-            <p className="text-lg text-white/90 md:text-xl max-w-3xl mx-auto min-h-[4rem] md:min-h-[3.5rem] drop-shadow">
-              {displayedText}
-              <span className="inline-block w-0.5 h-6 bg-primary ml-1 animate-pulse"></span>
-            </p>
             
             <div className="flex flex-col gap-4 sm:flex-row justify-center">
               <Button 

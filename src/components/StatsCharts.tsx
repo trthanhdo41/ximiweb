@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { BarChart3, Trophy, Star, Gem } from "lucide-react";
+import { ScrollReveal, TextReveal, WavyText } from "./ScrollReveal";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -131,19 +132,30 @@ export const StatsCharts = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-8 md:mb-12 lg:mb-16">
-          <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/20 px-3 md:px-4 py-1.5 md:py-2 text-xs md:text-sm font-medium text-primary mb-3 md:mb-4">
-            <BarChart3 className="h-3 w-3 md:h-4 md:w-4" />
-            Statistics & Reports
+          <ScrollReveal width="100%">
+            <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/20 px-3 md:px-4 py-1.5 md:py-2 text-xs md:text-sm font-medium text-primary mb-3 md:mb-4">
+              <BarChart3 className="h-3 w-3 md:h-4 md:w-4" />
+              Statistics & Reports
+            </div>
+          </ScrollReveal>
+          
+          <div className="flex justify-center items-center flex-wrap gap-x-3">
+            <WavyText 
+              text="Thống kê &" 
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4"
+            />
+            <WavyText 
+              text="Báo cáo" 
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-3 md:mb-4"
+            />
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4 px-4">
-            Thống kê &{" "}
-            <span className="bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">
-              Báo cáo
-            </span>
-          </h2>
-          <p className="text-sm md:text-base lg:text-lg text-gray-400 max-w-3xl mx-auto px-4">
-            Dữ liệu thực tế về hiệu suất và thành tựu của XimiTech
-          </p>
+
+          <div className="flex justify-center">
+            <TextReveal 
+              text="Dữ liệu thực tế về hiệu suất và thành tựu của XimiTech"
+              className="text-sm md:text-base lg:text-lg text-gray-400 max-w-3xl mx-auto justify-center"
+            />
+          </div>
         </div>
 
         {/* Stats Cards */}
