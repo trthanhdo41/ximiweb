@@ -33,7 +33,7 @@ export const HeroSection = () => {
   ];
 
   return (
-    <section id="home" className="relative overflow-hidden pt-20 pb-20 md:pt-32 md:pb-32 min-h-screen flex items-center -mt-20">
+    <section id="home" className="relative overflow-hidden pt-24 pb-20 md:pt-32 md:pb-32 min-h-screen flex items-center">
       {/* Particle Wave Background - extends behind header */}
       <div className="absolute inset-0 top-[-80px] z-0">
         <GL hovering={hovering} />
