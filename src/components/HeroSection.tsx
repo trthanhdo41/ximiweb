@@ -45,14 +45,14 @@ export const HeroSection = () => {
       <div className="container mx-auto px-4 relative z-20">
         <div className="max-w-5xl mx-auto text-center">
           <div ref={ref} className="space-y-8">
-            <ScrollReveal width="100%">
+            {/* <ScrollReveal width="100%">
               <div className="inline-flex items-center gap-2 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30 px-4 py-2 text-sm font-medium text-primary shadow-lg">
                 <Package className="h-4 w-4" />
                 Giải pháp công nghệ toàn diện cho doanh nghiệp
               </div>
-            </ScrollReveal>
+            </ScrollReveal> */}
             
-            <ScrollReveal width="100%" delay={0.3}>
+            <ScrollReveal width="100%" delay={0.1}>
               <div className="flex flex-col items-center">
                 <WavyText 
                   text="Thiết kế Website, Web App & Mobile App" 
