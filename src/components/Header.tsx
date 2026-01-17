@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import logo from "@/assets/ximitech.png";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -36,6 +36,17 @@ export const Header = () => {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'py-2' : 'py-4'}`}>
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsMenuOpen(false)}
+            className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[-1] md:hidden"
+          />
+        )}
+      </AnimatePresence>
       <div className={`container mx-auto px-4 transition-all duration-500 ${isScrolled ? 'max-w-6xl' : 'max-w-full'}`}>
         <div className={`relative flex items-center justify-between px-6 transition-all duration-500 overflow-hidden
           ${isScrolled 
@@ -122,39 +133,53 @@ export const Header = () => {
         </div>
 
         {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <motion.nav 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className={`md:hidden mt-2 p-6 space-y-4 rounded-3xl border border-white/10 bg-black/90 backdrop-blur-xl shadow-2xl`}
-          >
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="block text-base font-medium text-white/70 transition-colors hover:text-primary py-2 border-b border-white/5"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.label}
-              </a>
-            ))}
-            <div className="flex flex-col gap-3 pt-4">
-              <Button 
-                variant="outline" 
-                className="w-full text-white border-white/20 hover:bg-white/10"
-                onClick={() => window.open('tel:+84888889805', '_self')}
-              >
-                088 888 9805
-              </Button>
-              <Button 
-                className="w-full bg-primary hover:bg-primary/90 font-bold"
-                onClick={() => window.open('https://zalo.me/0888889805', '_blank')}
-              >
-                Liên hệ ngay
-              </Button>
-            </div>
-          </motion.nav>
-        )}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.nav 
+              initial={{ opacity: 0, height: 0, y: -10 }}
+              animate={{ opacity: 1, height: "auto", y: 0 }}
+              exit={{ opacity: 0, height: 0, y: -10 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="md:hidden mt-2 overflow-hidden rounded-3xl border border-white/10 bg-black/90 backdrop-blur-xl shadow-2xl"
+            >
+              <div className="p-6 space-y-1">
+                {navItems.map((item, index) => (
+                  <motion.a
+                    key={item.href}
+                    href={item.href}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05 }}
+                    className="block text-base font-medium text-white/70 transition-all hover:text-primary hover:pl-2 py-3 border-b border-white/5 last:border-0"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.label}
+                  </motion.a>
+                ))}
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: navItems.length * 0.05 }}
+                  className="flex flex-col gap-3 pt-4"
+                >
+                  <Button 
+                    variant="outline" 
+                    className="w-full text-white border-white/20 hover:bg-white/10 rounded-xl h-12"
+                    onClick={() => window.open('tel:+84888889805', '_self')}
+                  >
+                    088 888 9805
+                  </Button>
+                  <Button 
+                    className="w-full bg-primary hover:bg-primary/90 font-bold rounded-xl h-12 shadow-lg shadow-primary/20"
+                    onClick={() => window.open('https://zalo.me/0888889805', '_blank')}
+                  >
+                    Liên hệ ngay
+                  </Button>
+                </motion.div>
+              </div>
+            </motion.nav>
+          )}
+        </AnimatePresence>
       </div>
     </header>
   );
