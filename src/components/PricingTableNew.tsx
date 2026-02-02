@@ -41,8 +41,8 @@ export const PricingTableNew = () => {
       badge: "Phổ biến",
       badgeColor: "bg-blue-600",
       name: "Website Doanh Nghiệp",
-      originalPrice: "15.000.000",
-      price: "10.000.000",
+      originalPrice: "20.000.000",
+      price: "15.000.000",
       popular: true,
       baseFeatures: [
         "UI/UX chuyên nghiệp, hiện đại",
